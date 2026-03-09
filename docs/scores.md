@@ -54,8 +54,10 @@ Uses a neutral baseline: perfectly uniform consumption scores exactly **50**. Ea
 
 ## Daily and monthly scores
 
-- **Today score** — updated in real time as consumption is recorded throughout the day. Resets at midnight.
+- **Today score** — accumulates throughout the day as meter readings come in. Resets at midnight.
 - **Monthly score** — rolling average of completed daily scores for the current month. Updated each midnight.
+
+Score sensors refresh at each price slot boundary (every 15 or 60 minutes depending on your resolution setting), not on every individual meter reading.
 
 Daily scores are stored for 90 days, so the monthly average covers all completed days since installation (up to 90).
 
@@ -63,9 +65,9 @@ Daily scores are stored for 90 days, so the monthly average covers all completed
 
 1. Go to **Settings → Devices & Services → Kilowahti → Configure → Score profiles**
 2. Click **✎ Edit** next to the **Total** profile
-3. Select your main grid import meter (must have `state_class: total_increasing`)
-4. Choose a scoring formula (Default or Raw)
-5. Save
+3. Select **➕ Add meter(s)** and pick your main grid import meter
+4. Select **⚙ Formula** to choose a scoring formula (Default or Raw)
+5. Click **← Back**, then **✓ Save & close**
 
 You can add additional profiles to track specific circuits or devices separately, each with its own formula.
 
