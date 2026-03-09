@@ -1,6 +1,6 @@
 site_name: Kilowahti
 site_description: Home Assistant integration for Nordic/Baltic electricity spot pricing
-site_url: https://kilowahti.github.io/kilowahti-docs/
+site_url: https://docs.kilowahti.fi/
 repo_url: https://github.com/Kilowahti/ha-kilowahti
 repo_name: Kilowahti/ha-kilowahti
 
