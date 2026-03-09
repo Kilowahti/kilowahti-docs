@@ -35,6 +35,7 @@ nav:
     - Entities: entities.md
     - Services: services.md
   - Guides:
+    - Automation examples: automations.md
     - Optimization scores: scores.md
     - Transfer pricing: transfer-pricing.md
     - Fixed-price periods: fixed-periods.md

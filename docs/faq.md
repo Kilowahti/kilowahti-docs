@@ -2,7 +2,7 @@
 
 ## Why are tomorrow's prices not showing?
 
-Tomorrow's prices are published by the exchange around 13:00–15:00 EET. Kilowahti starts polling automatically at 13:00 local time and retries once per minute until 21:00 or until prices appear. The `binary_sensor.{name}_tomorrow_available` turns on when they arrive.
+Tomorrow's prices are published by the exchange around 13:00–15:00 EET. Kilowahti starts polling automatically at 13:00 local time and retries once per minute until 21:00 or until prices appear. The `binary_sensor.kilowahti_{name}_tomorrow_available` turns on when they arrive.
 
 ## How often does Kilowahti call the API?
 
@@ -29,6 +29,10 @@ Score sensors only produce a value once at least one meter reading has been reco
 ## Prices look wrong — are they VAT inclusive?
 
 Spot prices from the API are always VAT-exclusive. Kilowahti applies VAT automatically using the rate you configured. Transfer tier and fixed period prices are entered gross (VAT included) and used as-is.
+
+## What happens if the API is unavailable?
+
+Kilowahti continues serving data from its local cache. As long as the cache holds valid slots for the current day, all sensors update normally — no network call is needed for each update. If the cache is empty or stale and a fetch fails, price sensors will become unavailable. It is worth testing your automations to ensure they behave safely (fail-closed) when sensors are unavailable.
 
 ## Can I have multiple Kilowahti instances?
 

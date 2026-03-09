@@ -79,8 +79,29 @@ data:
 }
 ```
 
-!!! tip
-    Use this in an automation to schedule appliances like dishwashers or EV charging: call the service, store the result in a variable, and trigger at `start`.
+!!! tip "Scheduling appliances at the cheapest time"
+    Call this service once per day (e.g. at 17:00 after tomorrow's prices arrive), store the result in an `input_datetime` helper, and trigger your automation at that time.
+
+    ```yaml
+    alias: Find cheapest 3-hour window overnight
+    trigger:
+      - platform: time
+        at: "17:00:00"
+    action:
+      - service: kilowahti.cheapest_hours
+        data:
+          start: "{{ now() }}"
+          end: "{{ (now() + timedelta(hours=15)).isoformat() }}"
+          hours: 3
+        response_variable: result
+      - service: input_datetime.set_datetime
+        data:
+          timestamp: "{{ result['start'] }}"
+        target:
+          entity_id: input_datetime.cheapest_window_start
+    ```
+
+    Then use a separate automation triggered by `input_datetime.cheapest_window_start` to turn on your appliance.
 
 ---
 
