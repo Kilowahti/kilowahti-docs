@@ -8,26 +8,26 @@ All entities are grouped under a single **Kilowahti** device per configured inst
 
 The display unit (`c/kWh` or `€/kWh`) is set during configuration and applies to all price sensors.
 
-| Entity | Unit | Description |
-|---|---|---|
-| `sensor.kilowahti_{name}_spot_price` | c/kWh or €/kWh | Current slot's spot price (VAT included) |
-| `sensor.kilowahti_{name}_effective_price` | c/kWh or €/kWh | Spot price, or fixed price when a fixed period is active. Attributes: `source` (`spot`/`fixed`), `period_label` |
-| `sensor.kilowahti_{name}_transfer_price` | c/kWh or €/kWh | Active transfer tier price. Hidden if no transfer groups are configured |
-| `sensor.kilowahti_{name}_total_price` | c/kWh or €/kWh | Effective price + transfer price |
-| `sensor.kilowahti_{name}_today_avg` | c/kWh or €/kWh | Today's average spot price |
-| `sensor.kilowahti_{name}_today_min` | c/kWh or €/kWh | Today's lowest spot price |
-| `sensor.kilowahti_{name}_today_max` | c/kWh or €/kWh | Today's highest spot price |
-| `sensor.kilowahti_{name}_tomorrow_avg` | c/kWh or €/kWh | Tomorrow's average spot price (0 when unavailable) |
-| `sensor.kilowahti_{name}_tomorrow_min` | c/kWh or €/kWh | Tomorrow's lowest spot price (0 when unavailable) |
-| `sensor.kilowahti_{name}_tomorrow_max` | c/kWh or €/kWh | Tomorrow's highest spot price (0 when unavailable) |
-| `sensor.kilowahti_{name}_next_hours_avg` | c/kWh or €/kWh | Average price over the next N hours (configurable) |
+| Entity | Description |
+|---|---|
+| `sensor.kilowahti_{name}_spot_price` | Current slot's spot price (VAT included) |
+| `sensor.kilowahti_{name}_effective_price` | Spot price, or fixed price when a fixed period is active. Attributes: `source` (`spot`/`fixed`), `period_label` |
+| `sensor.kilowahti_{name}_transfer_price` | Active transfer tier price. Hidden if no transfer groups are configured |
+| `sensor.kilowahti_{name}_total_price` | Effective price + transfer price |
+| `sensor.kilowahti_{name}_today_avg` | Today's average spot price |
+| `sensor.kilowahti_{name}_today_min` | Today's lowest spot price |
+| `sensor.kilowahti_{name}_today_max` | Today's highest spot price |
+| `sensor.kilowahti_{name}_tomorrow_avg` | Tomorrow's average spot price (0 when unavailable) |
+| `sensor.kilowahti_{name}_tomorrow_min` | Tomorrow's lowest spot price (0 when unavailable) |
+| `sensor.kilowahti_{name}_tomorrow_max` | Tomorrow's highest spot price (0 when unavailable) |
+| `sensor.kilowahti_{name}_next_hours_avg` | Average price over the next N hours (configurable) |
 
 ### Rank sensors
 
-| Entity | Unit | Description |
-|---|---|---|
-| `sensor.kilowahti_{name}_price_rank` | — | Current slot's rank among today's slots; 1 = cheapest |
-| `sensor.kilowahti_{name}_price_quartile` | — | Price quartile 1–4; 1 = cheapest 25% of slots |
+| Entity | Description |
+|---|---|
+| `sensor.kilowahti_{name}_price_rank` | Current slot's rank among today's slots; 1 = cheapest |
+| `sensor.kilowahti_{name}_price_quartile` | Price quartile 1–4; 1 = cheapest 25% of slots |
 
 The maximum rank is 96 for 15-minute resolution or 24 for 1-hour resolution.
 
@@ -35,9 +35,9 @@ The maximum rank is 96 for 15-minute resolution or 24 for 1-hour resolution.
 
 | Entity | Range | Description |
 |---|---|---|
-| `sensor.kilowahti_{name}_control_factor_price` | 0–1 | Normalized price factor; 1.0 when price is cheapest, 0.0 when most expensive |
-| `sensor.kilowahti_{name}_control_factor_price_bipolar` | −1 to 1 | Bipolar version; positive = cheap, negative = expensive |
-| `sensor.kilowahti_{name}_control_factor_transfer` | 0–1 | Normalized transfer price rank among today's unique transfer tiers. Hidden if no transfer groups are configured |
+| `sensor.kilowahti_{name}_control_factor_price` | 0–1 | Rank-based factor; 1.0 at cheapest rank, 0.0 at most expensive. Shape (linear/sinusoidal) and scaling are configurable |
+| `sensor.kilowahti_{name}_control_factor_price_bipolar` | −1 to +1 | Bipolar version of the above; +1.0 at cheapest, −1.0 at most expensive |
+| `sensor.kilowahti_{name}_control_factor_transfer` | 0–1 | Normalized transfer tier rank among today's unique transfer tiers; 0.0 = cheapest tier. Hidden if no transfer groups are configured |
 
 ### Score sensors
 
