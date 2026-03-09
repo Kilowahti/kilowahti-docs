@@ -50,6 +50,21 @@ One pair of sensors per configured score profile:
 
 See [Optimization scores](scores.md) for how scores are calculated.
 
+### Diagnostic sensors
+
+Disabled by default. Enable individually in the entity registry if needed.
+
+| Entity | Description |
+|---|---|
+| `sensor.kilowahti_{name}_setting_max_price` | Configured price threshold (same unit as price sensors) |
+| `sensor.kilowahti_{name}_setting_acceptable_rank` | Configured acceptable rank threshold |
+| `sensor.kilowahti_{name}_setting_price_threshold_includes_transfer` | Whether transfer price is included in the price threshold comparison |
+| `sensor.kilowahti_{name}_setting_control_factor_function` | Control factor shape (`linear` or `sinusoidal`) |
+| `sensor.kilowahti_{name}_setting_forward_window` | Forward average window length (hours) |
+| `sensor.kilowahti_{name}_setting_active_transfer_group` | Label of the currently active transfer group, or unavailable |
+| `sensor.kilowahti_{name}_setting_active_transfer_tier` | Label of the currently active transfer tier, or unavailable |
+| `sensor.kilowahti_{name}_setting_active_fixed_period` | Label of the currently active fixed-price period, or unavailable |
+
 ## Binary sensors
 
 | Entity | Description |
