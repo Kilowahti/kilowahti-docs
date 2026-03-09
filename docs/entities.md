@@ -65,6 +65,12 @@ Disabled by default. Enable individually in the entity registry if needed.
 | `sensor.kilowahti_{name}_setting_active_transfer_tier` | Label of the currently active transfer tier, or unavailable |
 | `sensor.kilowahti_{name}_setting_active_fixed_period` | Label of the currently active fixed-price period, or unavailable |
 
+One additional diagnostic sensor per score profile:
+
+| Entity | Description |
+|---|---|
+| `sensor.kilowahti_{name}_score_{profile}_formula` | Scoring formula in use for this profile (`default` or `raw`) |
+
 ## Binary sensors
 
 | Entity | Description |
