@@ -19,13 +19,19 @@ It fetches real-time hourly or 15-minute spot prices from [spot-hinta.fi](https:
 
 `FI`, `EE`, `LT`, `LV`, `DK1`, `DK2`, `NO1`, `NO2`, `NO3`, `NO4`, `NO5`, `SE1`, `SE2`, `SE3`, `SE4`
 
-## Credits
-
-Kilowahti would not exist without the prior work of **Teemu Mikkonen** and his [spotprices2ha](https://github.com/T3m3z/spotprices2ha) project. That copy-paste solution was the direct inspiration for this integration — it proved the concept, shaped the sensor design, and provided automation patterns that many Finnish HA users have relied on. Thank you, Teemu.
-
 ## Quick start
 
 1. [Install via HACS](installation.md)
 2. Go to **Settings → Devices & Services → Add Integration → Kilowahti**
 3. Complete the setup wizard
 4. Use the sensors in your dashboards and automations
+
+## Acknowledgments
+
+Kilowahti would not exist without the prior work of **Teemu Mikkonen** and his [spotprices2ha](https://github.com/T3m3z/spotprices2ha) project. That copy-paste solution was the direct inspiration for this integration — it proved the concept, shaped the sensor design, and provided automation patterns that many Finnish HA users have relied on. Thank you, Teemu.
+
+A special thanks also to the Finnish hobbyist behind [spot-hinta.fi](https://spot-hinta.fi) for building and maintaining an excellent, free, and easy-to-use electricity price API that makes projects like this possible.
+
+## Credits
+
+Kilowahti was created by Jessi Björk, building on the foundation of spotprices2ha to bring richer functionality to her home automation.
