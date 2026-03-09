@@ -8,7 +8,7 @@ The setup wizard runs when you first add the integration. All settings are also 
 
 | Field | Description |
 |---|---|
-| Name | Used in entity names, e.g. `Home` → `sensor.home_spot_price` |
+| Name | Used in entity names, e.g. `Home` → `sensor.kilowahti_home_spot_price` |
 | Price region | Your electricity market area (see [supported regions](index.md#supported-regions)) |
 | Price resolution | 15 minutes (96 slots/day) or 1 hour (24 slots/day) — match your contract's metering interval |
 | Display unit | `c/kWh` or `€/kWh` |
