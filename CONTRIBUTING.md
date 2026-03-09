@@ -2,53 +2,39 @@
 
 Contributing to this project should be as easy and transparent as possible, whether it's:
 
-- Reporting a bug
-- Discussing the current state of the code
-- Submitting a fix
-- Proposing new features
+- Reporting an error or outdated information
+- Discussing the current state of the documentation
+- Submitting a fix or clarification
+- Proposing new pages or sections
 
 ## GitHub is used for everything
 
-GitHub is used to host code, to track issues and feature requests, as well as accept pull requests.
+GitHub is used to host the documentation, to track issues and requests, as well as accept pull requests.
 
-Pull requests are the best way to propose changes to the codebase.
+Pull requests are the best way to propose changes.
 
 1. Fork the repo and create your branch from `main`.
-2. If you've changed something, update the documentation.
-3. Make sure your code lints (`ruff check` and `ruff format --check`).
-4. Test your contribution against a live Home Assistant instance.
-5. Issue that pull request!
+2. Make sure the site builds without errors (`mkdocs build`).
+3. Issue that pull request!
 
 ## Any contributions you make will be under the MIT Software License
 
-In short, when you submit code changes, your submissions are understood to be under the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project.
+In short, when you submit changes, your submissions are understood to be under the same [MIT License](http://choosealicense.com/licenses/mit/) that covers the project.
 
-## Report bugs using GitHub's [issues](../../issues)
+## Report errors using GitHub's [issues](../../issues)
 
-GitHub issues are used to track public bugs.
-Report a bug by [opening a new issue](../../issues/new/choose); it's that easy!
+GitHub issues are used to track errors and outdated content.
+Report an issue by [opening a new issue](../../issues/new/choose); it's that easy!
 
-## Write bug reports with detail, background, and sample code
+## Write issue reports with detail and context
 
-**Great bug reports** tend to have:
+**Great issue reports** tend to have:
 
-- A quick summary and/or background
-- Steps to reproduce
-  - Be specific!
-  - Include relevant configuration (region, price resolution, etc.)
-- What you expected to happen
-- What actually happens
-- Notes (possibly including why you think this might be happening, or things you tried that didn't work)
-- HA version and Kilowahti version
-
-## Use a consistent coding style
-
-Use [Ruff](https://docs.astral.sh/ruff/) to make sure the code follows the style:
-
-```bash
-ruff check custom_components/kilowahti/
-ruff format custom_components/kilowahti/
-```
+- A quick summary of the problem
+- Which page or section is affected
+- What is incorrect or missing
+- What the correct information should be (if known)
+- Kilowahti version you are running (if relevant)
 
 ## License
 
