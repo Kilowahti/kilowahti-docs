@@ -2,11 +2,11 @@
 
 **Kilowahti** (*kilowatti* + *vahti* — "the kilowatt sentinel") is a [Home Assistant](https://www.home-assistant.io) custom integration for Nordic and Baltic electricity spot price tracking.
 
-It fetches real-time hourly or 15-minute spot prices from [spot-hinta.fi](https://spot-hinta.fi), applies your VAT and transfer pricing, and exposes a set of sensors and services you can use in automations, dashboards, and energy management scripts.
+It fetches day-ahead hourly or 15-minute spot prices from [spot-hinta.fi](https://spot-hinta.fi), applies your VAT and transfer pricing, and exposes a set of sensors and services you can use in automations, dashboards, and energy management scripts.
 
 ## Key features
 
-- Real-time spot prices — no API key required
+- Day-ahead spot prices — no API key required
 - 15-minute or 1-hour price resolution
 - Transfer price tier groups with time-of-use schedules
 - Fixed-price contract period management
