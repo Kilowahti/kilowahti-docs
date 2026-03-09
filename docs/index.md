@@ -19,6 +19,9 @@ It fetches real-time hourly or 15-minute spot prices from [spot-hinta.fi](https:
 
 `FI`, `EE`, `LT`, `LV`, `DK1`, `DK2`, `NO1`, `NO2`, `NO3`, `NO4`, `NO5`, `SE1`, `SE2`, `SE3`, `SE4`
 
+!!! note "Currency notice"
+    Kilowahti currently supports only the official electricity market currency EUR. Conversions to DKK, NOK and SEK will become possible later.
+
 ## Quick start
 
 1. [Install via HACS](installation.md)
