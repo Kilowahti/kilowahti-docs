@@ -9,7 +9,7 @@ These examples use `{name}` as a placeholder for the name you set during configu
 The simplest approach: use the `rank_acceptable` binary sensor to gate an automation. Set your acceptable rank threshold in the Kilowahti options.
 
 ```yaml
-alias: Run dishwasher during cheap hours
+alias: Heat water during cheap hours
 trigger:
   - platform: state
     entity_id: binary_sensor.kilowahti_{name}_rank_acceptable
@@ -17,14 +17,14 @@ trigger:
 action:
   - service: switch.turn_on
     target:
-      entity_id: switch.dishwasher
+      entity_id: switch.water_heater
 trigger_variables: {}
 ```
 
 To stop the device when the window ends:
 
 ```yaml
-alias: Stop dishwasher when hours no longer cheap
+alias: Stop water heater when hours no longer cheap
 trigger:
   - platform: state
     entity_id: binary_sensor.kilowahti_{name}_rank_acceptable
@@ -32,7 +32,7 @@ trigger:
 action:
   - service: switch.turn_off
     target:
-      entity_id: switch.dishwasher
+      entity_id: switch.water_heater
 ```
 
 ---
@@ -68,7 +68,7 @@ trigger:
 
 Use the `kilowahti.cheapest_hours` service to find the cheapest consecutive block ahead of time and schedule your appliance to start then. Requires an `input_datetime` helper (e.g. `input_datetime.cheapest_window_start`).
 
-**Step 1 — Find the window (runs daily at 17:00):**
+**Automation 1 — Find the window (runs daily at 17:00):**
 
 ```yaml
 alias: Find cheapest 3-hour overnight window
@@ -89,7 +89,7 @@ action:
       entity_id: input_datetime.cheapest_window_start
 ```
 
-**Step 2 — Start the appliance at the scheduled time:**
+**Automation 2 — Start the appliance at the scheduled time:**
 
 ```yaml
 alias: Start dishwasher at cheapest window
