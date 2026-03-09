@@ -6,19 +6,21 @@ All entities are grouped under a single **Kilowahti** device per configured inst
 
 ### Price sensors
 
+The display unit (`c/kWh` or `€/kWh`) is set during configuration and applies to all price sensors.
+
 | Entity | Unit | Description |
 |---|---|---|
-| `sensor.kilowahti_{name}_spot_price` | c/kWh | Current slot's spot price (VAT included) |
-| `sensor.kilowahti_{name}_effective_price` | c/kWh | Spot price, or fixed price when a fixed period is active. Attributes: `source` (`spot`/`fixed`), `period_label` |
-| `sensor.kilowahti_{name}_transfer_price` | c/kWh | Active transfer tier price. Hidden if no transfer groups are configured |
-| `sensor.kilowahti_{name}_total_price` | c/kWh | Effective price + transfer price |
-| `sensor.kilowahti_{name}_today_avg` | c/kWh | Today's average spot price |
-| `sensor.kilowahti_{name}_today_min` | c/kWh | Today's lowest spot price |
-| `sensor.kilowahti_{name}_today_max` | c/kWh | Today's highest spot price |
-| `sensor.kilowahti_{name}_tomorrow_avg` | c/kWh | Tomorrow's average spot price (0 when unavailable) |
-| `sensor.kilowahti_{name}_tomorrow_min` | c/kWh | Tomorrow's lowest spot price (0 when unavailable) |
-| `sensor.kilowahti_{name}_tomorrow_max` | c/kWh | Tomorrow's highest spot price (0 when unavailable) |
-| `sensor.kilowahti_{name}_next_hours_avg` | c/kWh | Average price over the next N hours (configurable) |
+| `sensor.kilowahti_{name}_spot_price` | c/kWh or €/kWh | Current slot's spot price (VAT included) |
+| `sensor.kilowahti_{name}_effective_price` | c/kWh or €/kWh | Spot price, or fixed price when a fixed period is active. Attributes: `source` (`spot`/`fixed`), `period_label` |
+| `sensor.kilowahti_{name}_transfer_price` | c/kWh or €/kWh | Active transfer tier price. Hidden if no transfer groups are configured |
+| `sensor.kilowahti_{name}_total_price` | c/kWh or €/kWh | Effective price + transfer price |
+| `sensor.kilowahti_{name}_today_avg` | c/kWh or €/kWh | Today's average spot price |
+| `sensor.kilowahti_{name}_today_min` | c/kWh or €/kWh | Today's lowest spot price |
+| `sensor.kilowahti_{name}_today_max` | c/kWh or €/kWh | Today's highest spot price |
+| `sensor.kilowahti_{name}_tomorrow_avg` | c/kWh or €/kWh | Tomorrow's average spot price (0 when unavailable) |
+| `sensor.kilowahti_{name}_tomorrow_min` | c/kWh or €/kWh | Tomorrow's lowest spot price (0 when unavailable) |
+| `sensor.kilowahti_{name}_tomorrow_max` | c/kWh or €/kWh | Tomorrow's highest spot price (0 when unavailable) |
+| `sensor.kilowahti_{name}_next_hours_avg` | c/kWh or €/kWh | Average price over the next N hours (configurable) |
 
 ### Rank sensors
 
