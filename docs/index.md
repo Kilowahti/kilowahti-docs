@@ -21,7 +21,7 @@ It fetches real-time hourly or 15-minute spot prices from [spot-hinta.fi](https:
 
 ## Credits
 
-Kilowahti would not exist without the prior work of **Teemu Mäntykallio** and his [spotprices2ha](https://github.com/T3m3z/spotprices2ha) project. That copy-paste solution was the direct inspiration for this integration — it proved the concept, shaped the sensor design, and provided automation patterns that many Finnish HA users have relied on. Thank you, Teemu.
+Kilowahti would not exist without the prior work of **Teemu Mikkonen** and his [spotprices2ha](https://github.com/T3m3z/spotprices2ha) project. That copy-paste solution was the direct inspiration for this integration — it proved the concept, shaped the sensor design, and provided automation patterns that many Finnish HA users have relied on. Thank you, Teemu.
 
 ## Quick start
 
