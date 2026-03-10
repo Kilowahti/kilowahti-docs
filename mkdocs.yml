@@ -43,6 +43,9 @@ nav:
     - Fixed-price periods: fixed-periods.md
   - FAQ: faq.md
 
+extra_css:
+  - stylesheets/extra.css
+
 markdown_extensions:
   - admonition
   - pymdownx.details
