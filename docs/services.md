@@ -88,13 +88,13 @@ data:
       - platform: time
         at: "17:00:00"
     action:
-      - service: kilowahti.cheapest_hours
+      - action:kilowahti.cheapest_hours
         data:
-          start: "{{ now() }}"
+          start: "{{ now().isoformat() }}"
           end: "{{ (now() + timedelta(hours=15)).isoformat() }}"
           hours: 3
         response_variable: result
-      - service: input_datetime.set_datetime
+      - action:input_datetime.set_datetime
         data:
           timestamp: "{{ result['start'] }}"
         target:

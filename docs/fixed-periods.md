@@ -6,9 +6,9 @@ Fixed-price periods let you define date ranges where a flat contract price repla
 
 When a fixed period is active:
 
-- `sensor.{name}_effective_price` returns the fixed price instead of the spot price
-- `sensor.{name}_total_price` = fixed price + transfer price
-- `binary_sensor.{name}_fixed_period_active` turns on
+- `sensor.kilowahti_{name}_effective_price` returns the fixed price instead of the spot price
+- `sensor.kilowahti_{name}_total_price` = fixed price + transfer price
+- `binary_sensor.kilowahti_{name}_fixed_period_active` turns on
 - The `price_acceptable` binary sensor compares against the fixed price
 
 The spot price sensor continues to show the live spot price regardless.

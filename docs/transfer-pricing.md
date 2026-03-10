@@ -28,6 +28,75 @@ When a transfer group is active:
 - `sensor.{name}_control_factor_transfer` shows the current tier's normalized rank (0 = cheapest tier today, 1 = most expensive)
 - The `price_acceptable` binary sensor can optionally include transfer price in its comparison (configured via **Max price includes transfer**)
 
+## Example: Finnish Yleissiirto (flat rate)
+
+*Yleissiirto* is a single-rate tariff with no time restrictions — the same price applies around the clock, every day of the year. It requires only one tier.
+
+### Step-by-step setup
+
+1. Go to **Settings → Devices & Services → Kilowahti → Configure → Transfer pricing**
+2. Select **➕ Add group**, enter the name **Yleissiirto**, and confirm
+3. Select **✎ Edit** next to Yleissiirto
+4. Select **➕ Add tier** and fill in the single rate:
+
+    | Field | Value |
+    |---|---|
+    | Tier name | Yleissiirto |
+    | Price | *(your operator's rate, c/kWh incl. VAT)* |
+    | Months active | *(all months)* |
+    | Weekdays active | *(all days)* |
+    | Start time | 0 |
+    | End time | 24 |
+    | Priority | 1 |
+
+5. Select **← Back**, then **✓ Save & close**
+6. To activate, open the group again and choose **Set as active group**
+
+## Example: Finnish Aikasiirto (day/night tariff)
+
+*Aikasiirto* is a two-rate tariff based on time of day: a higher day rate and a lower night rate. The boundary is typically 22:00–07:00, but check your operator's contract for the exact hours.
+
+| Rate | When |
+|---|---|
+| Päivä (day) | 07:00–22:00, every day |
+| Yö (night) | 22:00–07:00, every day |
+
+As with Kausisiirto, define the more restricted rate first (day) and let the night rate act as a catch-all.
+
+### Step-by-step setup
+
+1. Go to **Settings → Devices & Services → Kilowahti → Configure → Transfer pricing**
+2. Select **➕ Add group**, enter the name **Aikasiirto**, and confirm
+3. Select **✎ Edit** next to Aikasiirto
+4. Select **➕ Add tier** and fill in the day rate:
+
+    | Field | Value |
+    |---|---|
+    | Tier name | Päivä |
+    | Price | *(your operator's day rate, c/kWh incl. VAT)* |
+    | Months active | *(all months)* |
+    | Weekdays active | *(all days)* |
+    | Start time | 7 |
+    | End time | 22 |
+    | Priority | 1 |
+
+5. Select **➕ Add tier** again and fill in the night catch-all:
+
+    | Field | Value |
+    |---|---|
+    | Tier name | Yö |
+    | Price | *(your operator's night rate, c/kWh incl. VAT)* |
+    | Months active | *(all months)* |
+    | Weekdays active | *(all days)* |
+    | Start time | 0 |
+    | End time | 24 |
+    | Priority | 2 |
+
+6. Select **← Back**, then **✓ Save & close**
+7. To activate, open the group again and choose **Set as active group**
+
+The day tier (priority 1) matches between 07:00–22:00. Outside those hours the night tier (priority 2) catches everything.
+
 ## Example: Finnish Kausisiirto (seasonal tariff)
 
 Finnish network operators commonly offer a *kausisiirto* (seasonal transfer) tariff with two rates:

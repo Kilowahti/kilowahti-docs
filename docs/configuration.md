@@ -24,7 +24,7 @@ Pre-filled from your region's defaults. Adjust if your contract differs.
 
 Set up your network operator's transfer price tiers. Tiers are time-based rules evaluated in priority order — the first match wins.
 
-You can skip this step and configure transfer pricing later in Options. See [Transfer pricing](transfer-pricing.md) for details.
+You can skip this step and configure transfer pricing later via Configure. See [Transfer pricing](transfer-pricing.md) for details.
 
 ### 4. Thresholds & control
 
@@ -39,7 +39,7 @@ You can skip this step and configure transfer pricing later in Options. See [Tra
 
 ### 5. Optimization scores
 
-A permanent **Total** profile is created automatically. You can link your main energy meter to it later via **Options → Score profiles → Edit: Total**.
+A permanent **Total** profile is created automatically. You can link your main energy meter to it later via **Configure → Score profiles → Edit: Total**.
 
 Additional profiles can be added (e.g. per-device or per-circuit meters).
 
