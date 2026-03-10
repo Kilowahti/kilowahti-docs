@@ -200,7 +200,7 @@ Replace `select.battery_mode` and the option values with the entities and modes 
 
 ## Notify when tomorrow's prices are available
 
-Tomorrow's prices are published by the exchange around 13:00–15:00. Trigger on `tomorrow_available` turning on to send a push notification with the day's price range.
+Tomorrow's prices are published by the exchange around 14:00–15:00 EET. Trigger on `tomorrow_available` turning on to send a push notification with the day's price range.
 
 ```yaml
 alias: Notify when tomorrow's prices arrive

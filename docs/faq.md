@@ -2,14 +2,14 @@
 
 ## Why are tomorrow's prices not showing?
 
-Tomorrow's prices are published by the exchange around 13:00–15:00 EET. Kilowahti starts polling automatically at 13:00 local time and retries once per minute until 21:00 or until prices appear. The `binary_sensor.kilowahti_{name}_tomorrow_available` turns on when they arrive.
+Day-ahead prices are published by the exchange around 14:00–15:00 EET (13:00–14:00 CET). Kilowahti starts polling automatically at 14:00 local time by default and retries once per minute until 21:00 or until prices appear. The `binary_sensor.kilowahti_{name}_tomorrow_available` turns on when they arrive.
 
 ## How often does Kilowahti call the API?
 
 Typically 2–3 times per day:
 
 1. On HA startup (if the local cache is stale)
-2. Once when tomorrow's prices become available (~13:00–15:00)
+2. Once when tomorrow's prices become available (~14:00–15:00 EET)
 3. At midnight rollover if the tomorrow cache was empty
 
 Sensor value updates (rank, price, etc.) happen from the in-memory cache — no network calls.
