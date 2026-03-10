@@ -45,8 +45,8 @@ One pair of sensors per configured score profile:
 
 | Entity | Description |
 |---|---|
-| `sensor.kilowahti_{name}_score_{profile}_today` | In-progress optimization score for today (0–100) |
-| `sensor.kilowahti_{name}_score_{profile}_month` | Rolling average of completed daily scores this month (0–100) |
+| `sensor.kilowahti_{name}_score_{profile}_daily` | In-progress optimization score for today (0–100). Attribute: `previous` (yesterday's completed score) |
+| `sensor.kilowahti_{name}_score_{profile}_monthly` | Average of completed daily scores for the current calendar month (0–100). Attribute: `previous` (previous month's final score) |
 
 See [Optimization scores](scores.md) for how scores are calculated.
 

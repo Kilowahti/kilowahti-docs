@@ -54,12 +54,12 @@ Uses a neutral baseline: perfectly uniform consumption scores exactly **50**. Ea
 
 ## Daily and monthly scores
 
-- **Today score** — accumulates throughout the day as meter readings come in. Resets at midnight.
-- **Monthly score** — rolling average of completed daily scores for the current month. Updated each midnight.
+- **Daily score** (`score_{profile}_daily`) — accumulates throughout the day as meter readings come in. Resets at midnight. Exposes a `previous` attribute with yesterday's completed score.
+- **Monthly score** (`score_{profile}_monthly`) — average of completed daily scores for the current **calendar month** (not a rolling 30-day window). Updated each midnight. Exposes a `previous` attribute with the previous calendar month's final score.
 
 Score sensors refresh at each price slot boundary (every 15 or 60 minutes depending on your resolution setting), not on every individual meter reading.
 
-Daily scores are stored for 90 days, so the monthly average covers all completed days since installation (up to 90).
+Daily scores are stored for 90 days. The last two completed calendar-month scores are stored separately and available via the `previous` attribute even after the 90-day history window has passed.
 
 ## Setting up score profiles
 
