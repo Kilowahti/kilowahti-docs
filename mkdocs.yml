@@ -6,6 +6,8 @@ repo_name: Kilowahti/ha-kilowahti
 
 theme:
   name: material
+  logo: assets/dark_icon.png
+  favicon: assets/icon.png
   palette:
     - scheme: default
       primary: indigo
