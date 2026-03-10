@@ -1,5 +1,7 @@
+<h1 markdown="1">
 ![Kilowahti](assets/logo.png#only-light){ style="max-width: 400px; width: 100%;" }
 ![Kilowahti](assets/dark_logo.png#only-dark){ style="max-width: 400px; width: 100%;" }
+</h1>
 
 **Kilowahti** (*kilowatti* + *vahti* — "the kilowatt sentinel") is a [Home Assistant](https://www.home-assistant.io) custom integration for Nordic and Baltic electricity spot price tracking.
 
