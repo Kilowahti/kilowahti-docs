@@ -33,6 +33,9 @@ You can skip this step and configure transfer pricing later via Configure. See [
 | Control max price | Price at or below this turns on the `price_acceptable` binary sensor |
 | Max price includes transfer | Whether the price threshold compares against total price (spot + transfer) or spot only |
 | Control max rank | Rank at or below this turns on the `rank_acceptable` binary sensor |
+
+!!! tip
+    Price and rank thresholds can also be adjusted dynamically without reopening Configure — use the `number.kilowahti_{name}_price_threshold` and `number.kilowahti_{name}_rank_threshold` entities from the dashboard or an automation.
 | Forward average window | Hours ahead used for the `next_hours_avg` sensor |
 | Control factor function | Shape of the 0–1 control factor curve: Linear or Sinusoidal |
 | Control factor scaling | Exponent applied to amplify extremes (1–3) |

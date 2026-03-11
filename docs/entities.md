@@ -12,21 +12,22 @@ The display unit (`c/kWh` or `€/kWh`) is set during configuration and applies 
 |---|---|
 | `sensor.kilowahti_{name}_spot_price` | Current slot's spot price (VAT included) |
 | `sensor.kilowahti_{name}_effective_price` | Spot price, or fixed price when a fixed period is active. Attributes: `source` (`spot`/`fixed`), `period_label` |
-| `sensor.kilowahti_{name}_transfer_price` | Active transfer tier price. Hidden if no transfer groups are configured |
+| `sensor.kilowahti_{name}_transfer_price` | Active transfer tier price; unavailable until a transfer group is configured |
 | `sensor.kilowahti_{name}_total_price` | Effective price + transfer price |
 | `sensor.kilowahti_{name}_today_avg` | Today's average spot price |
 | `sensor.kilowahti_{name}_today_min` | Today's lowest spot price |
 | `sensor.kilowahti_{name}_today_max` | Today's highest spot price |
-| `sensor.kilowahti_{name}_tomorrow_avg` | Tomorrow's average spot price (0 when unavailable) |
-| `sensor.kilowahti_{name}_tomorrow_min` | Tomorrow's lowest spot price (0 when unavailable) |
-| `sensor.kilowahti_{name}_tomorrow_max` | Tomorrow's highest spot price (0 when unavailable) |
+| `sensor.kilowahti_{name}_tomorrow_avg` | Tomorrow's average spot price; unavailable until tomorrow's prices are fetched |
+| `sensor.kilowahti_{name}_tomorrow_min` | Tomorrow's lowest spot price; unavailable until tomorrow's prices are fetched |
+| `sensor.kilowahti_{name}_tomorrow_max` | Tomorrow's highest spot price; unavailable until tomorrow's prices are fetched |
 | `sensor.kilowahti_{name}_next_hours_avg` | Average price over the next N hours (configurable) |
 
 ### Rank sensors
 
 | Entity | Description |
 |---|---|
-| `sensor.kilowahti_{name}_price_rank` | Current slot's rank among today's slots; 1 = cheapest |
+| `sensor.kilowahti_{name}_price_rank` | Current slot's rank by spot price among today's slots; 1 = cheapest |
+| `sensor.kilowahti_{name}_total_price_rank` | Current slot's rank by total price (spot + transfer) among today's slots; 1 = cheapest |
 | `sensor.kilowahti_{name}_price_quartile` | Price quartile 1–4; 1 = cheapest 25% of slots |
 
 The maximum rank is 96 for 15-minute resolution or 24 for 1-hour resolution.
@@ -37,7 +38,7 @@ The maximum rank is 96 for 15-minute resolution or 24 for 1-hour resolution.
 |---|---|---|
 | `sensor.kilowahti_{name}_control_factor_price` | 0–1 | Rank-based factor; 1.0 at cheapest rank, 0.0 at most expensive. Shape (linear/sinusoidal) and scaling are configurable |
 | `sensor.kilowahti_{name}_control_factor_price_bipolar` | −1 to +1 | Bipolar version of the above; +1.0 at cheapest, −1.0 at most expensive |
-| `sensor.kilowahti_{name}_control_factor_transfer` | 0–1 | Normalized transfer tier rank among today's unique transfer tiers; 0.0 = cheapest tier. Hidden if no transfer groups are configured |
+| `sensor.kilowahti_{name}_control_factor_transfer` | 0–1 | Normalized transfer tier rank among today's unique transfer tiers; 0.0 = cheapest tier. Unavailable until a transfer group is configured |
 
 ### Score sensors
 
@@ -70,6 +71,17 @@ One additional diagnostic sensor per score profile:
 | Entity | Description |
 |---|---|
 | `sensor.kilowahti_{name}_score_{profile}_formula` | Scoring formula in use for this profile (`default` or `raw`) |
+
+## Number entities
+
+Writable settings that can be adjusted from the dashboard or from automations using `number.set_value`. Changes take effect immediately — no restart or reconfiguration needed.
+
+| Entity | Range | Description |
+|---|---|---|
+| `number.kilowahti_{name}_price_threshold` | 0–500 c/kWh (or 0–5 €/kWh) | Price at or below which `price_acceptable` turns on. Matches your configured display unit |
+| `number.kilowahti_{name}_rank_threshold` | 1–96 (or 1–24) | Rank at or below which `rank_acceptable` turns on. Upper bound matches your price resolution |
+
+The initial values come from the **Thresholds & control** options. Changes made via these entities are persisted to the integration config, so they survive restarts and also update the values shown in the options flow.
 
 ## Binary sensors
 
