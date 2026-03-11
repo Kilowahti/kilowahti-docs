@@ -42,6 +42,7 @@ nav:
     - Transfer pricing: transfer-pricing.md
     - Fixed-price periods: fixed-periods.md
   - FAQ: faq.md
+  - Changelog: changelog.md
 
 extra_css:
   - stylesheets/extra.css
