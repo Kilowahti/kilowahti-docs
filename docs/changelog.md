@@ -1,6 +1,6 @@
 # Changelog
 
-## 2026.3.0-alpha.6
+## 2026.3.0-alpha.6 — 2026-03-11
 
 - Add `total_price_rank` sensor — ranks current slot by total price (spot + transfer) among today's slots
 - Add writable `price_threshold` and `rank_threshold` number entities — adjust thresholds from automations or dashboard without reopening configuration
@@ -9,6 +9,6 @@
 
 ---
 
-## 2026.3.0-alpha.5
+## 2026.3.0-alpha.5 — 2026-03-10
 
 First public test release.
