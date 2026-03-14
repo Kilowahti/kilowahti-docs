@@ -41,6 +41,12 @@ nav:
     - Optimization scores: scores.md
     - Transfer pricing: transfer-pricing.md
     - Fixed-price periods: fixed-periods.md
+  - Library:
+    - Overview: lib/index.md
+    - Models: lib/models.md
+    - Calculations: lib/calc.md
+    - Price sources: lib/sources.md
+    - Constants: lib/const.md
   - FAQ: faq.md
   - Changelog: changelog.md
 
