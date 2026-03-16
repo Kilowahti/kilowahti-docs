@@ -3,20 +3,45 @@
 ![Kilowahti](assets/dark_logo.png#only-dark){ style="max-width: 400px; width: 100%;" }
 </h1>
 
-**Kilowahti** (*kilowatti* + *vahti* — "the kilowatt sentinel") is a [Home Assistant](https://www.home-assistant.io) custom integration for Nordic and Baltic electricity spot price tracking.
+**Kilowahti** (*kilowatti* + *vahti* — "the kilowatt sentinel") is a [Home Assistant](https://www.home-assistant.io) custom integration for Nordic/Baltic electricity cost awareness and optimization — whether you are on a spot contract or a fixed rate.
 
-It fetches day-ahead hourly or 15-minute spot prices from [spot-hinta.fi](https://spot-hinta.fi), applies your VAT and transfer pricing, and exposes a set of sensors and services you can use in automations, dashboards, and energy management scripts.
+It fetches day-ahead hourly or 15-minute spot prices from [spot-hinta.fi](https://spot-hinta.fi), applies your VAT and transfer pricing, and exposes sensors, binary sensors, and services you can use in automations, dashboards, and energy management scripts.
 
 ## Key features
 
-- Day-ahead spot prices — no API key required
-- 15-minute or 1-hour price resolution
-- Transfer price tier groups with time-of-use schedules
-- Fixed-price contract period management
-- Price rank and rank quartile sensors
-- Control factor sensors (0–1 and bipolar ±1) for smooth automation
-- Optimization scores measuring how well your consumption is shifted to cheap hours
-- Service calls for querying prices, finding cheapest windows, and managing contracts
+**Pricing**
+
+- Day-ahead spot prices — no API key required, 15-minute or 1-hour resolution
+- Transfer price tier groups with time-of-use schedules and monthly fixed fees
+- Fixed-price contract period management — spot prices automatically replaced when a fixed period is active
+- Monthly electricity contract base fee spread as a daily cost sensor
+
+**Control**
+
+- Price rank, rank quartile, and total price rank sensors
+- Control factor sensors (0–1 and bipolar ±1) for proportional automation
+- Writable price and rank threshold number entities — adjust limits from the dashboard or automations without reopening configuration
+- Optimization scores measuring how well consumption is shifted to cheap hours
+- Rolling average sensors for the next 30/60/120 minutes (15-minute resolution)
+
+**Generation & export** *(optional, enable in Advanced options)*
+
+- Export price sensors and daily statistics
+- Import/export spread and self-consumption value sensors
+- Best export window and best charge window services
+- Solar generation schedule service
+
+**Battery optimization** *(optional, requires battery capacity configured)*
+
+- Charge opportunity factor and categorical charge recommendation sensors
+- Optimal charge window start/end sensors
+- `charge_from_grid_recommended` and `discharge_to_grid_recommended` binary sensors
+
+**Services**
+
+- Query prices and export prices for any time range
+- Find cheapest consecutive windows for scheduling appliances
+- Manage fixed-price periods via service calls
 
 ## Supported regions
 
