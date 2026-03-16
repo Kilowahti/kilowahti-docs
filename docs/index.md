@@ -36,7 +36,7 @@ It fetches day-ahead hourly or 15-minute spot prices from [spot-hinta.fi](https:
 
 Have ideas, found a bug, or just want to share how you're using Kilowahti? We'd love to hear from you — no GitHub account needed.
 
-[Share your feedback :material-arrow-right:](https://tally.so/r/QK05XY){ .md-button }
+[Share your feedback →](https://tally.so/r/QK05XY){ .md-button }
 
 ## Acknowledgments
 
