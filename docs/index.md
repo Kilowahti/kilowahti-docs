@@ -32,6 +32,12 @@ It fetches day-ahead hourly or 15-minute spot prices from [spot-hinta.fi](https:
 3. Complete the setup wizard
 4. Use the sensors in your dashboards and automations
 
+## Feedback
+
+Have ideas, found a bug, or just want to share how you're using Kilowahti? We'd love to hear from you — no GitHub account needed.
+
+[Share your feedback :material-arrow-right:](https://tally.so/r/QK05XY){ .md-button }
+
 ## Acknowledgments
 
 Kilowahti would not exist without the prior work of **Teemu Mikkonen** and his [spotprices2ha](https://github.com/T3m3z/spotprices2ha) project. That copy-paste solution was the direct inspiration for this integration — it proved the concept, shaped the sensor design, and provided automation patterns that many Finnish HA users have relied on. Thank you, Teemu.
