@@ -92,7 +92,7 @@ The initial values come from the **Thresholds & control** options. Changes made 
 
 ### Rolling average sensors
 
-Available only when using 15-minute price resolution. Enable in **Generation & battery** configuration.
+Available only when using 15-minute price resolution. Enable via **Show rolling averages** in **Configure → Advanced options**.
 
 | Entity | Description |
 |---|---|
@@ -102,7 +102,7 @@ Available only when using 15-minute price resolution. Enable in **Generation & b
 
 ### Generation & export sensors
 
-Available when **generation is enabled** in configuration.
+Available when **Enable generation & export features** is turned on in **Configure → Advanced options**.
 
 | Entity | Description |
 |---|---|
@@ -120,7 +120,7 @@ Available when **generation is enabled** in configuration.
 
 ### Battery sensors
 
-Available when **generation is enabled** and **battery capacity > 0** in configuration.
+Available when generation is enabled (Advanced options) and **battery capacity > 0** is set in **Configure → Generation & export**.
 
 | Entity | Description |
 |---|---|

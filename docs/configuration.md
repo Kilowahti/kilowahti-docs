@@ -15,7 +15,7 @@ The setup wizard runs when you first add the integration. All settings are also 
 
 ### 2. VAT & electricity tax
 
-Pre-filled from your region's defaults. Adjust if your contract differs.
+Pre-filled from your region's defaults. Adjust if your contract differs. You can also enter your electricity contract's monthly fixed fee here — it will be spread across days and shown as a daily cost sensor.
 
 !!! note
     All prices you enter elsewhere (transfer tiers, fixed periods) are always **gross (VAT included)**. Spot prices from the API are always VAT-exclusive — Kilowahti applies VAT automatically.

@@ -16,7 +16,7 @@ Sensor value updates (rank, price, etc.) happen from the in-memory cache — no 
 
 ## Can I use Kilowahti without a transfer price configured?
 
-Yes. Transfer-related sensors (`transfer_price`, `control_factor_transfer`) are hidden when no transfer groups are configured. `total_price` will equal `effective_price`.
+Yes. Transfer-related sensors (`transfer_price`, `control_factor_transfer`) show as **unavailable** when no transfer groups are configured. `total_price` will equal `effective_price`.
 
 ## What does the control factor sensor do?
 
