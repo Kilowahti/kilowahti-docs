@@ -1,5 +1,36 @@
 # Changelog
 
+## 2026.3.0-beta.3 — 2026-03-16
+
+### ⚠️ BREAKING CHANGES ⚠️
+
+- Six sensors have been renamed to clarify they reflect spot prices only:
+
+  | Old name | New name |
+  |---|---|
+  | `today_avg` | `today_spot_avg` |
+  | `today_min` | `today_spot_min` |
+  | `today_max` | `today_spot_max` |
+  | `tomorrow_avg` | `tomorrow_spot_avg` |
+  | `tomorrow_min` | `tomorrow_spot_min` |
+  | `tomorrow_max` | `tomorrow_spot_max` |
+
+  Update any automations or dashboard cards referencing the old entity IDs.
+
+### New shiny things
+
+- Add generation & export support for users with solar panels and/or home batteries: export pricing sensors, battery charge/discharge optimization sensors and binary sensors, and related services
+- Add rolling average price sensors (30/60/120 min ahead) — opt-in, 15-min resolution only
+- Add monthly fixed cost configuration: electricity contract base fee and per-transfer-group fee, shown as a daily cost sensor
+
+### Maintenance
+
+- Fix `tomorrow_total_avg/min/max` showing Unknown when a fixed-price period covered tomorrow
+- Fix optimization score sensors showing `0.0` instead of Unknown when no meter is configured
+- Fix fixed-price period price field pre-filled with `0.001` in the UI
+
+---
+
 ## 2026.3.0-beta.2 — 2026-03-15
 
 - Fix `today_total_avg/min/max` to use effective price (respects fixed-price periods) instead of raw spot price
