@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026.3.0-beta.2 — 2026-03-15
+
+- Fix `today_total_avg/min/max` to use effective price (respects fixed-price periods) instead of raw spot price
+- Fix `tomorrow_total_avg/min/max` to populate from fixed-price period when spot prices not yet available
+
+---
+
 ## 2026.3.0-beta.1 — 2026-03-14
 
 - First beta release
