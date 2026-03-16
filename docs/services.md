@@ -129,6 +129,121 @@ data:
 
 ---
 
+## Generation & export services
+
+These services require **generation to be enabled** in configuration.
+
+---
+
+### `kilowahti.get_export_prices`
+
+Returns export price slots for a time range.
+
+```yaml
+service: kilowahti.get_export_prices
+data:
+  start: "2026-03-10T00:00:00"
+  end: "2026-03-10T23:59:59"
+```
+
+**Response:**
+```json
+{
+  "unit": "c/kWh",
+  "price_periods": [
+    {
+      "time": "2026-03-10T00:00:00+02:00",
+      "export_price": 3.00
+    }
+  ]
+}
+```
+
+---
+
+### `kilowahti.best_export_hours`
+
+Finds the most profitable consecutive window for grid export within a time range.
+
+```yaml
+service: kilowahti.best_export_hours
+data:
+  start: "2026-03-10T08:00:00"
+  end: "2026-03-10T20:00:00"
+  hours: 2
+```
+
+**Response:**
+```json
+{
+  "start": "2026-03-10T14:00:00+02:00",
+  "end": "2026-03-10T16:00:00+02:00",
+  "average_export_price": 8.45,
+  "unit": "c/kWh",
+  "price_periods": [...]
+}
+```
+
+---
+
+### `kilowahti.best_charge_hours`
+
+Finds the cheapest consecutive window for grid charging a battery within a time range.
+
+```yaml
+service: kilowahti.best_charge_hours
+data:
+  start: "2026-03-10T00:00:00"
+  end: "2026-03-10T23:59:59"
+  hours: 2
+```
+
+**Response:**
+```json
+{
+  "start": "2026-03-10T03:00:00+02:00",
+  "end": "2026-03-10T05:00:00+02:00",
+  "average_price": 2.10,
+  "unit": "c/kWh",
+  "price_periods": [...]
+}
+```
+
+---
+
+### `kilowahti.generation_schedule`
+
+Takes an hourly solar generation forecast and returns a recommended action for each slot.
+
+```yaml
+service: kilowahti.generation_schedule
+data:
+  forecast:
+    - time: "2026-03-10T10:00:00"
+      kwh: 2.5
+    - time: "2026-03-10T11:00:00"
+      kwh: 3.1
+```
+
+**Response:**
+```json
+{
+  "schedule": [
+    {
+      "time": "2026-03-10T10:00:00+02:00",
+      "kwh": 2.5,
+      "action": "self_consume",
+      "export_price": 3.20,
+      "self_consumption_value": 7.85
+    }
+  ]
+}
+```
+
+Possible `action` values: `self_consume`, `export`, `charge_battery`.
+
+---
+
 ## Fixed-period management services
 
 ### `kilowahti.add_fixed_period`

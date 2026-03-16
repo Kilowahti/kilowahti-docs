@@ -213,10 +213,10 @@ action:
     data:
       title: "Tomorrow's electricity prices"
       message: >
-        Min {{ states('sensor.kilowahti_{name}_tomorrow_min') }},
-        avg {{ states('sensor.kilowahti_{name}_tomorrow_avg') }},
-        max {{ states('sensor.kilowahti_{name}_tomorrow_max') }}
-        {{ state_attr('sensor.kilowahti_{name}_tomorrow_min', 'unit_of_measurement') }}
+        Min {{ states('sensor.kilowahti_{name}_tomorrow_spot_min') }},
+        avg {{ states('sensor.kilowahti_{name}_tomorrow_spot_avg') }},
+        max {{ states('sensor.kilowahti_{name}_tomorrow_spot_max') }}
+        {{ state_attr('sensor.kilowahti_{name}_tomorrow_spot_min', 'unit_of_measurement') }}
 ```
 
 Replace `notify.mobile_app_your_phone` with your notification service.
@@ -233,13 +233,13 @@ trigger:
   - platform: template
     value_template: >
       {{ states('sensor.kilowahti_{name}_spot_price') | float(0) >
-         states('sensor.kilowahti_{name}_today_avg') | float(0) }}
+         states('sensor.kilowahti_{name}_today_spot_avg') | float(0) }}
 action:
   - action:notify.mobile_app_your_phone
     data:
       message: >
         Electricity price {{ states('sensor.kilowahti_{name}_spot_price') }}
-        is above today's average {{ states('sensor.kilowahti_{name}_today_avg') }}
+        is above today's average {{ states('sensor.kilowahti_{name}_today_spot_avg') }}
         {{ state_attr('sensor.kilowahti_{name}_spot_price', 'unit_of_measurement') }}.
 ```
 

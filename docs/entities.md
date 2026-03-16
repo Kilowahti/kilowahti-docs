@@ -14,13 +14,20 @@ The display unit (`c/kWh` or `€/kWh`) is set during configuration and applies 
 | `sensor.kilowahti_{name}_effective_price` | Spot price, or fixed price when a fixed period is active. Attributes: `source` (`spot`/`fixed`), `period_label` |
 | `sensor.kilowahti_{name}_transfer_price` | Active transfer tier price; unavailable until a transfer group is configured |
 | `sensor.kilowahti_{name}_total_price` | Effective price + transfer price |
-| `sensor.kilowahti_{name}_today_avg` | Today's average spot price |
-| `sensor.kilowahti_{name}_today_min` | Today's lowest spot price |
-| `sensor.kilowahti_{name}_today_max` | Today's highest spot price |
-| `sensor.kilowahti_{name}_tomorrow_avg` | Tomorrow's average spot price; unavailable until tomorrow's prices are fetched |
-| `sensor.kilowahti_{name}_tomorrow_min` | Tomorrow's lowest spot price; unavailable until tomorrow's prices are fetched |
-| `sensor.kilowahti_{name}_tomorrow_max` | Tomorrow's highest spot price; unavailable until tomorrow's prices are fetched |
-| `sensor.kilowahti_{name}_next_hours_avg` | Average price over the next N hours (configurable) |
+| `sensor.kilowahti_{name}_today_spot_avg` | Today's average spot price |
+| `sensor.kilowahti_{name}_today_spot_min` | Today's lowest spot price |
+| `sensor.kilowahti_{name}_today_spot_max` | Today's highest spot price |
+| `sensor.kilowahti_{name}_today_total_avg` | Today's average total price (spot + transfer) |
+| `sensor.kilowahti_{name}_today_total_min` | Today's lowest total price |
+| `sensor.kilowahti_{name}_today_total_max` | Today's highest total price |
+| `sensor.kilowahti_{name}_tomorrow_spot_avg` | Tomorrow's average spot price; unavailable until tomorrow's prices are fetched |
+| `sensor.kilowahti_{name}_tomorrow_spot_min` | Tomorrow's lowest spot price; unavailable until tomorrow's prices are fetched |
+| `sensor.kilowahti_{name}_tomorrow_spot_max` | Tomorrow's highest spot price; unavailable until tomorrow's prices are fetched |
+| `sensor.kilowahti_{name}_tomorrow_total_avg` | Tomorrow's average total price; unavailable until tomorrow's prices are fetched (or based on fixed period if active) |
+| `sensor.kilowahti_{name}_tomorrow_total_min` | Tomorrow's lowest total price |
+| `sensor.kilowahti_{name}_tomorrow_total_max` | Tomorrow's highest total price |
+| `sensor.kilowahti_{name}_next_hours_avg` | Average spot price over the next N hours (configurable) |
+| `sensor.kilowahti_{name}_monthly_fixed_cost_today` | Today's share of the monthly fixed contract cost (€/day); unavailable when not configured |
 
 ### Rank sensors
 
@@ -83,6 +90,45 @@ Writable settings that can be adjusted from the dashboard or from automations us
 
 The initial values come from the **Thresholds & control** options. Changes made via these entities are persisted to the integration config, so they survive restarts and also update the values shown in the options flow.
 
+### Rolling average sensors
+
+Available only when using 15-minute price resolution. Enable in **Generation & battery** configuration.
+
+| Entity | Description |
+|---|---|
+| `sensor.kilowahti_{name}_current_30min_avg` | Average total price for the current slot and the next 30 minutes |
+| `sensor.kilowahti_{name}_current_60min_avg` | Average total price for the current slot and the next 60 minutes |
+| `sensor.kilowahti_{name}_current_120min_avg` | Average total price for the current slot and the next 120 minutes |
+
+### Generation & export sensors
+
+Available when **generation is enabled** in configuration.
+
+| Entity | Description |
+|---|---|
+| `sensor.kilowahti_{name}_export_price` | Current slot's feed-in price (no VAT) |
+| `sensor.kilowahti_{name}_export_today_avg` | Today's average export price |
+| `sensor.kilowahti_{name}_export_today_min` | Today's lowest export price |
+| `sensor.kilowahti_{name}_export_today_max` | Today's highest export price |
+| `sensor.kilowahti_{name}_export_tomorrow_avg` | Tomorrow's average export price; unavailable until fetched |
+| `sensor.kilowahti_{name}_export_tomorrow_min` | Tomorrow's lowest export price |
+| `sensor.kilowahti_{name}_export_tomorrow_max` | Tomorrow's highest export price |
+| `sensor.kilowahti_{name}_import_export_spread` | Difference between current import (total) price and export price |
+| `sensor.kilowahti_{name}_self_consumption_value` | Value of each kWh consumed from own generation (= avoided import cost) |
+| `sensor.kilowahti_{name}_next_solar_window_avg` | Average export price for the next upcoming solar production window |
+| `sensor.kilowahti_{name}_arbitrage_spread_today` | Spread between today's cheapest and most expensive total price slots |
+
+### Battery sensors
+
+Available when **generation is enabled** and **battery capacity > 0** in configuration.
+
+| Entity | Description |
+|---|---|
+| `sensor.kilowahti_{name}_charge_opportunity_factor` | How good right now is for grid charging (0.0 = worst, 1.0 = best) |
+| `sensor.kilowahti_{name}_battery_charge_recommendation` | Categorical recommendation: `charge_from_grid`, `discharge_to_grid`, or `idle` |
+| `sensor.kilowahti_{name}_optimal_charge_window_start` | Start of the cheapest window for a full battery charge cycle |
+| `sensor.kilowahti_{name}_optimal_charge_window_end` | End of the cheapest window for a full battery charge cycle |
+
 ## Binary sensors
 
 | Entity | Description |
@@ -92,3 +138,16 @@ The initial values come from the **Thresholds & control** options. Changes made 
 | `binary_sensor.kilowahti_{name}_price_or_rank_acceptable` | On when either price or rank condition is met |
 | `binary_sensor.kilowahti_{name}_fixed_period_active` | On when a fixed-price period is currently active |
 | `binary_sensor.kilowahti_{name}_tomorrow_available` | On when tomorrow's prices have been fetched |
+
+The following binary sensors are available when **generation is enabled**:
+
+| Entity | Description |
+|---|---|
+| `binary_sensor.kilowahti_{name}_export_price_acceptable` | On when current export price is at or above the configured export threshold |
+
+The following are available when **generation is enabled** and **battery capacity > 0**:
+
+| Entity | Description |
+|---|---|
+| `binary_sensor.kilowahti_{name}_charge_from_grid_recommended` | On when current slot is cheap and more expensive slots follow today |
+| `binary_sensor.kilowahti_{name}_discharge_to_grid_recommended` | On when current export price is in today's top quartile |
