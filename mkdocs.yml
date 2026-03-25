@@ -50,6 +50,11 @@ nav:
   - FAQ: faq.md
   - Changelog: changelog.md
 
+plugins:
+  - search
+  - document-dates:
+      show_author: false
+
 extra_css:
   - stylesheets/extra.css
 

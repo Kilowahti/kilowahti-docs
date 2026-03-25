@@ -58,7 +58,7 @@ data:
 
 ### `kilowahti.cheapest_hours`
 
-Finds the cheapest consecutive window of a given length within a time range.
+Finds the cheapest consecutive window of a given length within a time range, using total price (spot or fixed-period rate plus transfer).
 
 ```yaml
 service: kilowahti.cheapest_hours
@@ -179,31 +179,6 @@ data:
   "start": "2026-03-10T14:00:00+02:00",
   "end": "2026-03-10T16:00:00+02:00",
   "average_export_price": 8.45,
-  "unit": "c/kWh",
-  "price_periods": [...]
-}
-```
-
----
-
-### `kilowahti.best_charge_hours`
-
-Finds the cheapest consecutive window for grid charging a battery within a time range.
-
-```yaml
-service: kilowahti.best_charge_hours
-data:
-  start: "2026-03-10T00:00:00"
-  end: "2026-03-10T23:59:59"
-  hours: 2
-```
-
-**Response:**
-```json
-{
-  "start": "2026-03-10T03:00:00+02:00",
-  "end": "2026-03-10T05:00:00+02:00",
-  "average_price": 2.10,
   "unit": "c/kWh",
   "price_periods": [...]
 }
