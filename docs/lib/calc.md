@@ -73,18 +73,23 @@ Filter slots to those whose `dt_utc` falls in `[start, end)`. Both timezone-awar
 def cheapest_window(
     slots: list[PriceSlot],
     slots_needed: int,
-    vat_rate: float,
-    commission: float,
+    price_fn: Callable[[PriceSlot], float],
+    *,
+    prefer_last: bool = False,
 ) -> tuple[list[PriceSlot], float] | None
 ```
 
-Find the consecutive block of `slots_needed` slots with the **lowest average effective price**.
+Find the consecutive block of `slots_needed` slots with the **lowest average price** as computed by `price_fn`.
+
+`price_fn` is called once per slot to determine its price for comparison — pass any callable that maps a `PriceSlot` to a float. Common choices: `lambda s: s.price_no_tax` (raw spot), or a custom function that adds VAT and transfer.
+
+When `prefer_last=True`, the **latest** window is returned on ties instead of the earliest.
 
 Returns `(window_slots, avg_price)` or `None` if `slots_needed > len(slots)`.
 
 ```python
 # Find the cheapest 2-hour window in the day
-result = cheapest_window(today_slots, slots_needed=2, vat_rate=0.255, commission=0.0)
+result = cheapest_window(today_slots, slots_needed=2, price_fn=lambda s: s.price_no_tax)
 if result:
     window, avg = result
     print(f"Cheapest 2h starts at {window[0].dt_utc}, avg {avg:.2f} c/kWh")
@@ -94,24 +99,20 @@ if result:
 
 ## Ranking functions
 
-### `total_price_rank`
+### `normalized_total_price_rank`
 
 ```python
-def total_price_rank(
+def normalized_total_price_rank(
     current: PriceSlot,
     today_slots: list[PriceSlot],
-    vat_rate: float,
-    commission: float,
-    group: TransferGroup | None,
-    as_local_fn: Callable[[datetime], datetime],
+    price_fn: Callable[[PriceSlot], float],
+    slots_per_day: int,
 ) -> int | None
 ```
 
-Rank of `current` by total price (spot + transfer) among all of today's slots. `1` = cheapest. Uses competition ranking — tied slots share the lowest rank.
+Rank of `current` by price among today's slots, normalized to `[1, slots_per_day]`. Tier-based: K unique prices map evenly across the range, so the cheapest tier is always `1` and the most expensive is always `slots_per_day`, regardless of how many distinct price levels exist. Useful for control automations when many slots tie (e.g. fixed-period contracts where energy prices are equal but transfer differs).
 
-Returns `None` if `today_slots` is empty or `current` is not found in it.
-
-`as_local_fn` is a callable that converts a UTC `datetime` to the local timezone (used to look up the correct transfer tier). Pass `lambda dt: dt` in tests or when UTC == local.
+`price_fn` is called once per slot to determine its price — pass any callable that maps a `PriceSlot` to a float. Returns `None` when `today_slots` is empty or `current` is not among them.
 
 ---
 

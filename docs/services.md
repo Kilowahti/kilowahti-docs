@@ -66,7 +66,10 @@ data:
   start: "2026-03-10T18:00:00"
   end: "2026-03-11T08:00:00"
   hours: 3
+  reverse: false  # optional, default false
 ```
+
+Set `reverse: true` to return the **latest** cheapest window when there are ties (useful for "discharge before peak" automations or finding the most recent valid charge slot). Default `false` returns the earliest match.
 
 **Response:**
 ```json

@@ -34,8 +34,9 @@ The display unit (`c/kWh` or `€/kWh`) is set during configuration and applies 
 | Entity | Description |
 |---|---|
 | `sensor.kilowahti_{name}_price_rank` | Current slot's rank by spot price among today's slots; 1 = cheapest |
-| `sensor.kilowahti_{name}_total_price_rank` | Current slot's rank by total price (spot + transfer) among today's slots; 1 = cheapest |
-| `sensor.kilowahti_{name}_price_quartile` | Price quartile 1–4; 1 = cheapest 25% of slots |
+| `sensor.kilowahti_{name}_total_price_rank` | Current slot's rank by total price (fixed-period rate or spot + transfer) among today's slots. Normalized: 1 = cheapest, slots_per_day = most expensive |
+| `sensor.kilowahti_{name}_price_quartile` | Spot price quartile 1–4; 1 = cheapest 25% of slots |
+| `sensor.kilowahti_{name}_total_price_quartile` | Total price quartile 1–4 (derived from total_price_rank); 1 = cheapest 25% of slots |
 
 The maximum rank is 96 for 15-minute resolution or 24 for 1-hour resolution.
 

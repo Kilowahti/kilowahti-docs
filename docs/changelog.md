@@ -1,5 +1,26 @@
 # Changelog
 
+## 2026.5.0 — 2026-05-05
+
+### Fixes
+
+- Monthly score no longer shows NaN at the start of a new month — uses the current quartile midpoint as a placeholder when no consumption is recorded, includes today's in-progress score in the monthly average, and falls back to the previous month's finalised score when the current month is empty
+- Optimization score accumulation now ranks slots by true total price (fixed-period rate or spot + transfer) instead of spot-only API rank — primarily affects fixed-price contract users
+- `cheapest_hours` service now uses total price (fixed-period or spot + transfer) for window selection — was previously spot-only
+
+### New
+
+- `total_price_quartile` sensor (1–4)
+- `cheapest_hours` accepts `reverse: true` parameter to return the latest cheapest window on ties
+
+### Changed
+
+- `total_price_rank` is now normalized: 1 = cheapest, slots_per_day = most expensive (regardless of unique tier count)
+
+### Removed
+
+- `best_charge_hours` service — consolidated into `cheapest_hours` (use `cheapest_hours` with `reverse: true` for the equivalent)
+
 ## 2026.3.0 — 2026-03-16
 
 ### ⚠️ BREAKING CHANGES ⚠️
