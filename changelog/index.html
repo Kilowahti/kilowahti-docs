@@ -1138,6 +1138,67 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#202650-2026-05-05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026.5.0 — 2026-05-05
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2026.5.0 — 2026-05-05">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#202630-2026-03-16" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1266,6 +1327,67 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#202650-2026-05-05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2026.5.0 — 2026-05-05
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2026.5.0 — 2026-05-05">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#new" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changed
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#202630-2026-03-16" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1380,8 +1502,28 @@
 
 
 <h1 id="changelog">Changelog</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-11'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-11T18:47:51+00:00'>2026-03-11</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-16'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-03-16T20:31:26+00:00'>2026-03-16</time></span></div></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-11'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-11T18:47:51+00:00'>2026-03-11</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-05-05'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-05-05T16:43:51+00:00'>2026-05-05</time></span></div></div></div>
 
+<h2 id="202650-2026-05-05">2026.5.0 — 2026-05-05</h2>
+<h3 id="fixes">Fixes</h3>
+<ul>
+<li>Monthly score no longer shows NaN at the start of a new month — uses the current quartile midpoint as a placeholder when no consumption is recorded, includes today's in-progress score in the monthly average, and falls back to the previous month's finalised score when the current month is empty</li>
+<li>Optimization score accumulation now ranks slots by true total price (fixed-period rate or spot + transfer) instead of spot-only API rank — primarily affects fixed-price contract users</li>
+<li><code>cheapest_hours</code> service now uses total price (fixed-period or spot + transfer) for window selection — was previously spot-only</li>
+</ul>
+<h3 id="new">New</h3>
+<ul>
+<li><code>total_price_quartile</code> sensor (1–4)</li>
+<li><code>cheapest_hours</code> accepts <code>reverse: true</code> parameter to return the latest cheapest window on ties</li>
+</ul>
+<h3 id="changed">Changed</h3>
+<ul>
+<li><code>total_price_rank</code> is now normalized: 1 = cheapest, slots_per_day = most expensive (regardless of unique tier count)</li>
+</ul>
+<h3 id="removed">Removed</h3>
+<ul>
+<li><code>best_charge_hours</code> service — consolidated into <code>cheapest_hours</code> (use <code>cheapest_hours</code> with <code>reverse: true</code> for the equivalent)</li>
+</ul>
 <h2 id="202630-2026-03-16">2026.3.0 — 2026-03-16</h2>
 <h3 id="breaking-changes">⚠️ BREAKING CHANGES ⚠️</h3>
 <ul>

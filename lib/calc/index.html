@@ -1111,10 +1111,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#total_price_rank" class="md-nav__link">
+  <a href="#normalized_total_price_rank" class="md-nav__link">
     <span class="md-ellipsis">
       
-        total_price_rank
+        normalized_total_price_rank
       
     </span>
   </a>
@@ -1530,10 +1530,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#total_price_rank" class="md-nav__link">
+  <a href="#normalized_total_price_rank" class="md-nav__link">
     <span class="md-ellipsis">
       
-        total_price_rank
+        normalized_total_price_rank
       
     </span>
   </a>
@@ -1733,7 +1733,7 @@
 
 
 <h1 id="calculations">Calculations</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-14'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-14T07:07:00+00:00'>2026-03-14</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-14'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-03-14T07:07:00+00:00'>2026-03-14</time></span></div></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-14'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-14T07:07:00+00:00'>2026-03-14</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-05-05'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-05-05T16:43:51+00:00'>2026-05-05</time></span></div></div></div>
 
 <p>All functions in <code>kilowahti.calc</code> are pure (no I/O, no state). They take explicit parameters and return values.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">kilowahti</span><span class="w"> </span><span class="kn">import</span> <span class="n">calc</span>
@@ -1793,33 +1793,33 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">cheapest_window</span><span class="p">(</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">slots</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">PriceSlot</span><span class="p">],</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    <span class="n">slots_needed</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">vat_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">commission</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">PriceSlot</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    <span class="n">price_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">PriceSlot</span><span class="p">],</span> <span class="nb">float</span><span class="p">],</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="o">*</span><span class="p">,</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="n">prefer_last</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">PriceSlot</span><span class="p">],</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>
 </code></pre></div>
-<p>Find the consecutive block of <code>slots_needed</code> slots with the <strong>lowest average effective price</strong>.</p>
+<p>Find the consecutive block of <code>slots_needed</code> slots with the <strong>lowest average price</strong> as computed by <code>price_fn</code>.</p>
+<p><code>price_fn</code> is called once per slot to determine its price for comparison — pass any callable that maps a <code>PriceSlot</code> to a float. Common choices: <code>lambda s: s.price_no_tax</code> (raw spot), or a custom function that adds VAT and transfer.</p>
+<p>When <code>prefer_last=True</code>, the <strong>latest</strong> window is returned on ties instead of the earliest.</p>
 <p>Returns <code>(window_slots, avg_price)</code> or <code>None</code> if <code>slots_needed &gt; len(slots)</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Find the cheapest 2-hour window in the day</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">cheapest_window</span><span class="p">(</span><span class="n">today_slots</span><span class="p">,</span> <span class="n">slots_needed</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">vat_rate</span><span class="o">=</span><span class="mf">0.255</span><span class="p">,</span> <span class="n">commission</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">result</span> <span class="o">=</span> <span class="n">cheapest_window</span><span class="p">(</span><span class="n">today_slots</span><span class="p">,</span> <span class="n">slots_needed</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">price_fn</span><span class="o">=</span><span class="k">lambda</span> <span class="n">s</span><span class="p">:</span> <span class="n">s</span><span class="o">.</span><span class="n">price_no_tax</span><span class="p">)</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">if</span> <span class="n">result</span><span class="p">:</span>
 <a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    <span class="n">window</span><span class="p">,</span> <span class="n">avg</span> <span class="o">=</span> <span class="n">result</span>
 <a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cheapest 2h starts at </span><span class="si">{</span><span class="n">window</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dt_utc</span><span class="si">}</span><span class="s2">, avg </span><span class="si">{</span><span class="n">avg</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> c/kWh&quot;</span><span class="p">)</span>
 </code></pre></div>
 <hr />
 <h2 id="ranking-functions">Ranking functions</h2>
-<h3 id="total_price_rank"><code>total_price_rank</code></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">total_price_rank</span><span class="p">(</span>
+<h3 id="normalized_total_price_rank"><code>normalized_total_price_rank</code></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">normalized_total_price_rank</span><span class="p">(</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">current</span><span class="p">:</span> <span class="n">PriceSlot</span><span class="p">,</span>
 <a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="n">today_slots</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">PriceSlot</span><span class="p">],</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="n">vat_rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">commission</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">group</span><span class="p">:</span> <span class="n">TransferGroup</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="n">as_local_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">datetime</span><span class="p">],</span> <span class="n">datetime</span><span class="p">],</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>    <span class="n">price_fn</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">PriceSlot</span><span class="p">],</span> <span class="nb">float</span><span class="p">],</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">slots_per_day</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span>
 </code></pre></div>
-<p>Rank of <code>current</code> by total price (spot + transfer) among all of today's slots. <code>1</code> = cheapest. Uses competition ranking — tied slots share the lowest rank.</p>
-<p>Returns <code>None</code> if <code>today_slots</code> is empty or <code>current</code> is not found in it.</p>
-<p><code>as_local_fn</code> is a callable that converts a UTC <code>datetime</code> to the local timezone (used to look up the correct transfer tier). Pass <code>lambda dt: dt</code> in tests or when UTC == local.</p>
+<p>Rank of <code>current</code> by price among today's slots, normalized to <code>[1, slots_per_day]</code>. Tier-based: K unique prices map evenly across the range, so the cheapest tier is always <code>1</code> and the most expensive is always <code>slots_per_day</code>, regardless of how many distinct price levels exist. Useful for control automations when many slots tie (e.g. fixed-period contracts where energy prices are equal but transfer differs).</p>
+<p><code>price_fn</code> is called once per slot to determine its price — pass any callable that maps a <code>PriceSlot</code> to a float. Returns <code>None</code> when <code>today_slots</code> is empty or <code>current</code> is not among them.</p>
 <hr />
 <h3 id="rank_to_bucket"><code>rank_to_bucket</code></h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">rank_to_bucket</span><span class="p">(</span><span class="n">rank</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">slots_per_day</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>  <span class="c1"># &quot;q1&quot; | &quot;q2&quot; | &quot;q3&quot; | &quot;q4&quot;</span>

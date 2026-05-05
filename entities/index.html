@@ -1465,7 +1465,7 @@
 
 
 <h1 id="entities">Entities</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-16'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-03-16T20:54:57+00:00'>2026-03-16</time></span></div></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-05-05'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-05-05T16:43:51+00:00'>2026-05-05</time></span></div></div></div>
 
 <p>All entities are grouped under a single <strong>Kilowahti</strong> device per configured instance. Entity names use the name you set during setup (e.g. <code>Home</code>).</p>
 <h2 id="sensors">Sensors</h2>
@@ -1568,11 +1568,15 @@
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_total_price_rank</code></td>
-<td>Current slot's rank by total price (spot + transfer) among today's slots; 1 = cheapest</td>
+<td>Current slot's rank by total price (fixed-period rate or spot + transfer) among today's slots. Normalized: 1 = cheapest, slots_per_day = most expensive</td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_price_quartile</code></td>
-<td>Price quartile 1–4; 1 = cheapest 25% of slots</td>
+<td>Spot price quartile 1–4; 1 = cheapest 25% of slots</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_total_price_quartile</code></td>
+<td>Total price quartile 1–4 (derived from total_price_rank); 1 = cheapest 25% of slots</td>
 </tr>
 </tbody>
 </table>
