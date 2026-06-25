@@ -18,5 +18,5 @@ Kilowahti is available in the [HACS](https://hacs.xyz/) default repository.
 
 ## Requirements
 
-- Home Assistant 2023.7 or newer
+- Home Assistant 2024.1 or newer
 - Network access to `api.spot-hinta.fi`
