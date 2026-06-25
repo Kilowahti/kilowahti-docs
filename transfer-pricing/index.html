@@ -1431,7 +1431,7 @@
 
 
 <h1 id="transfer-pricing">Transfer pricing</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-10'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-03-10T18:38:46+00:00'>2026-03-10</time></span></div></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-06-25'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-06-25T13:40:25+00:00'>2026-06-25</time></span></div></div></div>
 
 <p>Transfer pricing lets you include your network operator's distribution tariff in price calculations and sensors.</p>
 <h2 id="groups-and-tiers">Groups and tiers</h2>
@@ -1552,7 +1552,7 @@
 </tr>
 </tbody>
 </table>
-<p>As with Kausisiirto, define the more restricted rate first (day) and let the night rate act as a catch-all.</p>
+<p>Because Kilowahti evaluates tiers in priority order and stops at the first match, define the more restricted rate first (day) and let the night rate act as a catch-all with broader criteria.</p>
 <h3 id="step-by-step-setup_1">Step-by-step setup</h3>
 <ol>
 <li>Go to <strong>Settings → Devices &amp; Services → Kilowahti → Configure → Transfer pricing</strong></li>
@@ -1639,6 +1639,7 @@
 </tr>
 </tbody>
 </table>
+<p>Start 0 and end 24 means the tier covers the full day — this is intentional for a catch-all. It only activates when no higher-priority tier matches.</p>
 </li>
 <li>
 <p>Select <strong>← Back</strong>, then <strong>✓ Save &amp; close</strong></p>
@@ -1666,7 +1667,7 @@
 </tr>
 </tbody>
 </table>
-<p>Because Kilowahti evaluates tiers in priority order and stops at the first match, you only need to define the peak rate explicitly — the off-peak tier acts as a catch-all with no time restrictions.</p>
+<p>Same priority approach as Aikasiirto above — define the peak rate explicitly and let the off-peak tier act as a catch-all.</p>
 <h3 id="step-by-step-setup_2">Step-by-step setup</h3>
 <ol>
 <li>Go to <strong>Settings → Devices &amp; Services → Kilowahti → Configure → Transfer pricing</strong></li>
@@ -1753,6 +1754,7 @@
 </tr>
 </tbody>
 </table>
+<p>Start 0 and end 24 means the tier covers the full day — this is intentional for a catch-all. It only activates when no higher-priority tier matches.</p>
 </li>
 <li>
 <p>Select <strong>← Back</strong>, then <strong>✓ Save &amp; close</strong></p>

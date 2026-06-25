@@ -1373,7 +1373,7 @@
 
 
 <h1 id="automation-examples">Automation examples</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T15:32:32+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-16'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-03-16T20:31:26+00:00'>2026-03-16</time></span></div></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T15:32:32+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-06-25'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-06-25T13:40:25+00:00'>2026-06-25</time></span></div></div></div>
 
 <p>These examples use <code>{name}</code> as a placeholder for the name you set during configuration. If your name is <code>Home</code>, replace <code>{name}</code> with <code>home</code> in entity IDs.</p>
 <hr />
@@ -1422,7 +1422,7 @@
 </code></pre></div>
 <hr />
 <h2 id="schedule-appliance-at-cheapest-upcoming-window">Schedule appliance at cheapest upcoming window</h2>
-<p>Use the <code>kilowahti.cheapest_hours</code> service to find the cheapest consecutive block ahead of time and schedule your appliance to start then. Requires an <code>input_datetime</code> helper (e.g. <code>input_datetime.cheapest_window_start</code>).</p>
+<p>Use the <code>kilowahti.cheapest_hours</code> service to find the cheapest consecutive block ahead of time and schedule your appliance to start then. Requires an <code>input_datetime</code> helper — create one via <strong>Settings → Devices &amp; Services → Helpers → Create helper → Date and/or time</strong> (e.g. <code>input_datetime.cheapest_window_start</code>).</p>
 <p><strong>Automation 1 — Find the window (runs daily at 17:00):</strong></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Find cheapest 3-hour overnight window</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">trigger</span><span class="p">:</span>
@@ -1432,7 +1432,7 @@
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">action:kilowahti.cheapest_hours</span>
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="l l-Scalar l-Scalar-Plain">data</span><span class="p p-Indicator">:</span>
 <a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">      </span><span class="nt">start</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">now().isoformat()</span><span class="nv"> </span><span class="s">}}&quot;</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">(now()</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">timedelta(hours=15)).isoformat()</span><span class="nv"> </span><span class="s">}}&quot;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">end</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{</span><span class="nv"> </span><span class="s">(now()</span><span class="nv"> </span><span class="s">+</span><span class="nv"> </span><span class="s">timedelta(hours=15)).isoformat()</span><span class="nv"> </span><span class="s">}}&quot;</span><span class="w">  </span><span class="c1"># 15 hours is the window from 17:00 → 08:00 next morning</span>
 <a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">      </span><span class="nt">hours</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
 <a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">    </span><span class="nt">response_variable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">result</span>
 <a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">action:input_datetime.set_datetime</span>
@@ -1488,7 +1488,7 @@
 <a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">&gt;</span>
 <a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="no">{{ (6 + (states(&#39;sensor.kilowahti_{name}_control_factor_price&#39;) | float) * 10) | round(0) | int }}</span>
 </code></pre></div>
-<p>Adjust <code>6</code> (minimum) and <code>16</code> (maximum) to your charger's supported range. Check your charger's integration documentation for the correct entity and accepted values.</p>
+<p>Adjust <code>6</code> (minimum current) and <code>10</code> (spread: maximum minus minimum) to your charger's supported range. Check your charger's integration documentation for the correct entity and accepted values.</p>
 <hr />
 <h2 id="charge-and-discharge-a-battery-by-quartile">Charge and discharge a battery by quartile</h2>
 <p>Use <code>price_quartile</code> to drive a home battery: charge in the cheapest 25% of slots (Q1), discharge in the most expensive 25% (Q4), and leave it on automatic otherwise.</p>
