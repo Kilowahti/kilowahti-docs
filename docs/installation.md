@@ -2,12 +2,12 @@
 
 ## Via HACS (recommended)
 
+Kilowahti is available in the [HACS](https://hacs.xyz/) default repository.
+
 1. Open HACS in your Home Assistant instance
-2. Go to **Integrations** → menu (⋮) → **Custom repositories**
-3. Add `https://github.com/Kilowahti/ha-kilowahti` with category **Integration**
-4. Search for **Kilowahti** and click **Download**
-5. Restart Home Assistant
-6. Go to **Settings → Devices & Services → Add Integration** and search for **Kilowahti**
+2. Search for **Kilowahti** and click **Download**
+3. Restart Home Assistant
+4. Go to **Settings → Devices & Services → Add Integration** and search for **Kilowahti**
 
 ## Manual installation
 
