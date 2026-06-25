@@ -22,6 +22,25 @@ Yes. Transfer-related sensors (`transfer_price`, `control_factor_transfer`) show
 
 It provides a smooth 0–1 value you can feed directly into automations or scripts to modulate device power or setpoints based on price. 1.0 = cheapest slot, 0.0 = most expensive. Use `control_factor_price_bipolar` for a ±1 version.
 
+The convention of "cheaper = higher value" makes it natural to use as a multiplier for scaling setpoints, charging currents, etc. See [Automation guides → Proportional control](automations.md#proportional-control-thermostat-climate) for a thermostat example.
+
+## What is the difference between linear and sinusoidal control factor curves?
+
+Both curves map your current price rank to a 0–1 control factor value, but they distribute sensitivity differently across the price range.
+
+**Linear** is a straight-line mapping: if you have 24 hourly slots, each rank step changes the factor by exactly the same amount (roughly 0.04). The cheapest slot gets 1.0, the most expensive gets 0.0, and everything in between is evenly spaced. This is the simplest option and works well when you want proportional response across the entire price range.
+
+**Sinusoidal** uses a sine curve that is steeper in the middle and flatter near the extremes. In practice this means:
+
+- When prices are very cheap (high factor) or very expensive (low factor), small rank changes barely move the factor — the curve is nearly flat at the top and bottom.
+- Around mid-range prices, the factor changes more rapidly for each rank step.
+
+This is useful when you want your automations to react strongly to whether prices are "roughly average" versus "clearly cheap or expensive", but not overreact to minor differences among the cheapest or most expensive slots.
+
+**The scaling exponent** (1–3) amplifies the effect of either curve. At 1.0 the curve behaves as described above. Higher values push mid-range values closer to 0, making the factor more "binary" — it stays near 1.0 only for the cheapest slots and drops off more steeply. This is independent of the curve shape: you can combine sinusoidal with a higher exponent for an even more aggressive response.
+
+For most users, **linear with scaling 1.0** is a good starting point. Switch to sinusoidal if you find your automations are toggling too frequently between adjacent price ranks.
+
 ## My score sensors show no value — why?
 
 Score sensors only produce a value once at least one meter reading has been recorded. Make sure you have linked an energy meter entity in **Options → Score profiles → Edit: Total** and that the meter has `state_class: total_increasing`.

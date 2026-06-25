@@ -31,14 +31,14 @@ You can skip this step and configure transfer pricing later via Configure. See [
 | Field | Description |
 |---|---|
 | Control max price | Price at or below this turns on the `price_acceptable` binary sensor |
-| Max price includes transfer | Whether the price threshold compares against total price (spot + transfer) or spot only |
+| Max price includes transfer | Whether the price threshold compares against total price (effective price + transfer) or effective price only |
 | Control max rank | Rank at or below this turns on the `rank_acceptable` binary sensor |
+| Forward average window | Hours ahead used for the `next_hours_avg` sensor (1–24, in 0.25 h steps) |
+| Control factor curve | Shape of the 0–1 control factor curve: Linear or Sinusoidal (see [FAQ](faq.md#what-is-the-difference-between-linear-and-sinusoidal-control-factor-curves)) |
+| Control factor scaling | Exponent applied to amplify extremes (1–3) |
 
 !!! tip
     Price and rank thresholds can also be adjusted dynamically without reopening Configure — use the `number.kilowahti_{name}_price_threshold` and `number.kilowahti_{name}_rank_threshold` entities from the dashboard or an automation.
-| Forward average window | Hours ahead used for the `next_hours_avg` sensor |
-| Control factor function | Shape of the 0–1 control factor curve: Linear or Sinusoidal |
-| Control factor scaling | Exponent applied to amplify extremes (1–3) |
 
 ### 5. Optimization scores
 
@@ -50,7 +50,7 @@ Additional profiles can be added (e.g. per-device or per-circuit meters).
 
 | Field | Description |
 |---|---|
-| Expose price arrays as attributes | Writes `today_prices` and `tomorrow_prices` arrays to the `spot_price` sensor attributes — useful for Apex Charts dashboards but increases DB size |
+| Expose price arrays as attributes | Writes `today_prices` and `tomorrow_prices` arrays to the `spot_price` sensor attributes — useful for graphing cards (e.g. Apex Charts) but increases DB size |
 | High precision mode | Shows more decimal places on price sensors |
 
 ## Updating settings

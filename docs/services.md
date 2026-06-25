@@ -10,7 +10,7 @@ All price query services accept a `formatted` parameter (default `true`). When `
 
 ### `kilowahti.get_active_prices`
 
-Returns all price slots for today and tomorrow (default), or a custom time range.
+Returns all price slots for today and tomorrow (default), or a custom time range. Each slot includes the effective price (spot or fixed-period) and total price (effective + transfer).
 
 ```yaml
 service: kilowahti.get_active_prices
@@ -25,7 +25,7 @@ data:
   formatted: false
 ```
 
-**Response:**
+**Response** (clipped — full response contains one entry per slot):
 ```json
 {
   "unit": "c/kWh",
@@ -36,7 +36,15 @@ data:
       "total_price": 6.87,
       "rank": 3,
       "is_fixed": false
-    }
+    },
+    {
+      "time": "2026-03-10T00:15:00+02:00",
+      "price": 4.32,
+      "total_price": 6.87,
+      "rank": 3,
+      "is_fixed": false
+    },
+    "..."
   ]
 }
 ```
@@ -45,7 +53,7 @@ data:
 
 ### `kilowahti.get_prices`
 
-Returns raw spot price slots for a time range.
+Returns raw spot price slots for a time range. Prices are spot-only (with VAT and commission applied) — fixed-price periods and transfer are not included.
 
 ```yaml
 service: kilowahti.get_prices
@@ -83,34 +91,13 @@ Set `reverse: true` to return the **latest** cheapest window when there are ties
 ```
 
 !!! tip "Scheduling appliances at the cheapest time"
-    Call this service once per day (e.g. at 17:00 after tomorrow's prices arrive), store the result in an `input_datetime` helper, and trigger your automation at that time.
-
-    ```yaml
-    alias: Find cheapest 3-hour window overnight
-    trigger:
-      - platform: time
-        at: "17:00:00"
-    action:
-      - action:kilowahti.cheapest_hours
-        data:
-          start: "{{ now().isoformat() }}"
-          end: "{{ (now() + timedelta(hours=15)).isoformat() }}"
-          hours: 3
-        response_variable: result
-      - action:input_datetime.set_datetime
-        data:
-          timestamp: "{{ result['start'] }}"
-        target:
-          entity_id: input_datetime.cheapest_window_start
-    ```
-
-    Then use a separate automation triggered by `input_datetime.cheapest_window_start` to turn on your appliance.
+    Call this service once per day after tomorrow's prices arrive, store the result in an `input_datetime` helper, and trigger your appliance from that. See [Automation guides → Schedule appliance at cheapest upcoming window](automations.md#schedule-appliance-at-cheapest-upcoming-window) for a complete example.
 
 ---
 
 ### `kilowahti.average_price`
 
-Returns aggregate price statistics for a time range.
+Returns aggregate price statistics for a time range, using spot effective price (with VAT and commission). Fixed-price periods and transfer are not included.
 
 ```yaml
 service: kilowahti.average_price
@@ -140,7 +127,7 @@ These services require **generation to be enabled** in configuration.
 
 ### `kilowahti.get_export_prices`
 
-Returns export price slots for a time range.
+Returns export price slots for a time range, using the configured export pricing mode (spot-linked or fixed rate).
 
 ```yaml
 service: kilowahti.get_export_prices
@@ -166,7 +153,7 @@ data:
 
 ### `kilowahti.best_export_hours`
 
-Finds the most profitable consecutive window for grid export within a time range.
+Finds the most profitable consecutive window for grid export within a time range, using export price.
 
 ```yaml
 service: kilowahti.best_export_hours

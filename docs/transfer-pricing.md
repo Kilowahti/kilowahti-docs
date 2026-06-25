@@ -61,7 +61,7 @@ When a transfer group is active:
 | Päivä (day) | 07:00–22:00, every day |
 | Yö (night) | 22:00–07:00, every day |
 
-As with Kausisiirto, define the more restricted rate first (day) and let the night rate act as a catch-all.
+Because Kilowahti evaluates tiers in priority order and stops at the first match, define the more restricted rate first (day) and let the night rate act as a catch-all with broader criteria.
 
 ### Step-by-step setup
 
@@ -92,6 +92,8 @@ As with Kausisiirto, define the more restricted rate first (day) and let the nig
     | End time | 24 |
     | Priority | 2 |
 
+    Start 0 and end 24 means the tier covers the full day — this is intentional for a catch-all. It only activates when no higher-priority tier matches.
+
 6. Select **← Back**, then **✓ Save & close**
 7. To activate, open the group again and choose **Set as active group**
 
@@ -106,7 +108,7 @@ Finnish network operators commonly offer a *kausisiirto* (seasonal transfer) tar
 | Talviarkipäivä (peak) | November–March, Mon–Sat, 06:00–22:00 (or 07:00–22:00) |
 | Muu aika (off-peak) | Everything else (Apr–Oct, winter Sundays, nights) |
 
-Because Kilowahti evaluates tiers in priority order and stops at the first match, you only need to define the peak rate explicitly — the off-peak tier acts as a catch-all with no time restrictions.
+Same priority approach as Aikasiirto above — define the peak rate explicitly and let the off-peak tier act as a catch-all.
 
 ### Step-by-step setup
 
@@ -136,6 +138,8 @@ Because Kilowahti evaluates tiers in priority order and stops at the first match
     | Start time | 0 |
     | End time | 24 |
     | Priority | 2 |
+
+    Start 0 and end 24 means the tier covers the full day — this is intentional for a catch-all. It only activates when no higher-priority tier matches.
 
 6. Select **← Back**, then **✓ Save & close**
 7. To activate, open the group again and choose **Set as active group**

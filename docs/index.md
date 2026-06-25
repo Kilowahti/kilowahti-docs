@@ -11,7 +11,7 @@ It fetches day-ahead hourly or 15-minute spot prices from [spot-hinta.fi](https:
 
 **Pricing**
 
-- Day-ahead spot prices — no API key required, 15-minute or 1-hour resolution
+- Day-ahead spot prices — no API key or other integration required, 15-minute or 1-hour resolution
 - Transfer price tier groups with time-of-use schedules and monthly fixed fees
 - Fixed-price contract period management — spot prices automatically replaced when a fixed period is active
 - Monthly electricity contract base fee spread as a daily cost sensor

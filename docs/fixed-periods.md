@@ -1,6 +1,6 @@
 # Fixed-price periods
 
-Fixed-price periods let you define date ranges where a flat contract price replaces the spot price. This is useful if you have a fixed-price electricity contract for part of the year.
+Fixed-price periods let you define date ranges where a flat contract price replaces the spot price. This is useful if you have a fixed-price electricity contract for part of the year, or continuously if your entire contract is fixed-rate.
 
 ## How it works
 

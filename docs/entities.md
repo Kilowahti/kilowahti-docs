@@ -125,7 +125,7 @@ Available when generation is enabled (Advanced options) and **battery capacity >
 
 | Entity | Description |
 |---|---|
-| `sensor.kilowahti_{name}_charge_opportunity_factor` | How good right now is for grid charging (0.0 = worst, 1.0 = best) |
+| `sensor.kilowahti_{name}_charge_opportunity_factor` | How good right now is for grid charging (0.0 = worst, 1.0 = best). Always uses linear scaling — not affected by the control factor curve or scaling settings |
 | `sensor.kilowahti_{name}_battery_charge_recommendation` | Categorical recommendation: `charge_from_grid`, `discharge_to_grid`, or `idle` |
 | `sensor.kilowahti_{name}_optimal_charge_window_start` | Start of the cheapest window for a full battery charge cycle |
 | `sensor.kilowahti_{name}_optimal_charge_window_end` | End of the cheapest window for a full battery charge cycle |

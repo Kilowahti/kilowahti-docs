@@ -66,7 +66,7 @@ trigger:
 
 ## Schedule appliance at cheapest upcoming window
 
-Use the `kilowahti.cheapest_hours` service to find the cheapest consecutive block ahead of time and schedule your appliance to start then. Requires an `input_datetime` helper (e.g. `input_datetime.cheapest_window_start`).
+Use the `kilowahti.cheapest_hours` service to find the cheapest consecutive block ahead of time and schedule your appliance to start then. Requires an `input_datetime` helper — create one via **Settings → Devices & Services → Helpers → Create helper → Date and/or time** (e.g. `input_datetime.cheapest_window_start`).
 
 **Automation 1 — Find the window (runs daily at 17:00):**
 
@@ -79,7 +79,7 @@ action:
   - action:kilowahti.cheapest_hours
     data:
       start: "{{ now().isoformat() }}"
-      end: "{{ (now() + timedelta(hours=15)).isoformat() }}"
+      end: "{{ (now() + timedelta(hours=15)).isoformat() }}"  # 15 hours is the window from 17:00 → 08:00 next morning
       hours: 3
     response_variable: result
   - action:input_datetime.set_datetime
@@ -151,7 +151,7 @@ action:
         {{ (6 + (states('sensor.kilowahti_{name}_control_factor_price') | float) * 10) | round(0) | int }}
 ```
 
-Adjust `6` (minimum) and `16` (maximum) to your charger's supported range. Check your charger's integration documentation for the correct entity and accepted values.
+Adjust `6` (minimum current) and `10` (spread: maximum minus minimum) to your charger's supported range. Check your charger's integration documentation for the correct entity and accepted values.
 
 ---
 
