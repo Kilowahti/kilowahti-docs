@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026.6.0 — 2026-06-25
+
+- Kilowahti is now in the HACS default repository — no custom repository URL needed
+- HACS country filter updated to include all supported price regions: DK, EE, FI, LT, LV, NO, SE
+
 ## 2026.5.0 — 2026-05-05
 
 ### Fixes
