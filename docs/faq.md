@@ -49,9 +49,31 @@ Score sensors only produce a value once at least one meter reading has been reco
 
 Spot prices from the API are always VAT-exclusive. Kilowahti applies VAT automatically using the rate you configured. Transfer tier and fixed period prices are entered gross (VAT included) and used as-is.
 
-## What happens if the API is unavailable?
+## Where do prices come from?
 
-Kilowahti continues serving data from its local cache. As long as the cache holds valid slots for the current day, all sensors update normally — no network call is needed for each update. If the cache is empty or stale and a fetch fails, price sensors will become unavailable. It is worth testing your automations to ensure they behave safely (fail-closed) when sensors are unavailable.
+Kilowahti fetches prices through an automatic source chain — there is no source setting.
+The primary source is `cdn.kilowahti.fi`, Kilowahti's own first-party service: it publishes
+day-ahead prices for all supported regions from the ENTSO-E Transparency Platform (the
+official European market data source) as static JSON through a European CDN. No account or
+API key is needed, and no personal data is collected. If the CDN cannot be reached,
+Kilowahti falls back to the free third-party API spot-hinta.fi. Both serve the same
+day-ahead exchange prices, so sensor values are identical either way. The diagnostic sensor
+`price_data_source` shows which source is currently in use.
+
+## What happens if the price sources are unavailable?
+
+Kilowahti continues serving data from its local cache. As long as the cache holds valid slots for the current day, all sensors update normally — no network call is needed for each update. If the cache is empty or stale and every source in the chain fails, price sensors will become unavailable. It is worth testing your automations to ensure they behave safely (fail-closed) when sensors are unavailable.
+
+## How does local currency display work?
+
+Regions outside the eurozone can show all prices in the local billing currency (see
+[Configuration](configuration.md#display-currency-non-eur-regions)). The market always
+trades in EUR; Kilowahti converts with a daily exchange rate — the ECB reference rate by
+default, or a manual rate you enter. The rate is frozen for the whole day, so already
+published slot prices never shift mid-day. Switching between EUR and local currency
+converts your entered prices (commission, transfer tiers, fixed periods, thresholds)
+automatically. Note that Home Assistant long-term statistics recorded before a currency
+switch keep their old unit and are not converted.
 
 ## Can I have multiple Kilowahti instances?
 

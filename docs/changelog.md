@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026.8.0 — TBD
+
+- Europe-wide: 43 bidding zones across 30 countries, with per-region VAT and unit presets
+- Automatic price source chain: first-party `cdn.kilowahti.fi` (ENTSO-E data) with spot-hinta.fi fallback; `price_data_source` diagnostic sensor shows the active source
+- Local currency display for non-eurozone regions (SEK, NOK, DKK, CHF, PLN, CZK, HUF, RON, RSD, MKD): daily ECB or manual exchange rate, frozen per day; switching currency converts entered prices automatically; `exchange_rate` diagnostic sensor
+- Automation triggers (8) and conditions (5): price/rank acceptability edges, cheapest slot, fixed period start/end, tomorrow's prices available
+- Effective price statistics sensors (`today_avg/min/max`, `tomorrow_avg/min/max`) and `spot_next_hours_avg`
+- Config flow label clarified: "Control factor function" → "Control factor curve"
+
 ## 2026.6.0 — 2026-06-25
 
 - Kilowahti is now in the HACS default repository — no custom repository URL needed

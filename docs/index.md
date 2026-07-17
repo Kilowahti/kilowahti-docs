@@ -45,10 +45,42 @@ It fetches day-ahead hourly or 15-minute spot prices from [spot-hinta.fi](https:
 
 ## Supported regions
 
-`FI`, `EE`, `LT`, `LV`, `DK1`, `DK2`, `NO1`, `NO2`, `NO3`, `NO4`, `NO5`, `SE1`, `SE2`, `SE3`, `SE4`
+43 bidding zones across 30 European countries:
+
+| Country | Zones |
+|---|---|
+| Austria | `AT` |
+| Belgium | `BE` |
+| Bulgaria | `BG` |
+| Croatia | `HR` |
+| Czechia | `CZ` |
+| Denmark | `DK1`, `DK2` |
+| Estonia | `EE` |
+| Finland | `FI` |
+| France | `FR` |
+| Germany & Luxembourg | `DE-LU` |
+| Greece | `GR` |
+| Hungary | `HU` |
+| Ireland | `IE-SEM` |
+| Italy | `IT-NORD`, `IT-CNOR`, `IT-CSUD`, `IT-SUD`, `IT-CALA`, `IT-SICI`, `IT-SARD` |
+| Latvia | `LV` |
+| Lithuania | `LT` |
+| Montenegro | `ME` |
+| Netherlands | `NL` |
+| North Macedonia | `MK` |
+| Norway | `NO1`, `NO2`, `NO3`, `NO4`, `NO5` |
+| Poland | `PL` |
+| Portugal | `PT` |
+| Romania | `RO` |
+| Serbia | `RS` |
+| Slovakia | `SK` |
+| Slovenia | `SI` |
+| Spain | `ES` |
+| Sweden | `SE1`, `SE2`, `SE3`, `SE4` |
+| Switzerland | `CH` |
 
 !!! note "Currency notice"
-    Kilowahti currently supports only the official electricity market currency EUR. Conversions to DKK, NOK and SEK will become possible later.
+    Non-eurozone regions can display prices in their local currency (SEK, NOK, DKK, CHF, PLN, CZK, HUF, RON, RSD, MKD), converted from EUR with a daily exchange rate. See [Configuration](configuration.md#display-currency-non-eur-regions).
 
 ## Quick start
 

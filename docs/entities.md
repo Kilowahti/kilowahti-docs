@@ -73,6 +73,8 @@ Disabled by default. Enable individually in the entity registry if needed.
 | `sensor.kilowahti_{name}_setting_active_transfer_group` | Label of the currently active transfer group, or unavailable |
 | `sensor.kilowahti_{name}_setting_active_transfer_tier` | Label of the currently active transfer tier, or unavailable |
 | `sensor.kilowahti_{name}_setting_active_fixed_period` | Label of the currently active fixed-price period, or unavailable |
+| `sensor.kilowahti_{name}_price_data_source` | Price source currently in use: `kilowahti_cdn` or `spot_hinta` (enabled by default) |
+| `sensor.kilowahti_{name}_exchange_rate` | Daily EUR → local currency rate in use; only present when a local display currency is selected (enabled by default) |
 
 One additional diagnostic sensor per score profile:
 

@@ -11,7 +11,36 @@ The setup wizard runs when you first add the integration. All settings are also 
 | Name | Used in entity names, e.g. `Home` → `sensor.kilowahti_home_spot_price` |
 | Price region | Your electricity market area (see [supported regions](index.md#supported-regions)) |
 | Price resolution | 15 minutes (96 slots/day) or 1 hour (24 slots/day) — match your contract's metering interval |
-| Display unit | `c/kWh` or `€/kWh` |
+| Display unit | Minor or major currency unit per kWh, e.g. `c/kWh` or `€/kWh` (labels follow the display currency) |
+
+#### Price data
+
+Prices are fetched automatically — there is nothing to configure. Kilowahti tries its own
+first-party service first (`cdn.kilowahti.fi`, backed by the ENTSO-E Transparency Platform)
+and falls back to spot-hinta.fi when needed. The diagnostic sensor
+`price_data_source` shows which source is currently in use.
+
+#### Display currency (non-EUR regions)
+
+For regions that bill in a local currency, the wizard shows an extra step:
+
+| Field | Description |
+|---|---|
+| Display currency | `EUR` or the region's local currency (e.g. `SEK`) |
+| Exchange rate source | Automatic (daily ECB reference rate) or manual |
+| Manual exchange rate | Local currency per EUR; used in manual mode and as fallback when the automatic rate is unavailable |
+
+Spot prices are converted from EUR with a daily exchange rate that stays frozen for the whole
+day, so a slot's price never changes after you have seen it. All prices you enter (commission,
+transfer tiers, fixed periods, thresholds) are in the selected display currency, and switching
+currency converts your entered prices automatically. Serbia (`RS`) and North Macedonia (`MK`)
+are not covered by the ECB reference rates — those regions use a manual rate only.
+
+!!! warning "Long-term statistics"
+    Changing the display currency changes the unit of every price entity. Home Assistant's
+    long-term statistics do not convert old data — statistics recorded in the previous unit
+    will show a unit mismatch. If you rely on long-term statistics, pick the currency once
+    at setup and stick with it.
 
 ### 2. VAT & electricity tax
 
