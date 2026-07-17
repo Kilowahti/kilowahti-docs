@@ -16,7 +16,7 @@ The setup wizard runs when you first add the integration. All settings are also 
 #### Price data
 
 Prices are fetched automatically — there is nothing to configure. Kilowahti tries its own
-first-party service first (`cdn.kilowahti.fi`, backed by the ENTSO-E Transparency Platform)
+first-party service first (the Kilowahti CDN, backed by the ENTSO-E Transparency Platform)
 and falls back to spot-hinta.fi when needed. The diagnostic sensor
 `price_data_source` shows which source is currently in use.
 

@@ -52,7 +52,7 @@ Spot prices from the API are always VAT-exclusive. Kilowahti applies VAT automat
 ## Where do prices come from?
 
 Kilowahti fetches prices through an automatic source chain — there is no source setting.
-The primary source is `cdn.kilowahti.fi`, Kilowahti's own first-party service: it publishes
+The primary source is the Kilowahti CDN, Kilowahti's own first-party service: it publishes
 day-ahead prices for all supported regions from the ENTSO-E Transparency Platform (the
 official European market data source) as static JSON through a European CDN. No account or
 API key is needed, and no personal data is collected. If the CDN cannot be reached,
