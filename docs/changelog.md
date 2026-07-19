@@ -16,7 +16,7 @@
 
 ## Version 2026.5.0 (2026-05-05)
 
-### Fixes
+### Fixed
 
 - Monthly score no longer shows NaN at the start of a new month — uses the current quartile midpoint as a placeholder when no consumption is recorded, includes today's in-progress score in the monthly average, and falls back to the previous month's finalised score when the current month is empty
 - Optimization score accumulation now ranks slots by true total price (fixed-period rate or spot + transfer) instead of spot-only API rank — primarily affects fixed-price contract users
