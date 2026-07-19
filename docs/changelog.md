@@ -1,6 +1,6 @@
 # Changelog
 
-## 2026.8.0 — TBD
+## Version 2026.8.0 (TBD)
 
 - Europe-wide: 43 bidding zones across 30 countries, with per-region VAT and unit presets
 - Automatic price source chain: first-party Kilowahti CDN (ENTSO-E data) with spot-hinta.fi fallback; `price_data_source` diagnostic sensor shows the active source
@@ -9,12 +9,12 @@
 - Effective price statistics sensors (`today_avg/min/max`, `tomorrow_avg/min/max`) and `spot_next_hours_avg`
 - Config flow label clarified: "Control factor function" → "Control factor curve"
 
-## 2026.6.0 — 2026-06-25
+## Version 2026.6.0 (2026-06-25)
 
 - Kilowahti is now in the HACS default repository — no custom repository URL needed
 - HACS country filter updated to include all supported price regions: DK, EE, FI, LT, LV, NO, SE
 
-## 2026.5.0 — 2026-05-05
+## Version 2026.5.0 (2026-05-05)
 
 ### Fixes
 
@@ -35,7 +35,7 @@
 
 - `best_charge_hours` service — consolidated into `cheapest_hours` (use `cheapest_hours` with `reverse: true` for the equivalent)
 
-## 2026.3.0 — 2026-03-16
+## Version 2026.3.0 (2026-03-16)
 
 ### ⚠️ BREAKING CHANGES ⚠️
 
@@ -66,14 +66,14 @@
 
 ---
 
-## 2026.3.0-beta.2 — 2026-03-15
+## Version 2026.3.0-beta.2 (2026-03-15)
 
 - Fix `today_total_avg/min/max` to use effective price (respects fixed-price periods) instead of raw spot price
 - Fix `tomorrow_total_avg/min/max` to always use fixed price when fixed-price period is active, regardless of whether spot prices have been fetched
 
 ---
 
-## 2026.3.0-beta.1 — 2026-03-14
+## Version 2026.3.0-beta.1 (2026-03-14)
 
 - First beta release
 - Add `today_total_avg`, `today_total_min`, `today_total_max` — today's total price (spot + transfer) statistics
@@ -83,7 +83,7 @@
 
 ---
 
-## 2026.3.0-alpha.6 — 2026-03-11
+## Version 2026.3.0-alpha.6 (2026-03-11)
 
 - Add `total_price_rank` sensor — ranks current slot by total price (spot + transfer) among today's slots
 - Add writable `price_threshold` and `rank_threshold` number entities — adjust thresholds from automations or dashboard without reopening configuration
@@ -92,6 +92,6 @@
 
 ---
 
-## 2026.3.0-alpha.5 — 2026-03-10
+## Version 2026.3.0-alpha.5 (2026-03-10)
 
 First public test release.
