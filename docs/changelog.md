@@ -3,8 +3,9 @@
 ## Version 2026.8.0 (TBD)
 
 - Europe-wide: 43 bidding zones across 30 countries, with per-region VAT and unit presets
-- Automatic price source chain: first-party Kilowahti CDN (ENTSO-E data) with spot-hinta.fi fallback; `price_data_source` diagnostic sensor shows the active source
+- Automatic price source chain: first-party Kilowahti CDN (ENTSO-E data, all 43 zones) with spot-hinta.fi fallback in Nordic and Baltic zones only; `price_data_source` diagnostic sensor shows the active source
 - Local currency display for non-eurozone regions (SEK, NOK, DKK, CHF, PLN, CZK, HUF, RON, RSD, MKD): daily ECB or manual exchange rate, frozen per day; switching currency converts entered prices automatically; `exchange_rate` diagnostic sensor
+- 23 additional UI languages (25 total) covering all supported regions; many are machine-assisted and native-speaker corrections are welcome
 - Automation triggers (8) and conditions (5): price/rank acceptability edges, cheapest slot, fixed period start/end, tomorrow's prices available
 - Effective price statistics sensors (`today_avg/min/max`, `tomorrow_avg/min/max`) and `spot_next_hours_avg`
 - Config flow label clarified: "Control factor function" → "Control factor curve"
