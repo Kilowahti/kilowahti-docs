@@ -1,6 +1,6 @@
 # kilowahti-py
 
-**kilowahti-py** is the pure-Python library that powers the Kilowahti Home Assistant integration. It can be used independently in any Python project that needs to work with Nordic/Baltic electricity spot prices.
+**kilowahti-py** is the pure-Python library that powers the Kilowahti Home Assistant integration. It can be used independently in any Python project that needs to work with European electricity spot prices.
 
 - **PyPI package name:** `kilowahti`
 - **Requires:** Python ≥ 3.12, aiohttp ≥ 3.9
@@ -18,13 +18,14 @@ pip install kilowahti
 |--------|----------|
 | [`kilowahti.models`](models.md) | Data classes: `PriceSlot`, `TransferGroup`, `FixedPeriod`, … |
 | [`kilowahti.calc`](calc.md) | Pure calculation functions — pricing, ranking, scoring |
-| [`kilowahti.sources`](sources.md) | `PriceSource` ABC and `SpotHintaSource` implementation |
+| [`kilowahti.sources`](sources.md) | `PriceSource` ABC with `KilowahtiCdnSource` and `SpotHintaSource` implementations |
 | [`kilowahti.const`](const.md) | API URLs, region list, country presets, unit constants |
 
-Everything public is also re-exported from the top-level `kilowahti` namespace:
+Models, calculation functions, and constants are re-exported from the top-level `kilowahti` namespace; the price source classes live under `kilowahti.sources`:
 
 ```python
-from kilowahti import PriceSlot, SpotHintaSource, spot_effective, COUNTRY_PRESETS
+from kilowahti import PriceSlot, spot_effective, COUNTRY_PRESETS
+from kilowahti.sources.kilowahti_cdn import KilowahtiCdnSource
 ```
 
 ## Quick example
@@ -32,12 +33,13 @@ from kilowahti import PriceSlot, SpotHintaSource, spot_effective, COUNTRY_PRESET
 ```python
 import asyncio
 import aiohttp
-from kilowahti import SpotHintaSource, PriceResolution, spot_effective
+from kilowahti import PriceResolution, spot_effective
+from kilowahti.sources.kilowahti_cdn import KilowahtiCdnSource
 
 async def main():
-    source = SpotHintaSource()
+    source = KilowahtiCdnSource()
     async with aiohttp.ClientSession() as session:
-        slots = await source.fetch_today(session, region="FI", resolution=PriceResolution.HOUR)
+        slots = await source.fetch_today(session, region="FI", resolution=PriceResolution.MIN15)
 
     vat_rate = 0.255  # 25.5 % Finnish VAT
     for slot in slots:

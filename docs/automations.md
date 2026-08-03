@@ -108,7 +108,7 @@ action:
 
 Use `control_factor_price` to modulate a setpoint rather than switching on/off. 1.0 = cheapest slot, 0.0 = most expensive.
 
-This example adjusts a thermostat setpoint between 19 °C (expensive) and 22 °C (cheap):
+This example adjusts a thermostat setpoint between 19 °C (expensive) and 22 °C (cheap) using 0.5 °C steps:
 
 ```yaml
 alias: Adjust thermostat by price
@@ -119,7 +119,7 @@ action:
   - action:climate.set_temperature
     data:
       temperature: >
-        {{ 19 + (states('sensor.kilowahti_{name}_control_factor_price') | float) * 3 }}
+        {{ (19 + (states('sensor.kilowahti_{name}_control_factor_price') | float) * 3) | round(0, "half") }}
     target:
       entity_id: climate.living_room
 ```
@@ -129,13 +129,16 @@ For a ±1 bipolar input (e.g. to feed a PID controller), use `sensor.kilowahti_{
 !!! note
     The control factor shape (linear or sinusoidal) and scaling exponent are configurable in Kilowahti options. Sinusoidal gives a gentler response near the extremes.
 
+!!! tip
+    Home Assistant ships an improved version of Jinja's `round` filter — including the `"half"` method used above, which rounds to the nearest 0.5. See [Home Assistant's `round` documentation](https://www.home-assistant.io/template-functions/round/).
+
 ---
 
 ## Scale EV charging current by price
 
 Rather than switching an EV charger on or off, use `control_factor_price` to continuously scale the charging current between a minimum and maximum. 1.0 = cheapest slot (full current), 0.0 = most expensive slot (minimum current).
 
-This example scales between 6 A and 16 A:
+This example scales between 6 A and 16 A using 1 A steps:
 
 ```yaml
 alias: Scale EV charging current by price
@@ -200,7 +203,7 @@ Replace `select.battery_mode` and the option values with the entities and modes 
 
 ## Notify when tomorrow's prices are available
 
-Tomorrow's prices are published by the exchange around 14:00–15:00 EET. Trigger on `tomorrow_available` turning on to send a push notification with the day's price range.
+Tomorrow's prices are published in the early afternoon (around 13:00 CET; later in some markets). Trigger on `tomorrow_available` turning on to send a push notification with the day's price range.
 
 ```yaml
 alias: Notify when tomorrow's prices arrive

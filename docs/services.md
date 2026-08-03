@@ -91,7 +91,7 @@ Set `reverse: true` to return the **latest** cheapest window when there are ties
 ```
 
 !!! tip "Scheduling appliances at the cheapest time"
-    Call this service once per day after tomorrow's prices arrive, store the result in an `input_datetime` helper, and trigger your appliance from that. See [Automation guides → Schedule appliance at cheapest upcoming window](automations.md#schedule-appliance-at-cheapest-upcoming-window) for a complete example.
+    Call this service once per day after tomorrow's prices arrive, store the result in an `input_datetime` helper, and trigger your appliance from that. See [Automation examples → Schedule appliance at cheapest upcoming window](automations.md#schedule-appliance-at-cheapest-upcoming-window) for a complete example.
 
 ---
 

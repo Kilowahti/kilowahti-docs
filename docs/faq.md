@@ -2,14 +2,14 @@
 
 ## Why are tomorrow's prices not showing?
 
-Day-ahead prices are published by the exchange around 14:00–15:00 EET (13:00–14:00 CET). Kilowahti starts polling automatically at 14:00 local time by default and retries once per minute until 21:00 or until prices appear. The `binary_sensor.kilowahti_{name}_tomorrow_available` turns on when they arrive.
+Day-ahead prices are published per market in the early afternoon Central European Time (around 13:00 CET; some markets, such as Italy, publish later). Kilowahti starts polling automatically at 13:00 CET by default and retries once per minute until 21:00 CET or until prices appear (both hours are configurable in Advanced options). The `binary_sensor.kilowahti_{name}_tomorrow_available` turns on when they arrive.
 
 ## How often does Kilowahti call the API?
 
 Typically 2–3 times per day:
 
 1. On HA startup (if the local cache is stale)
-2. Once when tomorrow's prices become available (~14:00–15:00 EET)
+2. Once when tomorrow's prices become available (early afternoon CET)
 3. At midnight rollover if the tomorrow cache was empty
 
 Sensor value updates (rank, price, etc.) happen from the in-memory cache — no network calls.
@@ -20,9 +20,9 @@ Yes. Transfer-related sensors (`transfer_price`, `control_factor_transfer`) show
 
 ## What does the control factor sensor do?
 
-It provides a smooth 0–1 value you can feed directly into automations or scripts to modulate device power or setpoints based on price. 1.0 = cheapest slot, 0.0 = most expensive. Use `control_factor_price_bipolar` for a ±1 version.
+It provides a smooth 0–1 value you can feed directly into automations or scripts to modulate device power or setpoints based on price. 1.0 = cheapest slot, 0.0 = most expensive. Use `control_factor_price_bipolar` for a ±1 version, 1.0 = cheapest slot, -1.0 = most expensive.
 
-The convention of "cheaper = higher value" makes it natural to use as a multiplier for scaling setpoints, charging currents, etc. See [Automation guides → Proportional control](automations.md#proportional-control-thermostat-climate) for a thermostat example.
+The convention of "cheaper = higher value" makes it natural to use as a multiplier for scaling setpoints, charging currents, etc. See [Automation examples → Proportional control](automations.md#proportional-control-thermostat-climate) for a thermostat example.
 
 ## What is the difference between linear and sinusoidal control factor curves?
 
@@ -54,11 +54,15 @@ Spot prices from the API are always VAT-exclusive. Kilowahti applies VAT automat
 Kilowahti fetches prices through an automatic source chain — there is no source setting.
 The primary source is the Kilowahti CDN, Kilowahti's own first-party service: it publishes
 day-ahead prices for all supported regions from the ENTSO-E Transparency Platform (the
-official European market data source) as static JSON through a European CDN. No account or
-API key is needed, and no personal data is collected. If the CDN cannot be reached,
-Kilowahti falls back to the free third-party API spot-hinta.fi. Both serve the same
-day-ahead exchange prices, so sensor values are identical either way. The diagnostic sensor
-`price_data_source` shows which source is currently in use.
+official European market data source) as static JSON through a European CDN (content delivery network). No account or
+API key is needed, and no personal data is collected.
+
+If the CDN cannot be reached, Kilowahti falls back to the free third-party API
+spot-hinta.fi. Both serve the same day-ahead exchange prices, so sensor values are identical
+either way. Note that spot-hinta.fi only covers the Nordic and Baltic zones; in other regions
+the Kilowahti CDN is the only source, so there is no fallback (options are being looked at, promise).
+
+The diagnostic sensor `price_data_source` shows which source is currently in use.
 
 ## What happens if the price sources are unavailable?
 

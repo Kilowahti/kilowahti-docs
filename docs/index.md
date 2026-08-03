@@ -3,9 +3,9 @@
 ![Kilowahti](assets/dark_logo.png#only-dark){ style="max-width: 400px; width: 100%;" }
 </h1>
 
-**Kilowahti** (*kilowatti* + *vahti* — "the kilowatt sentinel") is a [Home Assistant](https://www.home-assistant.io) custom integration for Nordic/Baltic electricity cost awareness and optimization — whether you are on a spot contract or a fixed rate.
+**Kilowahti** (*kilowatti* + *vahti* — "the kilowatt sentinel") is a [Home Assistant](https://www.home-assistant.io) custom integration for European electricity cost awareness and optimization — whether you are on a spot contract or a fixed rate.
 
-It fetches day-ahead hourly or 15-minute spot prices from [spot-hinta.fi](https://spot-hinta.fi), applies your VAT and transfer pricing, and exposes sensors, binary sensors, and services you can use in automations, dashboards, and energy management scripts.
+It fetches day-ahead hourly or 15-minute spot prices — from the first-party Kilowahti CDN (ENTSO-E data) with automatic fallback to [spot-hinta.fi](https://spot-hinta.fi) — applies your VAT and transfer pricing, and exposes sensors, binary sensors, and services you can use in automations, dashboards, and energy management scripts.
 
 ## Key features
 

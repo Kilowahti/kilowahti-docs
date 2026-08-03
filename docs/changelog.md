@@ -2,43 +2,53 @@
 
 ## Version 2026.8.0 (TBD)
 
+**New**
+
 - Europe-wide: 43 bidding zones across 30 countries, with per-region VAT and unit presets
 - Automatic price source chain: first-party Kilowahti CDN (ENTSO-E data, all 43 zones) with spot-hinta.fi fallback in Nordic and Baltic zones only; `price_data_source` diagnostic sensor shows the active source
 - Local currency display for non-eurozone regions (SEK, NOK, DKK, CHF, PLN, CZK, HUF, RON, RSD, MKD): daily ECB or manual exchange rate, frozen per day; switching currency converts entered prices automatically; `exchange_rate` diagnostic sensor
 - 23 additional UI languages (25 total) covering all supported regions; many are machine-assisted and native-speaker corrections are welcome
 - Automation triggers (8) and conditions (5): price/rank acceptability edges, cheapest slot, fixed period start/end, tomorrow's prices available
 - Effective price statistics sensors (`today_avg/min/max`, `tomorrow_avg/min/max`) and `spot_next_hours_avg`
+
+**Changed**
+
 - Config flow label clarified: "Control factor function" → "Control factor curve"
 
 ## Version 2026.6.0 (2026-06-25)
 
-- Kilowahti is now in the HACS default repository — no custom repository URL needed
+**Fixed**
+
 - HACS country filter updated to include all supported price regions: DK, EE, FI, LT, LV, NO, SE
+
+**New**
+
+- Kilowahti is now in the HACS default repository — no custom repository URL needed
 
 ## Version 2026.5.0 (2026-05-05)
 
-### Fixed
+**Fixed**
 
 - Monthly score no longer shows NaN at the start of a new month — uses the current quartile midpoint as a placeholder when no consumption is recorded, includes today's in-progress score in the monthly average, and falls back to the previous month's finalised score when the current month is empty
 - Optimization score accumulation now ranks slots by true total price (fixed-period rate or spot + transfer) instead of spot-only API rank — primarily affects fixed-price contract users
 - `cheapest_hours` service now uses total price (fixed-period or spot + transfer) for window selection — was previously spot-only
 
-### New
+**New**
 
 - `total_price_quartile` sensor (1–4)
 - `cheapest_hours` accepts `reverse: true` parameter to return the latest cheapest window on ties
 
-### Changed
+**Changed**
 
 - `total_price_rank` is now normalized: 1 = cheapest, slots_per_day = most expensive (regardless of unique tier count)
 
-### Removed
+**Removed**
 
 - `best_charge_hours` service — consolidated into `cheapest_hours` (use `cheapest_hours` with `reverse: true` for the equivalent)
 
 ## Version 2026.3.0 (2026-03-16)
 
-### ⚠️ BREAKING CHANGES ⚠️
+**⚠️ Breaking changes**
 
 - Six sensors have been renamed to clarify they reflect spot prices only:
 
@@ -53,13 +63,13 @@
 
   Update any automations or dashboard cards referencing the old entity IDs.
 
-### New shiny things
+**New shiny things**
 
 - Add generation & export support for users with solar panels and/or home batteries: export pricing sensors, battery charge/discharge optimization sensors and binary sensors, and related services
 - Add rolling average price sensors (30/60/120 min ahead) — opt-in, 15-min resolution only
 - Add monthly fixed cost configuration: electricity contract base fee and per-transfer-group fee, shown as a daily cost sensor
 
-### Maintenance
+**Maintenance**
 
 - Fix `tomorrow_total_avg/min/max` showing Unknown when a fixed-price period covered tomorrow
 - Fix optimization score sensors showing `0.0` instead of Unknown when no meter is configured

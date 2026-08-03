@@ -32,7 +32,7 @@ When a transfer group is active:
 
 *Yleissiirto* is a single-rate tariff with no time restrictions — the same price applies around the clock, every day of the year. It requires only one tier.
 
-### Step-by-step setup
+**Step-by-step setup**
 
 1. Go to **Settings → Devices & Services → Kilowahti → Configure → Transfer pricing**
 2. Select **➕ Add group**, enter the name **Yleissiirto**, and confirm
@@ -63,7 +63,7 @@ When a transfer group is active:
 
 Because Kilowahti evaluates tiers in priority order and stops at the first match, define the more restricted rate first (day) and let the night rate act as a catch-all with broader criteria.
 
-### Step-by-step setup
+**Step-by-step setup**
 
 1. Go to **Settings → Devices & Services → Kilowahti → Configure → Transfer pricing**
 2. Select **➕ Add group**, enter the name **Aikasiirto**, and confirm
@@ -110,7 +110,7 @@ Finnish network operators commonly offer a *kausisiirto* (seasonal transfer) tar
 
 Same priority approach as Aikasiirto above — define the peak rate explicitly and let the off-peak tier act as a catch-all.
 
-### Step-by-step setup
+**Step-by-step setup**
 
 1. Go to **Settings → Devices & Services → Kilowahti → Configure → Transfer pricing**
 2. Select **➕ Add group**, enter the name **Kausisiirto**, and confirm
