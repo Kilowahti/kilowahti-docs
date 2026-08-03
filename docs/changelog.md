@@ -1,6 +1,6 @@
 # Changelog
 
-## Version 2026.8.0 (TBD)
+## Version 2026.8.0 (2026-08-03)
 
 **New**
 
