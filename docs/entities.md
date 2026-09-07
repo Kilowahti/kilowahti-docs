@@ -95,7 +95,7 @@ The initial values come from the **Thresholds & control** options. Changes made 
 
 ### Rolling average sensors
 
-Available only when using 15-minute price resolution. Enable via **Show rolling averages** in **Configure → Advanced options**.
+Available only when using 15-minute price resolution. Enable via **Show next 30min, 1h and 2h average prices** in **Configure → Advanced options**.
 
 | Entity | Description |
 |---|---|

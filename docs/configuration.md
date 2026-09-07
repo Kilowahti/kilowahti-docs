@@ -79,7 +79,7 @@ Additional profiles can be added (e.g. per-device or per-circuit meters).
 
 | Field | Description |
 |---|---|
-| Expose price arrays as attributes | Writes `today_prices` and `tomorrow_prices` arrays to the `spot_price` sensor attributes — useful for graphing cards (e.g. Apex Charts) but increases DB size |
+| Expose spot price arrays as attributes | Writes `today_prices` and `tomorrow_prices` arrays to the `spot_price` sensor attributes — useful for graphing cards (e.g. Apex Charts) but increases DB size |
 | Expose total price arrays as attributes | Same for the `total_price` sensor, with each entry broken down into `energy` and `transfer` |
 | High precision mode | Shows more decimal places on price sensors and price arrays |
 
