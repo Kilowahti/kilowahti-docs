@@ -10,10 +10,10 @@ The display unit (`c/kWh` or `€/kWh`) is set during configuration and applies 
 
 | Entity | Description |
 |---|---|
-| `sensor.kilowahti_{name}_spot_price` | Current slot's spot price (VAT included) |
+| `sensor.kilowahti_{name}_spot_price` | Current slot's spot price (VAT included). Attributes: `price_source`, plus `today_prices`/`tomorrow_prices` when price arrays are enabled |
 | `sensor.kilowahti_{name}_effective_price` | Spot price, or fixed price when a fixed period is active. Attributes: `source` (`spot`/`fixed`), `period_label` |
 | `sensor.kilowahti_{name}_transfer_price` | Active transfer tier price; unavailable until a transfer group is configured |
-| `sensor.kilowahti_{name}_total_price` | Effective price + transfer price |
+| `sensor.kilowahti_{name}_total_price` | Effective price + transfer price. Attributes: `today_prices`/`tomorrow_prices` when total price arrays are enabled |
 | `sensor.kilowahti_{name}_today_spot_avg` | Today's average spot price |
 | `sensor.kilowahti_{name}_today_spot_min` | Today's lowest spot price |
 | `sensor.kilowahti_{name}_today_spot_max` | Today's highest spot price |

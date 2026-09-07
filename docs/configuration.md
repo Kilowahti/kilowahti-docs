@@ -80,7 +80,34 @@ Additional profiles can be added (e.g. per-device or per-circuit meters).
 | Field | Description |
 |---|---|
 | Expose price arrays as attributes | Writes `today_prices` and `tomorrow_prices` arrays to the `spot_price` sensor attributes — useful for graphing cards (e.g. Apex Charts) but increases DB size |
-| High precision mode | Shows more decimal places on price sensors |
+| Expose total price arrays as attributes | Same for the `total_price` sensor, with each entry broken down into `energy` and `transfer` |
+| High precision mode | Shows more decimal places on price sensors and price arrays |
+
+#### Price array attributes
+
+Both toggles are off by default. Values are rounded to the display precision (2 decimals, or 5 in high precision mode; two more when the display unit is `€/kWh`).
+
+`spot_price` entries:
+
+```yaml
+today_prices:
+  - time: "2026-09-07T14:00:00+03:00"
+    price: 12.34
+    rank: 7
+```
+
+`total_price` entries add the breakdown, where `price` is the sum of the two rounded parts and `rank` is the total-price rank within that day (1 = cheapest). `transfer` is `0.0` when no transfer group is configured:
+
+```yaml
+today_prices:
+  - time: "2026-09-07T14:00:00+03:00"
+    energy: 8.90
+    transfer: 3.44
+    price: 12.34
+    rank: 7
+```
+
+`tomorrow_prices` appears on both sensors only once tomorrow's prices have been fetched.
 
 ## Updating settings
 
