@@ -19,6 +19,12 @@ Each tier defines a price and a time schedule:
 !!! tip
     Add a base rate tier with no time restrictions at the lowest priority as a catch-all. This ensures a transfer price is always matched.
 
+## Viewing and editing tiers
+
+Open **Configure → Transfer pricing** and select a group. The group screen lists every tier it holds — price, months, weekdays, hour range, and priority — in evaluation order.
+
+Selecting **✎ Edit tier** opens the tier with all of its current values filled in. Change any field and confirm to save, or tick **Remove this tier** to delete it.
+
 ## Effect on sensors and binary sensors
 
 When a transfer group is active:
