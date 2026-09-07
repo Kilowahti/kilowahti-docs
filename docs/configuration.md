@@ -79,13 +79,15 @@ Additional profiles can be added (e.g. per-device or per-circuit meters).
 
 | Field | Description |
 |---|---|
-| Expose spot price arrays as attributes | Writes `today_prices` and `tomorrow_prices` arrays to the `spot_price` sensor attributes — useful for graphing cards (e.g. Apex Charts) but increases DB size |
+| Expose spot price arrays as attributes | Writes `today_prices` and `tomorrow_prices` arrays to the `spot_price` sensor attributes — useful for graphing cards (e.g. Apex Charts) |
 | Expose total price arrays as attributes | Same for the `total_price` sensor, with each entry broken down into `energy` and `transfer` |
 | High precision mode | Shows more decimal places on price sensors and price arrays |
 
 #### Price array attributes
 
 Both toggles are off by default. Values are rounded to the display precision (2 decimals, or 5 in high precision mode; two more when the display unit is `€/kWh`).
+
+The arrays are excluded from the recorder, so they do not grow the database and are not available in history — they describe the current and next day, and are read from the sensor's live state.
 
 `spot_price` entries:
 
@@ -107,7 +109,7 @@ today_prices:
     rank: 7
 ```
 
-`tomorrow_prices` appears on both sensors only once tomorrow's prices have been fetched.
+`tomorrow_prices` appears once tomorrow's prices have been fetched. The exception is `total_price` during a [fixed-price period](fixed-periods.md) that also covers tomorrow: the price is known in advance, so the array is published without waiting for the spot prices.
 
 ## Updating settings
 
