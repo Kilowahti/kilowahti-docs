@@ -2,6 +2,8 @@
 
 The setup wizard runs when you first add the integration. All settings are also editable later via **Settings → Devices & Services → Kilowahti → Configure**.
 
+This page documents every field. For a first setup, [First setup](getting-started.md) covers the same wizard with recommended answers and tells you which steps to skip.
+
 ## Setup steps
 
 ### 1. Basic settings

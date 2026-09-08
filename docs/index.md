@@ -89,6 +89,8 @@ It fetches day-ahead hourly or 15-minute spot prices — from the first-party Ki
 3. Complete the setup wizard
 4. Use the sensors in your dashboards and automations
 
+New to Kilowahti? **[First setup](getting-started.md)** walks through all of that in about ten minutes, including which wizard answers to skip and how to build a first automation.
+
 ## Feedback
 
 Have ideas, found a bug, or just want to share how you're using Kilowahti? We'd love to hear from you — no GitHub account needed.

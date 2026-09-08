@@ -32,6 +32,7 @@ nav:
   - Home: index.md
   - Getting started:
     - Installation: installation.md
+    - First setup: getting-started.md
     - Configuration: configuration.md
   - Reference:
     - Entities: entities.md

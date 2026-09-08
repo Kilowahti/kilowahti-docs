@@ -2,6 +2,22 @@
 
 All entities are grouped under a single **Kilowahti** device per configured instance. Entity names use the name you set during setup (e.g. `Home`).
 
+## Start with these
+
+This page is a complete reference, and most of it you will never need. A typical setup uses five entities:
+
+| Entity | What it is for |
+|---|---|
+| `sensor.kilowahti_{name}_total_price` | What a kWh costs you right now, everything included. The number to put on a dashboard |
+| `sensor.kilowahti_{name}_price_rank` | Where this slot sits in today's prices; 1 = cheapest. The number to automate on |
+| `binary_sensor.kilowahti_{name}_rank_acceptable` | `on` while the price rank is at or below your threshold |
+| `number.kilowahti_{name}_rank_threshold` | Sets that threshold, adjustable from a dashboard without reopening setup |
+| `binary_sensor.kilowahti_{name}_tomorrow_available` | `on` once tomorrow's prices have arrived, usually mid-afternoon |
+
+Everything below is there when you need it. Whole groups only exist when you turn them on: export and solar sensors require **generation** enabled in Advanced options, battery sensors require a battery capacity, and rolling averages are off by default.
+
+New to the integration? [Getting started](getting-started.md) sets these up end to end.
+
 ## Sensors
 
 ### Price sensors
