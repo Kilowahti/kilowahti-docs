@@ -2,7 +2,7 @@
 
 ## Why are tomorrow's prices not showing?
 
-Day-ahead prices are published per market in the early afternoon Central European Time (around 13:00 CET; some markets, such as Italy, publish later). Kilowahti starts polling automatically at 13:00 CET by default and retries once per minute until 21:00 CET or until prices appear (both hours are configurable in Advanced options). The `binary_sensor.kilowahti_{name}_tomorrow_available` turns on when they arrive.
+Day-ahead prices are published per market in the early afternoon Central European Time (around 13:00 CET; some markets, such as Italy, publish later). Kilowahti starts polling automatically at 13:00 CET by default and retries once per minute until 21:00 CET or until prices appear (both hours are configurable in Advanced options). The `binary_sensor.kilowahti_{name}_tomorrow_s_prices_available` turns on when they arrive.
 
 ## How often does Kilowahti call the API?
 

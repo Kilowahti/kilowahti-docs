@@ -46,7 +46,7 @@ Open **Settings → Devices & Services → Kilowahti → 1 device**, and look fo
 |---|---|
 | `sensor.kilowahti_{name}_spot_price` | The market price for right now |
 | `sensor.kilowahti_{name}_total_price` | What you actually pay per kWh, VAT and grid fees included |
-| `sensor.kilowahti_{name}_price_rank` | Where this slot ranks in today's prices — 1 is the cheapest of the day |
+| `sensor.kilowahti_{name}_rank` | Where this slot ranks in today's prices — 1 is the cheapest of the day |
 | `binary_sensor.kilowahti_{name}_rank_acceptable` | `on` when the current slot is at or below your rank threshold |
 | `sensor.kilowahti_{name}_price_data_source` | Which price source is being used |
 
@@ -85,7 +85,7 @@ type: entities
 title: Electricity
 entities:
   - entity: sensor.kilowahti_{name}_total_price
-  - entity: sensor.kilowahti_{name}_price_rank
+  - entity: sensor.kilowahti_{name}_rank
   - entity: binary_sensor.kilowahti_{name}_rank_acceptable
   - entity: number.kilowahti_{name}_rank_threshold
 ```

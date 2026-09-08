@@ -64,7 +64,7 @@ You can skip this step and configure transfer pricing later via Configure. See [
 | Control max price | Price at or below this turns on the `price_acceptable` binary sensor |
 | Max price includes transfer | Whether the price threshold compares against the total price (active price + transfer) or the active price alone |
 | Control max rank | Rank at or below this turns on the `rank_acceptable` binary sensor |
-| Forward average window | Hours ahead used for the `next_hours_avg` sensor (1–24, in 0.25 h steps) |
+| Forward average window | Hours ahead used for the `next_hours_average` sensor (1–24, in 0.25 h steps) |
 | Control factor curve | Shape of the 0–1 control factor curve: Linear or Sinusoidal (see [Control factor → Curve and scaling](control-factor.md#curve-and-scaling)) |
 | Control factor scaling | Exponent applied to amplify extremes (1–3) |
 

@@ -208,23 +208,23 @@ Replace `select.battery_mode` and the option values with the entities and modes 
 
 ## Notify when tomorrow's prices are available
 
-Tomorrow's prices are published in the early afternoon (around 13:00 CET; later in some markets). Trigger on `tomorrow_available` turning on to send a push notification with the day's price range.
+Tomorrow's prices are published in the early afternoon (around 13:00 CET; later in some markets). Trigger on the tomorrow's-prices-available binary sensor turning on to send a push notification with the day's price range.
 
 ```yaml
 alias: Notify when tomorrow's prices arrive
 trigger:
   - platform: state
-    entity_id: binary_sensor.kilowahti_{name}_tomorrow_available
+    entity_id: binary_sensor.kilowahti_{name}_tomorrow_s_prices_available
     to: "on"
 action:
   - action:notify.mobile_app_your_phone
     data:
       title: "Tomorrow's electricity prices"
       message: >
-        Min {{ states('sensor.kilowahti_{name}_tomorrow_spot_min') }},
-        avg {{ states('sensor.kilowahti_{name}_tomorrow_spot_avg') }},
-        max {{ states('sensor.kilowahti_{name}_tomorrow_spot_max') }}
-        {{ state_attr('sensor.kilowahti_{name}_tomorrow_spot_min', 'unit_of_measurement') }}
+        Min {{ states('sensor.kilowahti_{name}_tomorrow_spot_minimum') }},
+        avg {{ states('sensor.kilowahti_{name}_tomorrow_spot_average') }},
+        max {{ states('sensor.kilowahti_{name}_tomorrow_spot_maximum') }}
+        {{ state_attr('sensor.kilowahti_{name}_tomorrow_spot_minimum', 'unit_of_measurement') }}
 ```
 
 Replace `notify.mobile_app_your_phone` with your notification service.
@@ -241,13 +241,13 @@ trigger:
   - platform: template
     value_template: >
       {{ states('sensor.kilowahti_{name}_spot_price') | float(0) >
-         states('sensor.kilowahti_{name}_today_spot_avg') | float(0) }}
+         states('sensor.kilowahti_{name}_today_spot_average') | float(0) }}
 action:
   - action:notify.mobile_app_your_phone
     data:
       message: >
         Electricity price {{ states('sensor.kilowahti_{name}_spot_price') }}
-        is above today's average {{ states('sensor.kilowahti_{name}_today_spot_avg') }}
+        is above today's average {{ states('sensor.kilowahti_{name}_today_spot_average') }}
         {{ state_attr('sensor.kilowahti_{name}_spot_price', 'unit_of_measurement') }}.
 ```
 

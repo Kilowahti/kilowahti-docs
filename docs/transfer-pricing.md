@@ -38,7 +38,7 @@ When a transfer group is active:
 - `sensor.kilowahti_{name}_transfer_price` shows the current tier's price. Its `tariff` attribute names the group and tier in use, e.g. `Kausisiirto, Muu aika`, with `group` and `tier` also available separately
 - `sensor.kilowahti_{name}_total_price` becomes the active price plus the transfer price
 - `sensor.kilowahti_{name}_control_factor_transfer` rates the current tier against the other tiers occurring today: **1.0 = cheapest tier, 0.0 = most expensive**, on the same scale as the other [control factors](control-factor.md). A group with only one tier in play sits at a constant 1.0. There is a bipolar variant running from −1 to +1
-- `sensor.kilowahti_{name}_total_price_rank` and `control_factor_total` take the transfer price into account; the plain `price_rank` and `control_factor_price` do not
+- `sensor.kilowahti_{name}_total_price_rank` and `control_factor_total` take the transfer price into account; the plain `rank` sensor and `control_factor_price` do not
 - The `price_acceptable` binary sensor can optionally include the transfer price in its comparison (configured via **Max price includes transfer**)
 
 Until a transfer group is configured, `transfer_price` and `control_factor_transfer` read *unknown* rather than zero — Kilowahti does not pretend the grid is free.
