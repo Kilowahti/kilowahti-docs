@@ -18,5 +18,5 @@ Kilowahti is available in the [HACS](https://hacs.xyz/) default repository.
 
 ## Requirements
 
-- Home Assistant 2024.1 or newer
+- Home Assistant 2026.7 or newer — the triggers and conditions Kilowahti provides use platform APIs introduced in that release
 - Outbound HTTPS access to `cdn.kilowahti.fi` (primary price source) and `api.spot-hinta.fi` (automatic fallback)
