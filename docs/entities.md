@@ -33,20 +33,29 @@ The display unit (`c/kWh` or `€/kWh`) is set during configuration and applies 
 
 | Entity | Description |
 |---|---|
-| `sensor.kilowahti_{name}_price_rank` | Current slot's rank by spot price among today's slots; 1 = cheapest |
-| `sensor.kilowahti_{name}_total_price_rank` | Current slot's rank by total price (fixed-period rate or spot + transfer) among today's slots. Normalized: 1 = cheapest, slots_per_day = most expensive |
-| `sensor.kilowahti_{name}_price_quartile` | Spot price quartile 1–4; 1 = cheapest 25% of slots |
+| `sensor.kilowahti_{name}_price_rank` | Current slot's rank by the energy price you actually pay (fixed-period rate when one is active, otherwise spot); transfer excluded. Normalized: 1 = cheapest, slots_per_day = most expensive |
+| `sensor.kilowahti_{name}_total_price_rank` | Same, with transfer included in the price |
+| `sensor.kilowahti_{name}_price_quartile` | Energy price quartile 1–4 (derived from price_rank); 1 = cheapest 25% of slots |
 | `sensor.kilowahti_{name}_total_price_quartile` | Total price quartile 1–4 (derived from total_price_rank); 1 = cheapest 25% of slots |
 
 The maximum rank is 96 for 15-minute resolution or 24 for 1-hour resolution.
 
+Ranks are tier-normalized: slots sharing a price share a rank, and the cheapest price of the day is always 1 while the dearest is always the maximum. During a [fixed-price period](fixed-periods.md) every slot costs the same, so `price_rank` reads 1 all day — there is no cheaper hour to wait for.
+
 ### Control factor sensors
+
+All three factors share one scale: **1.0 = cheapest, 0.0 = most expensive**, with the configured shape (linear/sinusoidal) and scaling applied to each. Each bipolar variant maps the same value onto −1 to +1.
 
 | Entity | Range | Description |
 |---|---|---|
-| `sensor.kilowahti_{name}_control_factor_price` | 0–1 | Rank-based factor; 1.0 at cheapest rank, 0.0 at most expensive. Shape (linear/sinusoidal) and scaling are configurable |
-| `sensor.kilowahti_{name}_control_factor_price_bipolar` | −1 to +1 | Bipolar version of the above; +1.0 at cheapest, −1.0 at most expensive |
-| `sensor.kilowahti_{name}_control_factor_transfer` | 0–1 | Normalized transfer tier rank among today's unique transfer tiers; 0.0 = cheapest tier. Unavailable until a transfer group is configured |
+| `sensor.kilowahti_{name}_control_factor_price` | 0–1 | From `price_rank`: the energy price you pay, transfer excluded |
+| `sensor.kilowahti_{name}_control_factor_price_bipolar` | −1 to +1 | Bipolar version of the above |
+| `sensor.kilowahti_{name}_control_factor_total` | 0–1 | From `total_price_rank`: energy plus transfer |
+| `sensor.kilowahti_{name}_control_factor_total_bipolar` | −1 to +1 | Bipolar version of the above |
+| `sensor.kilowahti_{name}_control_factor_transfer` | 0–1 | From the transfer tier rank among today's distinct tiers. Unavailable until a transfer group is configured |
+| `sensor.kilowahti_{name}_control_factor_transfer_bipolar` | −1 to +1 | Bipolar version of the above |
+
+The transfer factor ranks among the day's distinct tiers (typically two or three), so it moves in larger steps than the price and total factors, which rank among all slots. A group with a single tier, or a day spent inside a fixed-price period, gives a constant 1.0 — nothing that hour to prefer or avoid.
 
 ### Score sensors
 
