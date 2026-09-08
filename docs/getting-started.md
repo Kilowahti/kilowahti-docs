@@ -40,7 +40,7 @@ That's it — entities appear immediately.
 
 ## 3. Check that it worked
 
-Open **Settings → Devices & Services → Kilowahti → 1 device**, and look for these:
+Go to **Settings → Devices & Services → Kilowahti** and open the device it created. All of Kilowahti's entities live there. Look for these:
 
 | Entity | What you should see |
 |---|---|
