@@ -37,6 +37,7 @@ nav:
     - Entities: entities.md
     - Services: services.md
   - Guides:
+    - Triggers and conditions: triggers-conditions.md
     - Automation examples: automations.md
     - Optimization scores: scores.md
     - Transfer pricing: transfer-pricing.md

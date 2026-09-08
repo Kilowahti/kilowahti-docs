@@ -143,6 +143,8 @@ Available when generation is enabled (Advanced options) and **battery capacity >
 
 ## Binary sensors
 
+All of these except `price_or_rank_acceptable` have counterparts as [triggers and conditions](triggers-conditions.md), which are usually easier to build an automation from.
+
 | Entity | Description |
 |---|---|
 | `binary_sensor.kilowahti_{name}_price_acceptable` | On when current price is at or below the configured threshold |

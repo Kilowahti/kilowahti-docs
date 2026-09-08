@@ -2,6 +2,9 @@
 
 These examples use `{name}` as a placeholder for the name you set during configuration. If your name is `Home`, replace `{name}` with `home` in entity IDs.
 
+!!! tip "Starting out?"
+    Kilowahti provides its own [triggers and conditions](triggers-conditions.md) that you can pick straight from the automation editor — no entity IDs, no YAML. The examples below build the same behaviour from entities, which is what you need once you go beyond what those cover.
+
 ---
 
 ## Run during cheap hours (rank-based)
