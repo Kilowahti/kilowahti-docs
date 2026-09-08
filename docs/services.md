@@ -4,13 +4,13 @@ All services are registered under the `kilowahti` domain. When only one Kilowaht
 
 ## Price query services
 
-All price query services accept a `formatted` parameter (default `true`). When `false`, prices are returned as raw `c/kWh` at full precision regardless of your display unit setting.
+All price query services accept a `formatted` parameter (default `true`), which rounds prices to your display precision and converts them to your display unit. When `false`, prices come back at full precision in the minor unit of your display currency (`c/kWh`, `öre/kWh`, …).
 
 ---
 
 ### `kilowahti.get_active_prices`
 
-Returns all price slots for today and tomorrow (default), or a custom time range. Each slot includes the effective price (spot or fixed-period) and total price (effective + transfer).
+Returns all price slots for today and tomorrow (default), or a custom time range. Each slot includes the active price (spot, or your contract rate during a fixed-price period) and the total price (active price + transfer).
 
 ```yaml
 service: kilowahti.get_active_prices
@@ -97,7 +97,7 @@ Set `reverse: true` to return the **latest** cheapest window when there are ties
 
 ### `kilowahti.average_price`
 
-Returns aggregate price statistics for a time range, using spot effective price (with VAT and commission). Fixed-price periods and transfer are not included.
+Returns aggregate price statistics for a time range, using the spot price with VAT and commission applied. Fixed-price periods and transfer are not included.
 
 ```yaml
 service: kilowahti.average_price

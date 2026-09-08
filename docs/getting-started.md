@@ -52,7 +52,7 @@ Open **Settings → Devices & Services → Kilowahti → 1 device**, and look fo
 
 Replace `{name}` with the name you entered, lowercased.
 
-**Tomorrow's prices are not there yet, and that is normal.** The European day-ahead market publishes them in the early afternoon; Kilowahti starts looking at 13:00 CET and picks them up when they appear. Until then, every `tomorrow_*` sensor reads *unknown*.
+**If tomorrow's prices are not there yet, that is normal.** The European day-ahead market publishes them in the early afternoon; Kilowahti starts looking at 13:00 CET and picks them up when they appear. Until then, every `tomorrow_*` sensor reads *unknown*.
 
 ## 4. Build your first automation
 

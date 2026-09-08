@@ -16,17 +16,17 @@ Sensor value updates (rank, price, etc.) happen from the in-memory cache — no 
 
 ## Can I use Kilowahti without a transfer price configured?
 
-Yes. Transfer-related sensors (`transfer_price`, `control_factor_transfer`) show as **unavailable** when no transfer groups are configured. `total_price` will equal `effective_price`.
+Yes. Transfer-related sensors (`transfer_price`, `control_factor_transfer`) show as **unavailable** when no transfer groups are configured. `total_price` then equals the active price.
 
 ## What does the control factor sensor do?
 
-It turns the current price rank into a 0–1 number — 1.0 at the cheapest slot of the day, 0.0 at the dearest — for automating devices that have a dial rather than a switch: heating setpoints, charging current, fan speed. There is a ±1 bipolar variant of each.
+It turns the current price rank into a 0–1 number — 1.0 at the cheapest slot of the day, 0.0 at the most expensive — for automating devices that have a dial rather than a switch: heating setpoints, charging current, fan speed. There is a ±1 bipolar variant of each.
 
 The [control factor guide](control-factor.md) covers which of the three factors to use, what the curve and scaling settings do, and how to put one into a template.
 
 ## My score sensors show no value — why?
 
-Score sensors only produce a value once at least one meter reading has been recorded. Make sure you have linked an energy meter entity in **Options → Score profiles → Edit: Total** and that the meter has `state_class: total_increasing`.
+Score sensors only produce a value once at least one meter reading has been recorded. Make sure you have linked an energy meter entity in **Configure → Score profiles → Edit: Total** and that the meter has `state_class: total_increasing`.
 
 ## Prices look wrong — are they VAT inclusive?
 

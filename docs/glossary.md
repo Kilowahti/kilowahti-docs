@@ -34,9 +34,9 @@ Terms used throughout these docs, in plain language.
 
 **Quartile** — the same idea coarsened to four buckets. 1 = cheapest quarter of the day, 4 = most expensive.
 
-**Control factor** — the rank expressed as a number between 0 and 1, with 1.0 at the cheapest and 0.0 at the dearest. Made for feeding into automations that have a dial rather than a switch: charging current, heating setpoint, fan speed. See the [control factor guide](control-factor.md).
+**Control factor** — the rank expressed as a number between 0 and 1, with 1.0 at the cheapest and 0.0 at the most expensive. Made for feeding into automations that have a dial rather than a switch: charging current, heating setpoint, fan speed. See the [control factor guide](control-factor.md).
 
-**Bipolar** — the same value mapped onto −1 to +1 instead of 0 to 1, for cases where you want a signed "cheaper or dearer than usual" number.
+**Bipolar** — the same value mapped onto −1 to +1 instead of 0 to 1, for cases where you want a signed "cheaper or more expensive than usual" number.
 
 **Threshold** — your definition of "cheap enough". There are two: a price threshold in currency per kWh, and a rank threshold as a position in the day. Both drive binary sensors, triggers, and conditions, and both are adjustable at runtime from a dashboard.
 

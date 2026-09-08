@@ -22,14 +22,14 @@ New to the integration? [Getting started](getting-started.md) sets these up end 
 
 ### Price sensors
 
-The display unit (`c/kWh` or `€/kWh`) is set during configuration and applies to all price sensors.
+All price sensors use the display unit you chose during configuration — the minor or major unit of your display currency, e.g. `c/kWh` or `€/kWh`, `öre/kWh` or `kr/kWh`.
 
 | Entity | Description |
 |---|---|
 | `sensor.kilowahti_{name}_spot_price` | Current slot's spot price (VAT included). Attributes: `price_source`, plus `today_prices`/`tomorrow_prices` when price arrays are enabled |
-| `sensor.kilowahti_{name}_effective_price` | Spot price, or fixed price when a fixed period is active. Attributes: `source` (`spot`/`fixed`), `period_label` |
+| `sensor.kilowahti_{name}_effective_price` | Shown as **Active price**. The energy price you pay: spot, or your contract rate when a fixed period is active. Attributes: `source` (`spot`/`fixed`), `period_label` |
 | `sensor.kilowahti_{name}_transfer_price` | Active transfer tier price; unavailable until a transfer group is configured. Attributes: `tariff` (active group and tier, e.g. `Kausisiirto, Muu aika`), plus `group` and `tier` separately |
-| `sensor.kilowahti_{name}_total_price` | Effective price + transfer price. Attributes: `today_prices`/`tomorrow_prices` when total price arrays are enabled |
+| `sensor.kilowahti_{name}_total_price` | Active price + transfer price. Attributes: `today_prices`/`tomorrow_prices` when total price arrays are enabled |
 | `sensor.kilowahti_{name}_today_spot_avg` | Today's average spot price |
 | `sensor.kilowahti_{name}_today_spot_min` | Today's lowest spot price |
 | `sensor.kilowahti_{name}_today_spot_max` | Today's highest spot price |
@@ -43,7 +43,7 @@ The display unit (`c/kWh` or `€/kWh`) is set during configuration and applies 
 | `sensor.kilowahti_{name}_tomorrow_total_min` | Tomorrow's lowest total price |
 | `sensor.kilowahti_{name}_tomorrow_total_max` | Tomorrow's highest total price |
 | `sensor.kilowahti_{name}_next_hours_avg` | Average spot price over the next N hours (configurable) |
-| `sensor.kilowahti_{name}_monthly_fixed_cost_today` | Today's share of the monthly fixed contract cost (€/day); unavailable when not configured |
+| `sensor.kilowahti_{name}_monthly_fixed_cost_today` | Today's share of the monthly fixed contract cost, per day in your display currency; unavailable when not configured |
 
 ### Rank sensors
 
@@ -56,7 +56,7 @@ The display unit (`c/kWh` or `€/kWh`) is set during configuration and applies 
 
 The maximum rank is 96 for 15-minute resolution or 24 for 1-hour resolution.
 
-Ranks are tier-normalized: slots sharing a price share a rank, and the cheapest price of the day is always 1 while the dearest is always the maximum. During a [fixed-price period](fixed-periods.md) every slot costs the same, so `price_rank` reads 1 all day — there is no cheaper hour to wait for.
+Ranks are tier-normalized: slots sharing a price share a rank, and the cheapest price of the day is always 1 while the most expensive is always the maximum. During a [fixed-price period](fixed-periods.md) every slot costs the same, so `price_rank` reads 1 all day — there is no cheaper hour to wait for.
 
 ### Control factor sensors
 
@@ -113,7 +113,7 @@ Writable settings that can be adjusted from the dashboard or from automations us
 
 | Entity | Range | Description |
 |---|---|---|
-| `number.kilowahti_{name}_price_threshold` | 0–500 c/kWh (or 0–5 €/kWh) | Price at or below which `price_acceptable` turns on. Matches your configured display unit |
+| `number.kilowahti_{name}_price_threshold` | 0–500 in the minor unit (0–5 in the major one) | Price at or below which `price_acceptable` turns on. Follows your display unit |
 | `number.kilowahti_{name}_rank_threshold` | 1–96 (or 1–24) | Rank at or below which `rank_acceptable` turns on. Upper bound matches your price resolution |
 
 The initial values come from the **Thresholds & control** options. Changes made via these entities are persisted to the integration config, so they survive restarts and also update the values shown in the options flow.

@@ -12,7 +12,7 @@ Kilowahti ranks every slot of the day by price. The control factor turns that ra
 
 "Cheaper is higher" is deliberate: it makes the factor usable directly as a multiplier. Charging current becomes `max_current × factor`, no inversion needed.
 
-Each factor also has a **bipolar** twin running from −1 to +1, for when you want a signed number: positive means cheaper than the middle of the day, negative means dearer.
+Each factor also has a **bipolar** twin running from −1 to +1, for when you want a signed number: positive means cheaper than the middle of the day, negative means more expensive.
 
 ## Which one to use
 
@@ -33,7 +33,7 @@ They all share one scale, and the configured curve and scaling apply to all thre
 
 Two settings change how the rank is mapped onto the 0–1 range. Both live under **Thresholds & control** in the setup wizard and in Configure.
 
-**Curve** — `linear` spreads the factor evenly across the day. `sinusoidal` is flat near the extremes and steep in the middle, so the cheapest few slots all score nearly 1.0, the dearest few nearly 0.0, and the change happens across mid-range prices.
+**Curve** — `linear` spreads the factor evenly across the day. `sinusoidal` is flat near the extremes and steep in the middle, so the cheapest few slots all score nearly 1.0, the most expensive few nearly 0.0, and the change happens across mid-range prices.
 
 **Scaling** — an exponent from 1 to 3 applied to the result. Higher values push everything except the cheapest slots downward, making the factor behave more like a switch.
 
@@ -62,7 +62,7 @@ The pattern is always the same: pick a range for your device, and place the fact
 **Heating setpoint**, 19 °C when expensive, 22 °C when cheapest:
 
 ```yaml
-{% raw %}{{ 19 + 3 * states('sensor.kilowahti_home_control_factor_total') | float(0) }}{% endraw %}
+{{ 19 + 3 * states('sensor.kilowahti_home_control_factor_total') | float(0) }}
 ```
 
 Rank 1 gives 22.0 °C, rank 12 gives 20.6 °C, rank 24 gives 19.0 °C.
@@ -70,7 +70,7 @@ Rank 1 gives 22.0 °C, rank 12 gives 20.6 °C, rank 24 gives 19.0 °C.
 **EV charging current**, between 6 A and 16 A:
 
 ```yaml
-{% raw %}{{ 6 + 10 * states('sensor.kilowahti_home_control_factor_total') | float(0) }}{% endraw %}
+{{ 6 + 10 * states('sensor.kilowahti_home_control_factor_total') | float(0) }}
 ```
 
 16 A at the cheapest hour, 11.2 A mid-day, 6 A at the worst.

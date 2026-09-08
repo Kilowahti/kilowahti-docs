@@ -13,7 +13,7 @@ This page documents every field. For a first setup, [First setup](getting-starte
 | Name | Used in entity names, e.g. `Home` → `sensor.kilowahti_home_spot_price` |
 | Price region | Your electricity market area (see [supported regions](index.md#supported-regions)) |
 | Price resolution | 15 minutes (96 slots/day) or 1 hour (24 slots/day) — match your contract's metering interval |
-| Display unit | Minor or major currency unit per kWh, e.g. `c/kWh` or `€/kWh` (labels follow the display currency) |
+| Display unit | Minor or major unit of your display currency, per kWh — e.g. `c/kWh` or `€/kWh` in the eurozone, `öre/kWh` or `kr/kWh` in Sweden |
 
 #### Price data
 
@@ -62,7 +62,7 @@ You can skip this step and configure transfer pricing later via Configure. See [
 | Field | Description |
 |---|---|
 | Control max price | Price at or below this turns on the `price_acceptable` binary sensor |
-| Max price includes transfer | Whether the price threshold compares against total price (effective price + transfer) or effective price only |
+| Max price includes transfer | Whether the price threshold compares against the total price (active price + transfer) or the active price alone |
 | Control max rank | Rank at or below this turns on the `rank_acceptable` binary sensor |
 | Forward average window | Hours ahead used for the `next_hours_avg` sensor (1–24, in 0.25 h steps) |
 | Control factor curve | Shape of the 0–1 control factor curve: Linear or Sinusoidal (see [Control factor → Curve and scaling](control-factor.md#curve-and-scaling)) |
