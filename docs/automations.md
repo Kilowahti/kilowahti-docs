@@ -8,6 +8,8 @@ These examples use `{name}` as a placeholder for the name you set during configu
 
 The simplest approach: use the `rank_acceptable` binary sensor to gate an automation. Set your acceptable rank threshold in the Kilowahti options.
 
+Rank follows the energy price you actually pay. On a spot contract that is the market ordering; during a [fixed-price period](fixed-periods.md) every hour costs the same, so every slot ranks 1 and `rank_acceptable` stays on all day. That is deliberate — there is no cheaper hour to wait for — but if you want a gate that still narrows the day on a fixed contract, work from `total_price_rank`, which includes transfer — either with a numeric state condition on the sensor, or with the built-in "price is lowest today" condition and "became cheapest slot" trigger, both of which rank by total price.
+
 ```yaml
 alias: Heat water during cheap hours
 trigger:
