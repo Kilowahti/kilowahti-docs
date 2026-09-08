@@ -17,7 +17,7 @@ Kilowahti caches prices locally, so a temporary outage does not empty your senso
 
 This is normal for most of the day. The European day-ahead auction publishes results in the early afternoon; Kilowahti begins looking at 13:00 CET and keeps trying until they appear or 21:00 CET passes.
 
-`binary_sensor.kilowahti_{name}_tomorrow_s_prices_available` turns on when they arrive. Until then every `tomorrow_*` sensor reads *unknown*, and that is the intended value — not an error.
+`binary_sensor.kilowahti_{name}_tomorrow_available` turns on when they arrive. Until then every `tomorrow_*` sensor reads *unknown*, and that is the intended value — not an error.
 
 Some markets publish later than others; Italy is regularly among the last.
 

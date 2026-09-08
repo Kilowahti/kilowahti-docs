@@ -3,7 +3,7 @@
 All entities are grouped under a single **Kilowahti** device per configured instance. Entity names use the name you set during setup (e.g. `Home`).
 
 !!! note "Entity IDs on your system"
-    Home Assistant builds each entity ID from the device name and the entity's display name at the moment it is first created, so the IDs below assume a fresh install in English. If you set up Kilowahti in another language, renamed an entity, or renamed the device, your IDs will differ — check **Settings → Devices & Services → Kilowahti** for the real ones.
+    Home Assistant builds each entity ID from the device name and the entity's display name at the moment it is first created, so the IDs below assume a fresh install in English on `2026.9.0` or later. If you set up Kilowahti in another language, installed it earlier, renamed an entity, or renamed the device, your IDs will differ — check **Settings → Devices & Services → Kilowahti** for the real ones.
 
 ## Start with these
 
@@ -15,7 +15,7 @@ This page is a complete reference, and most of it you will never need. A typical
 | `sensor.kilowahti_{name}_rank` | Where this slot sits in today's prices; 1 = cheapest. The number to automate on |
 | `binary_sensor.kilowahti_{name}_rank_acceptable` | `on` while the price rank is at or below your threshold |
 | `number.kilowahti_{name}_rank_threshold` | Sets that threshold, adjustable from a dashboard without reopening setup |
-| `binary_sensor.kilowahti_{name}_tomorrow_s_prices_available` | `on` once tomorrow's prices have arrived, usually mid-afternoon |
+| `binary_sensor.kilowahti_{name}_tomorrow_available` | `on` once tomorrow's prices have arrived, usually mid-afternoon |
 
 Everything below is there when you need it. Whole groups only exist when you turn them on: export and solar sensors require **generation** enabled in Advanced options, battery sensors require a battery capacity, and rolling averages are off by default.
 
@@ -170,7 +170,7 @@ All of these except `price_or_rank_acceptable` have counterparts as [triggers an
 | `binary_sensor.kilowahti_{name}_rank_acceptable` | On when current rank is at or below the configured threshold |
 | `binary_sensor.kilowahti_{name}_price_or_rank_acceptable` | On when either price or rank condition is met |
 | `binary_sensor.kilowahti_{name}_fixed_price_period_active` | On when a fixed-price period is currently active |
-| `binary_sensor.kilowahti_{name}_tomorrow_s_prices_available` | On when tomorrow's prices have been fetched |
+| `binary_sensor.kilowahti_{name}_tomorrow_available` | On when tomorrow's prices have been fetched |
 
 The following binary sensors are available when **generation is enabled**:
 

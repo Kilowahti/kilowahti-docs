@@ -214,7 +214,7 @@ Tomorrow's prices are published in the early afternoon (around 13:00 CET; later 
 alias: Notify when tomorrow's prices arrive
 trigger:
   - platform: state
-    entity_id: binary_sensor.kilowahti_{name}_tomorrow_s_prices_available
+    entity_id: binary_sensor.kilowahti_{name}_tomorrow_available
     to: "on"
 action:
   - action:notify.mobile_app_your_phone
