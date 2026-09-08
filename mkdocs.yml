@@ -1,5 +1,5 @@
 site_name: Kilowahti
-site_description: Home Assistant integration for Nordic/Baltic electricity spot pricing
+site_description: Home Assistant integration for European electricity spot pricing and cost optimization
 site_url: https://docs.kilowahti.fi/
 repo_url: https://github.com/Kilowahti/ha-kilowahti
 repo_name: Kilowahti/ha-kilowahti
@@ -38,11 +38,16 @@ nav:
     - Entities: entities.md
     - Services: services.md
   - Guides:
+    - How do I…?: how-do-i.md
     - Triggers and conditions: triggers-conditions.md
     - Automation examples: automations.md
+    - Control factor: control-factor.md
     - Optimization scores: scores.md
     - Transfer pricing: transfer-pricing.md
     - Fixed-price periods: fixed-periods.md
+  - Help:
+    - Troubleshooting: troubleshooting.md
+    - Glossary: glossary.md
   - Library:
     - Overview: lib/index.md
     - Models: lib/models.md

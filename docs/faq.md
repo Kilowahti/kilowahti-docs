@@ -20,26 +20,9 @@ Yes. Transfer-related sensors (`transfer_price`, `control_factor_transfer`) show
 
 ## What does the control factor sensor do?
 
-It provides a smooth 0–1 value you can feed directly into automations or scripts to modulate device power or setpoints based on price. 1.0 = cheapest slot, 0.0 = most expensive. Use `control_factor_price_bipolar` for a ±1 version, 1.0 = cheapest slot, -1.0 = most expensive.
+It turns the current price rank into a 0–1 number — 1.0 at the cheapest slot of the day, 0.0 at the dearest — for automating devices that have a dial rather than a switch: heating setpoints, charging current, fan speed. There is a ±1 bipolar variant of each.
 
-The convention of "cheaper = higher value" makes it natural to use as a multiplier for scaling setpoints, charging currents, etc. See [Automation examples → Proportional control](automations.md#proportional-control-thermostat-climate) for a thermostat example.
-
-## What is the difference between linear and sinusoidal control factor curves?
-
-Both curves map your current price rank to a 0–1 control factor value, but they distribute sensitivity differently across the price range.
-
-**Linear** is a straight-line mapping: if you have 24 hourly slots, each rank step changes the factor by exactly the same amount (roughly 0.04). The cheapest slot gets 1.0, the most expensive gets 0.0, and everything in between is evenly spaced. This is the simplest option and works well when you want proportional response across the entire price range.
-
-**Sinusoidal** uses a sine curve that is steeper in the middle and flatter near the extremes. In practice this means:
-
-- When prices are very cheap (high factor) or very expensive (low factor), small rank changes barely move the factor — the curve is nearly flat at the top and bottom.
-- Around mid-range prices, the factor changes more rapidly for each rank step.
-
-This is useful when you want your automations to react strongly to whether prices are "roughly average" versus "clearly cheap or expensive", but not overreact to minor differences among the cheapest or most expensive slots.
-
-**The scaling exponent** (1–3) amplifies the effect of either curve. At 1.0 the curve behaves as described above. Higher values push mid-range values closer to 0, making the factor more "binary" — it stays near 1.0 only for the cheapest slots and drops off more steeply. This is independent of the curve shape: you can combine sinusoidal with a higher exponent for an even more aggressive response.
-
-For most users, **linear with scaling 1.0** is a good starting point. Switch to sinusoidal if you find your automations are toggling too frequently between adjacent price ranks.
+The [control factor guide](control-factor.md) covers which of the three factors to use, what the curve and scaling settings do, and how to put one into a template.
 
 ## My score sensors show no value — why?
 
