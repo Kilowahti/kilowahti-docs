@@ -1,5 +1,61 @@
 # Changelog
 
+## Version 2026.9.0 (2026-09-27)
+
+This release centers on **Total Price Arrays** — a new option to expose per-slot energy, transfer, and rank breakdowns on the `total_price` sensor, built from a user request. Alongside it: transfer tiers are now viewable and editable after setup, and the control factor family has been harmonized onto one consistent scale. This release also marks the first batch of work toward Home Assistant's integration quality scale, starting with diagnostics support and duplicate-entry protection.
+
+**⚠️ Breaking changes**
+
+*Control factor*
+
+- Transfer control factor polarity flipped: `control_factor_transfer` and `control_factor_transfer_bipolar` now read 1.0 for the cheapest tier (was 0.0) — update automations that depend on the raw value
+- Rank-based sensors and conditions (`price_rank`, `price_quartile`, `control_factor_price*`, rank trigger/condition, `rank_acceptable`) now respect the active fixed-price tier instead of raw spot rank — primarily affects fixed-price contract users
+
+**New**
+
+*Price arrays*
+
+- New **"Expose total price arrays as sensor attributes"** toggle in Advanced options: `total_price` publishes `today_prices`/`tomorrow_prices` attributes with `energy`, `transfer`, `price`, and `rank` per slot
+
+*Quality*
+
+- Diagnostics support — download redacted config and coordinator state for support requests
+
+*Transfer tiers*
+
+- Transfer tiers can now be viewed and edited after setup (price, schedule, priority), in both the initial and options flow
+- `transfer_price` sensor gains `tariff`, `group`, and `tier` attributes naming the active tariff
+
+*Control factor*
+
+- New **`control_factor_total`**, **`control_factor_total_bipolar`**, and **`control_factor_transfer_bipolar`** sensors, joining the existing control factor family
+
+**Changed**
+
+*Transfer tiers*
+
+- Tier and fixed-period prices in the flow lists are now padded to two decimals, keeping up to five when rounding would lose the value
+
+*Price arrays*
+
+- Tomorrow's total price array is now available during a fixed-price period even before spot prices have been fetched
+- Price array attributes (`today_prices`, `tomorrow_prices`) are excluded from the recorder database — they were large enough to make the recorder silently drop all attributes on the affected states
+
+*Quality*
+
+- A config entry with a duplicate name now aborts setup instead of creating a confusing duplicate
+- Minimum supported Home Assistant version raised to 2026.7 (required by the trigger and condition platforms)
+
+*Other*
+
+- Shortened the `tomorrow_available` binary sensor's default name — new installs get a shorter entity ID; existing entities keep theirs
+
+**Fixed**
+
+*Control factor*
+
+- Corrected the Norwegian translation of the transfer control factor name
+
 ## Version 2026.8.0 (2026-08-03)
 
 **New**
