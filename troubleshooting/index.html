@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.kilowahti.fi/configuration/">
+        <link rel="canonical" href="https://docs.kilowahti.fi/troubleshooting/">
       
       
-        <link rel="prev" href="../getting-started/">
+        <link rel="prev" href="../fixed-periods/">
       
       
-        <link rel="next" href="../entities/">
+        <link rel="next" href="../glossary/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Configuration - Kilowahti</title>
+        <title>Troubleshooting - Kilowahti</title>
       
     
     
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration" class="md-skip">
+        <a href="#troubleshooting" class="md-skip">
           Skip to content
         </a>
       
@@ -131,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration
+              Troubleshooting
             
           </span>
         </div>
@@ -300,8 +300,6 @@
       
   
   
-    
-  
   
   
     
@@ -314,11 +312,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -339,7 +339,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -410,37 +410,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuration
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -456,165 +429,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#setup-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setup steps
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Setup steps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-basic-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Basic settings
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Basic settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#price-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Price data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#display-currency-non-eur-regions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Display currency (non-EUR regions)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-vat-electricity-tax" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. VAT &amp; electricity tax
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-transfer-pricing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Transfer pricing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-thresholds-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Thresholds &amp; control
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-optimization-scores" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Optimization scores
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-sensor-display" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Sensor display
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Sensor display">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#price-array-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Price array attributes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updating-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Updating settings
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1005,8 +819,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -1017,13 +833,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
           <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
@@ -1044,7 +858,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1059,10 +873,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../troubleshooting/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1078,6 +919,136 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#no-prices-at-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        No prices at all
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tomorrows-prices-are-missing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tomorrow's prices are missing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prices-do-not-match-my-bill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prices do not match my bill
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-entity-is-missing-entirely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        An entity is missing entirely
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rank-stays-at-1-all-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rank stays at 1 all day
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-score-sensor-has-no-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The score sensor has no value
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history-graphs-show-a-unit-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        History graphs show a unit mismatch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-a-tier-does-not-change-anything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing a tier does not change anything
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#charts-stopped-showing-price-arrays-from-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Charts stopped showing price arrays from history
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#still-stuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Still stuck
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1400,138 +1371,109 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup-steps" class="md-nav__link">
+  <a href="#no-prices-at-all" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setup steps
+        No prices at all
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Setup steps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-basic-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Basic settings
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Basic settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#price-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Price data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#display-currency-non-eur-regions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Display currency (non-EUR regions)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-vat-electricity-tax" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. VAT &amp; electricity tax
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-transfer-pricing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Transfer pricing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-thresholds-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Thresholds &amp; control
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-optimization-scores" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Optimization scores
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-sensor-display" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Sensor display
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Sensor display">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#price-array-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Price array attributes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#updating-settings" class="md-nav__link">
+  <a href="#tomorrows-prices-are-missing" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Updating settings
+        Tomorrow's prices are missing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prices-do-not-match-my-bill" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prices do not match my bill
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#an-entity-is-missing-entirely" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        An entity is missing entirely
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rank-stays-at-1-all-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rank stays at 1 all day
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-score-sensor-has-no-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The score sensor has no value
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#history-graphs-show-a-unit-mismatch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        History graphs show a unit mismatch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#editing-a-tier-does-not-change-anything" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editing a tier does not change anything
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#charts-stopped-showing-price-arrays-from-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Charts stopped showing price arrays from history
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#still-stuck" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Still stuck
       
     </span>
   </a>
@@ -1558,178 +1500,82 @@
   
 
 
-<h1 id="configuration">Configuration</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-09-08'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-09-08T12:16:47+00:00'>2026-09-08</time></span></div></div></div>
+<h1 id="troubleshooting">Troubleshooting</h1>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-09-08'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-09-08T11:28:02+00:00'>2026-09-08</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-09-08'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-09-08T12:22:21+00:00'>2026-09-08</time></span></div></div></div>
 
-<p>The setup wizard runs when you first add the integration. All settings are also editable later via <strong>Settings → Devices &amp; Services → Kilowahti → Configure</strong>.</p>
-<p>This page documents every field. For a first setup, <a href="../getting-started/">First setup</a> covers the same wizard with recommended answers and tells you which steps to skip.</p>
-<h2 id="setup-steps">Setup steps</h2>
-<h3 id="1-basic-settings">1. Basic settings</h3>
+<p>Symptoms first. If your problem is "how do I make it do X", see <a href="../how-do-i/">How do I…?</a> instead.</p>
+<h2 id="no-prices-at-all">No prices at all</h2>
+<p><code>spot_price</code> and everything derived from it read <em>unknown</em> or <em>unavailable</em>.</p>
+<ul>
+<li><strong>Right after setup, give it a moment.</strong> Prices are fetched during setup; the entities appear before the first fetch completes.</li>
+<li><strong>Check the source.</strong> <code>sensor.kilowahti_{name}_price_data_source</code> names the source currently serving you. If it is unavailable, no source answered.</li>
+<li><strong>Check outbound access.</strong> Kilowahti needs HTTPS to <code>cdn.kilowahti.fi</code> and, as fallback, <code>api.spot-hinta.fi</code>. A restrictive DNS filter or firewall on the Home Assistant host will block both.</li>
+<li><strong>Look in the log.</strong> Settings → System → Logs, filter for <code>kilowahti</code>. A failing source logs the reason it failed.</li>
+</ul>
+<p>Kilowahti caches prices locally, so a temporary outage does not empty your sensors — you keep the day you already have.</p>
+<h2 id="tomorrows-prices-are-missing">Tomorrow's prices are missing</h2>
+<p>This is normal for most of the day. The European day-ahead auction publishes results in the early afternoon; Kilowahti begins looking at 13:00 CET and keeps trying until they appear or 21:00 CET passes.</p>
+<p><code>binary_sensor.kilowahti_{name}_tomorrow_available</code> turns on when they arrive. Until then every <code>tomorrow_*</code> sensor reads <em>unknown</em>, and that is the intended value — not an error.</p>
+<p>Some markets publish later than others; Italy is regularly among the last.</p>
+<h2 id="prices-do-not-match-my-bill">Prices do not match my bill</h2>
+<p>Work through it in this order:</p>
+<ol>
+<li><strong>VAT.</strong> Market prices arrive without VAT; Kilowahti adds the rate you configured. Check it against your bill.</li>
+<li><strong>Supplier margin.</strong> If your contract adds a per-kWh commission, enter it — it is not in the market price.</li>
+<li><strong>Grid fees.</strong> <code>spot_price</code> never includes transfer. Compare your bill against <code>total_price</code> and make sure your <a href="../transfer-pricing/">transfer tariff</a> is entered.</li>
+<li><strong>Monthly fees.</strong> Fixed monthly amounts, from either supplier or grid operator, are not per-kWh. Kilowahti spreads them into <code>monthly_fixed_cost_today</code>, separate from the per-kWh sensors.</li>
+<li><strong>Electricity tax.</strong> In some countries this is billed inside the transfer price rather than separately.</li>
+</ol>
+<p>Everything you enter into Kilowahti is gross, VAT included. Everything from the market is net.</p>
+<h2 id="an-entity-is-missing-entirely">An entity is missing entirely</h2>
+<p>Whole groups of entities only exist when enabled:</p>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Description</th>
+<th>Missing</th>
+<th>Turn on</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Name</td>
-<td>Used in entity names, e.g. <code>Home</code> → <code>sensor.kilowahti_home_spot_price</code></td>
+<td>Export, spread, solar sensors</td>
+<td><strong>Generation</strong> in Advanced options</td>
 </tr>
 <tr>
-<td>Price region</td>
-<td>Your electricity market area (see <a href="../#supported-regions">supported regions</a>)</td>
+<td>Battery charge/discharge sensors</td>
+<td>A <strong>battery capacity</strong> greater than zero</td>
 </tr>
 <tr>
-<td>Price resolution</td>
-<td>15 minutes (96 slots/day) or 1 hour (24 slots/day) — match your contract's metering interval</td>
+<td>Rolling 30/60/120-minute averages</td>
+<td><strong>Show rolling averages</strong> in Advanced options</td>
 </tr>
 <tr>
-<td>Display unit</td>
-<td>Minor or major unit of your display currency, per kWh — e.g. <code>c/kWh</code> or <code>€/kWh</code> in the eurozone, <code>öre/kWh</code> or <code>kr/kWh</code> in Sweden</td>
+<td>Exchange rate sensor</td>
+<td>Only exists for entries displaying a local, non-euro currency</td>
+</tr>
+<tr>
+<td><code>transfer_price</code>, <code>control_factor_transfer</code></td>
+<td>Exist always, but read <em>unknown</em> until a <a href="../transfer-pricing/">transfer group</a> is configured</td>
 </tr>
 </tbody>
 </table>
-<h4 id="price-data">Price data</h4>
-<p>Prices are fetched automatically — there is nothing to configure. Kilowahti tries its own
-first-party service first (the Kilowahti CDN, backed by the ENTSO-E Transparency Platform)
-and falls back to spot-hinta.fi when needed. The diagnostic sensor
-<code>price_data_source</code> shows which source is currently in use.</p>
-<h4 id="display-currency-non-eur-regions">Display currency (non-EUR regions)</h4>
-<p>For regions that bill in a local currency, the wizard shows an extra step:</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Display currency</td>
-<td><code>EUR</code> or the region's local currency (e.g. <code>SEK</code>)</td>
-</tr>
-<tr>
-<td>Exchange rate source</td>
-<td>Automatic (daily ECB reference rate) or manual</td>
-</tr>
-<tr>
-<td>Manual exchange rate</td>
-<td>Local currency per EUR; used in manual mode and as fallback when the automatic rate is unavailable</td>
-</tr>
-</tbody>
-</table>
-<p>Spot prices are converted from EUR with a daily exchange rate that stays frozen for the whole
-day, so a slot's price never changes after you have seen it. All prices you enter (commission,
-transfer tiers, fixed periods, thresholds) are in the selected display currency, and switching
-currency converts your entered prices automatically. Serbia (<code>RS</code>) and North Macedonia (<code>MK</code>)
-are not covered by the ECB reference rates — those regions use a manual rate only.</p>
-<div class="admonition warning">
-<p class="admonition-title">Long-term statistics</p>
-<p>Changing the display currency changes the unit of every price entity. Home Assistant's
-long-term statistics do not convert old data — statistics recorded in the previous unit
-will show a unit mismatch. If you rely on long-term statistics, pick the currency once
-at setup and stick with it.</p>
-</div>
-<h3 id="2-vat-electricity-tax">2. VAT &amp; electricity tax</h3>
-<p>Pre-filled from your region's defaults. Adjust if your contract differs. You can also enter your electricity contract's monthly fixed fee here — it will be spread across days and shown as a daily cost sensor.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>All prices you enter elsewhere (transfer tiers, fixed periods) are always <strong>gross (VAT included)</strong>. Spot prices from the API are always VAT-exclusive — Kilowahti applies VAT automatically.</p>
-</div>
-<h3 id="3-transfer-pricing">3. Transfer pricing</h3>
-<p>Set up your network operator's transfer price tiers. Tiers are time-based rules evaluated in priority order — the first match wins.</p>
-<p>You can skip this step and configure transfer pricing later via Configure. See <a href="../transfer-pricing/">Transfer pricing</a> for details.</p>
-<h3 id="4-thresholds-control">4. Thresholds &amp; control</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Control max price</td>
-<td>Price at or below this turns on the <code>price_acceptable</code> binary sensor</td>
-</tr>
-<tr>
-<td>Max price includes transfer</td>
-<td>Whether the price threshold compares against the total price (active price + transfer) or the active price alone</td>
-</tr>
-<tr>
-<td>Control max rank</td>
-<td>Rank at or below this turns on the <code>rank_acceptable</code> binary sensor</td>
-</tr>
-<tr>
-<td>Forward average window</td>
-<td>Hours ahead used for the <code>next_hours_average</code> sensor (1–24, in 0.25 h steps)</td>
-</tr>
-<tr>
-<td>Control factor curve</td>
-<td>Shape of the 0–1 control factor curve: Linear or Sinusoidal (see <a href="../control-factor/#curve-and-scaling">Control factor → Curve and scaling</a>)</td>
-</tr>
-<tr>
-<td>Control factor scaling</td>
-<td>Exponent applied to amplify extremes (1–3)</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Price and rank thresholds can also be adjusted dynamically without reopening Configure — use the <code>number.kilowahti_{name}_price_threshold</code> and <code>number.kilowahti_{name}_rank_threshold</code> entities from the dashboard or an automation.</p>
-</div>
-<h3 id="5-optimization-scores">5. Optimization scores</h3>
-<p>A permanent <strong>Total</strong> profile is created automatically. You can link your main energy meter to it later via <strong>Configure → Score profiles → Edit: Total</strong>.</p>
-<p>Additional profiles can be added (e.g. per-device or per-circuit meters).</p>
-<h3 id="6-sensor-display">6. Sensor display</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Expose spot price arrays as attributes</td>
-<td>Writes <code>today_prices</code> and <code>tomorrow_prices</code> arrays to the <code>spot_price</code> sensor attributes — useful for graphing cards (e.g. Apex Charts)</td>
-</tr>
-<tr>
-<td>Expose total price arrays as attributes</td>
-<td>Same for the <code>total_price</code> sensor, with each entry broken down into <code>energy</code> and <code>transfer</code></td>
-</tr>
-<tr>
-<td>High precision mode</td>
-<td>Shows more decimal places on price sensors and price arrays</td>
-</tr>
-</tbody>
-</table>
-<h4 id="price-array-attributes">Price array attributes</h4>
-<p>Both toggles are off by default. Values are rounded to the display precision (2 decimals, or 5 in high precision mode; two more when the display unit is <code>€/kWh</code>).</p>
-<p>The arrays are excluded from the recorder, so they do not grow the database and are not available in history — they describe the current and next day, and are read from the sensor's live state.</p>
-<p><code>spot_price</code> entries:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">today_prices</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="s">"2026-09-07T14:00:00+03:00"</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">price</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12.34</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
-</code></pre></div>
-<p><code>total_price</code> entries add the breakdown, where <code>price</code> is the sum of the two rounded parts and <code>rank</code> is the total-price rank within that day (1 = cheapest). <code>transfer</code> is <code>0.0</code> when no transfer group is configured:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">today_prices</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="s">"2026-09-07T14:00:00+03:00"</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">energy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8.90</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">transfer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.44</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">price</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12.34</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
-</code></pre></div>
-<p><code>tomorrow_prices</code> appears once tomorrow's prices have been fetched. The exception is <code>total_price</code> during a <a href="../fixed-periods/">fixed-price period</a> that also covers tomorrow: the price is known in advance, so the array is published without waiting for the spot prices.</p>
-<h2 id="updating-settings">Updating settings</h2>
-<p>All settings except the initial region and name are editable at any time via <strong>Configure</strong> without restarting Home Assistant.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Changing the <strong>display unit</strong> after sensors have recorded data will cause unit mismatches in history graphs. You may need to clear sensor history or update dashboard cards manually.</p>
-</div>
+<p>New entities appear as soon as the option is saved; no restart needed.</p>
+<h2 id="rank-stays-at-1-all-day">Rank stays at 1 all day</h2>
+<p>Expected on a fixed-price contract. Rank orders today's slots by the energy price you actually pay, and during a <a href="../fixed-periods/">fixed-price period</a> every slot costs the same, so they all tie at 1. <code>rank_acceptable</code> stays on and "rank became acceptable" never fires.</p>
+<p>If you still want to pick out the cheaper hours on such a day, use <code>total_price_rank</code>, which includes your transfer tariff, or the "price is lowest today" condition.</p>
+<h2 id="the-score-sensor-has-no-value">The score sensor has no value</h2>
+<p>Scores need a meter. Attach an energy meter entity under <strong>Configure → Score profiles → Edit: Total</strong>, and make sure that entity has <code>state_class: total_increasing</code> — a plain power reading in watts will not work.</p>
+<p>Scores accumulate through the day and finalise at midnight, so a freshly attached meter shows nothing until it has recorded some consumption.</p>
+<h2 id="history-graphs-show-a-unit-mismatch">History graphs show a unit mismatch</h2>
+<p>Changing the display unit or display currency changes the unit of every price entity, and Home Assistant's long-term statistics do not convert what was already recorded. The old data keeps its old unit and the graph complains.</p>
+<p>Pick your unit and currency at setup and leave them. If you must change afterwards, expect to clear the affected statistics.</p>
+<h2 id="editing-a-tier-does-not-change-anything">Editing a tier does not change anything</h2>
+<p>Fixed in <code>2026.9.0</code>. On earlier versions, edits to an existing transfer group or tier were not picked up until an unrelated event refreshed the sensors — a slot boundary, a fixed-period change, or midnight. Adding and removing groups always worked. Upgrade, or wait for the next slot.</p>
+<h2 id="charts-stopped-showing-price-arrays-from-history">Charts stopped showing price arrays from history</h2>
+<p>The <code>today_prices</code> and <code>tomorrow_prices</code> attributes are deliberately excluded from the recorder, so they exist only in the current state, not in history. Cards that read the live attribute work normally; anything querying historical attribute values will not find them.</p>
+<p>At 15-minute resolution these arrays previously exceeded Home Assistant's 16 KB limit on recorded attributes, which made the recorder discard the sensor's attributes wholesale and log a warning on every update.</p>
+<h2 id="still-stuck">Still stuck</h2>
+<p>Open an <a href="https://github.com/Kilowahti/ha-kilowahti/issues">issue</a> or a <a href="https://github.com/Kilowahti/ha-kilowahti/discussions">discussion</a> on GitHub, or use the <a href="https://tally.so/r/QK05XY">feedback form</a> if you would rather not have a GitHub account. Logs from Settings → System → Logs filtered to <code>kilowahti</code> help enormously.</p>
 
 
 

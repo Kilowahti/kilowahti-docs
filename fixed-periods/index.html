@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Home Assistant integration for Nordic/Baltic electricity spot pricing">
+        <meta name="description" content="Home Assistant integration for European electricity spot pricing and cost optimization">
       
       
       
@@ -16,7 +16,7 @@
         <link rel="prev" href="../transfer-pricing/">
       
       
-        <link rel="next" href="../lib/">
+        <link rel="next" href="../troubleshooting/">
       
       
         
@@ -57,17 +57,17 @@
     
       <link rel="stylesheet" href="../assets/document_dates/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/backdrop.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/scale.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
-    
-      <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
     
       <link rel="stylesheet" href="../assets/document_dates/core/core.css">
     
@@ -385,6 +385,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../configuration/" class="md-nav__link">
         
   
@@ -591,6 +619,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../how-do-i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How do I…?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../triggers-conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triggers and conditions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../automations/" class="md-nav__link">
         
   
@@ -599,6 +683,34 @@
     
   
     Automation examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../control-factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control factor
   
 
     
@@ -832,7 +944,7 @@
   <span class="md-ellipsis">
     
   
-    Library
+    Help
   
 
     
@@ -845,6 +957,123 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Help
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Library
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1152,33 +1381,34 @@
 
 
 <h1 id="fixed-price-periods">Fixed-price periods</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-06-25'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-06-25T13:40:25+00:00'>2026-06-25</time></span></div></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-09-08'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-09-08T12:16:47+00:00'>2026-09-08</time></span></div></div></div>
 
 <p>Fixed-price periods let you define date ranges where a flat contract price replaces the spot price. This is useful if you have a fixed-price electricity contract for part of the year, or continuously if your entire contract is fixed-rate.</p>
 <h2 id="how-it-works">How it works</h2>
 <p>When a fixed period is active:</p>
 <ul>
-<li><code>sensor.kilowahti_{name}_effective_price</code> returns the fixed price instead of the spot price</li>
+<li><code>sensor.kilowahti_{name}_active_price</code> (<strong>Active price</strong>) returns the fixed price instead of the spot price</li>
 <li><code>sensor.kilowahti_{name}_total_price</code> = fixed price + transfer price</li>
-<li><code>binary_sensor.kilowahti_{name}_fixed_period_active</code> turns on</li>
+<li><code>binary_sensor.kilowahti_{name}_fixed_price_period_active</code> turns on</li>
 <li>The <code>price_acceptable</code> binary sensor compares against the fixed price</li>
+<li><code>sensor.kilowahti_{name}_rank</code> reads 1 for every slot, and <code>control_factor_price</code> a constant 1.0 — with one price all day, no hour is better than another. <code>total_price_rank</code> still separates the hours if your transfer tariff has tiers</li>
 </ul>
-<p>The spot price sensor continues to show the live spot price regardless.</p>
+<p>The spot price sensor continues to show the live spot price regardless, so you can still see what the market is doing.</p>
 <h2 id="managing-periods">Managing periods</h2>
-<p>Periods can be managed via <strong>Options → Fixed-price periods</strong> or using service calls.</p>
+<p>Periods can be managed via <strong>Configure → Fixed-price periods</strong> or using service calls.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Periods cannot overlap. The price is entered <strong>gross (VAT included)</strong> and used as-is.</p>
 </div>
 <h3 id="via-the-ui">Via the UI</h3>
-<p><strong>Options → Fixed-price periods → ➕ Add period</strong></p>
+<p><strong>Configure → Fixed-price periods → ➕ Add period</strong></p>
 <h3 id="via-service-calls">Via service calls</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Add a period</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kilowahti.add_fixed_period</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">data</span><span class="p">:</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Q1</span><span class="nv"> </span><span class="s">2026</span><span class="nv"> </span><span class="s">fixation&quot;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">start_date</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2026-01-01&quot;</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">end_date</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;2026-03-31&quot;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s">"Q1</span><span class="nv"> </span><span class="s">2026</span><span class="nv"> </span><span class="s">fixation"</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">start_date</span><span class="p">:</span><span class="w"> </span><span class="s">"2026-01-01"</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">end_date</span><span class="p">:</span><span class="w"> </span><span class="s">"2026-03-31"</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">price</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8.5</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
 <a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="c1"># List all periods (to get IDs)</span>
@@ -1188,7 +1418,7 @@
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1"># Remove a period</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nt">service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kilowahti.remove_fixed_period</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="nt">data</span><span class="p">:</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nt">period_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3f4a1b2c-...&quot;</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nt">period_id</span><span class="p">:</span><span class="w"> </span><span class="s">"3f4a1b2c-..."</span>
 </code></pre></div>
 
 

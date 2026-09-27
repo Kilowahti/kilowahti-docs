@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://docs.kilowahti.fi/configuration/">
+        <link rel="canonical" href="https://docs.kilowahti.fi/triggers-conditions/">
       
       
-        <link rel="prev" href="../getting-started/">
+        <link rel="prev" href="../how-do-i/">
       
       
-        <link rel="next" href="../entities/">
+        <link rel="next" href="../automations/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Configuration - Kilowahti</title>
+        <title>Triggers and conditions - Kilowahti</title>
       
     
     
@@ -96,7 +96,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#configuration" class="md-skip">
+        <a href="#triggers-and-conditions" class="md-skip">
           Skip to content
         </a>
       
@@ -131,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Configuration
+              Triggers and conditions
             
           </span>
         </div>
@@ -300,8 +300,6 @@
       
   
   
-    
-  
   
   
     
@@ -314,11 +312,13 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
@@ -339,7 +339,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -410,37 +410,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Configuration
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
         
   
   
@@ -456,165 +429,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#setup-steps" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Setup steps
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Setup steps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-basic-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Basic settings
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Basic settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#price-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Price data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#display-currency-non-eur-regions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Display currency (non-EUR regions)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-vat-electricity-tax" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. VAT &amp; electricity tax
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-transfer-pricing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Transfer pricing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-thresholds-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Thresholds &amp; control
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-optimization-scores" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Optimization scores
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-sensor-display" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Sensor display
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Sensor display">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#price-array-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Price array attributes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#updating-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Updating settings
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -748,8 +562,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -760,13 +576,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
@@ -787,7 +601,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -830,10 +644,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../triggers-conditions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Triggers and conditions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -849,6 +690,92 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-one-in-the-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding one in the UI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#triggers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Triggers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#things-worth-knowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Things worth knowing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In YAML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-the-binary-sensors-instead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use the binary sensors instead
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1400,138 +1327,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setup-steps" class="md-nav__link">
+  <a href="#adding-one-in-the-ui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Setup steps
+        Adding one in the UI
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Setup steps">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-basic-settings" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Basic settings
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Basic settings">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#price-data" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Price data
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#display-currency-non-eur-regions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Display currency (non-EUR regions)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-vat-electricity-tax" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. VAT &amp; electricity tax
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-transfer-pricing" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3. Transfer pricing
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-thresholds-control" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        4. Thresholds &amp; control
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#5-optimization-scores" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Optimization scores
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#6-sensor-display" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. Sensor display
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="6. Sensor display">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#price-array-attributes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Price array attributes
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#updating-settings" class="md-nav__link">
+  <a href="#triggers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Updating settings
+        Triggers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conditions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#things-worth-knowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Things worth knowing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#in-yaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        In YAML
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-the-binary-sensors-instead" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use the binary sensors instead
       
     </span>
   </a>
@@ -1558,178 +1412,127 @@
   
 
 
-<h1 id="configuration">Configuration</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-09-08'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-09-08T12:16:47+00:00'>2026-09-08</time></span></div></div></div>
+<h1 id="triggers-and-conditions">Triggers and conditions</h1>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-09-08'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-09-08T11:19:13+00:00'>2026-09-08</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-09-08'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-09-08T11:19:13+00:00'>2026-09-08</time></span></div></div></div>
 
-<p>The setup wizard runs when you first add the integration. All settings are also editable later via <strong>Settings → Devices &amp; Services → Kilowahti → Configure</strong>.</p>
-<p>This page documents every field. For a first setup, <a href="../getting-started/">First setup</a> covers the same wizard with recommended answers and tells you which steps to skip.</p>
-<h2 id="setup-steps">Setup steps</h2>
-<h3 id="1-basic-settings">1. Basic settings</h3>
+<p>Kilowahti ships its own automation triggers and conditions. They appear in the Home Assistant automation editor alongside the built-in ones, so you can build a price-aware automation without picking entities, writing templates, or knowing which sensor holds which number.</p>
+<p>They are the easiest starting point for a first automation. The <a href="../automations/">automation examples</a> show the same ideas built from entities instead, which is what you need for anything the triggers do not cover.</p>
+<h2 id="adding-one-in-the-ui">Adding one in the UI</h2>
+<ol>
+<li><strong>Settings → Automations &amp; scenes → Create automation → Create new automation</strong></li>
+<li><strong>Add trigger</strong> → type <code>Kilowahti</code> in the search box</li>
+<li>Pick a trigger, then add your action</li>
+</ol>
+<p>Conditions work the same way under <strong>Add condition</strong>.</p>
+<p>If you have several Kilowahti entries set up (one per region or site), the trigger has a <strong>target</strong> field — point it at that entry's device. With a single entry you can leave the target empty and it will be used automatically.</p>
+<h2 id="triggers">Triggers</h2>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Description</th>
+<th>Trigger</th>
+<th>Fires when</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Name</td>
-<td>Used in entity names, e.g. <code>Home</code> → <code>sensor.kilowahti_home_spot_price</code></td>
+<td>Price became acceptable</td>
+<td>The current price drops to or below your price threshold</td>
 </tr>
 <tr>
-<td>Price region</td>
-<td>Your electricity market area (see <a href="../#supported-regions">supported regions</a>)</td>
+<td>Price no longer acceptable</td>
+<td>The current price rises above your price threshold</td>
 </tr>
 <tr>
-<td>Price resolution</td>
-<td>15 minutes (96 slots/day) or 1 hour (24 slots/day) — match your contract's metering interval</td>
+<td>Rank became acceptable</td>
+<td>The current slot's rank drops to or below your rank threshold</td>
 </tr>
 <tr>
-<td>Display unit</td>
-<td>Minor or major unit of your display currency, per kWh — e.g. <code>c/kWh</code> or <code>€/kWh</code> in the eurozone, <code>öre/kWh</code> or <code>kr/kWh</code> in Sweden</td>
+<td>Rank no longer acceptable</td>
+<td>The current slot's rank rises above your rank threshold</td>
+</tr>
+<tr>
+<td>Became cheapest slot</td>
+<td>The current slot becomes the cheapest of the day by total price</td>
+</tr>
+<tr>
+<td>Fixed period started</td>
+<td>A <a href="../fixed-periods/">fixed-price period</a> becomes active</td>
+</tr>
+<tr>
+<td>Fixed period ended</td>
+<td>A fixed-price period stops being active</td>
+</tr>
+<tr>
+<td>Tomorrow's prices available</td>
+<td>Tomorrow's prices have been fetched, usually in the afternoon</td>
 </tr>
 </tbody>
 </table>
-<h4 id="price-data">Price data</h4>
-<p>Prices are fetched automatically — there is nothing to configure. Kilowahti tries its own
-first-party service first (the Kilowahti CDN, backed by the ENTSO-E Transparency Platform)
-and falls back to spot-hinta.fi when needed. The diagnostic sensor
-<code>price_data_source</code> shows which source is currently in use.</p>
-<h4 id="display-currency-non-eur-regions">Display currency (non-EUR regions)</h4>
-<p>For regions that bill in a local currency, the wizard shows an extra step:</p>
+<h2 id="conditions">Conditions</h2>
 <table>
 <thead>
 <tr>
-<th>Field</th>
-<th>Description</th>
+<th>Condition</th>
+<th>Passes when</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Display currency</td>
-<td><code>EUR</code> or the region's local currency (e.g. <code>SEK</code>)</td>
+<td>Price is acceptable</td>
+<td>The current price is at or below your price threshold</td>
 </tr>
 <tr>
-<td>Exchange rate source</td>
-<td>Automatic (daily ECB reference rate) or manual</td>
+<td>Rank is acceptable</td>
+<td>The current slot's rank is at or below your rank threshold</td>
 </tr>
 <tr>
-<td>Manual exchange rate</td>
-<td>Local currency per EUR; used in manual mode and as fallback when the automatic rate is unavailable</td>
+<td>Price is lowest today</td>
+<td>The current slot is the cheapest of the day by total price</td>
+</tr>
+<tr>
+<td>Fixed period active</td>
+<td>A fixed-price period is currently active</td>
+</tr>
+<tr>
+<td>Tomorrow's prices available</td>
+<td>Tomorrow's prices have been fetched</td>
 </tr>
 </tbody>
 </table>
-<p>Spot prices are converted from EUR with a daily exchange rate that stays frozen for the whole
-day, so a slot's price never changes after you have seen it. All prices you enter (commission,
-transfer tiers, fixed periods, thresholds) are in the selected display currency, and switching
-currency converts your entered prices automatically. Serbia (<code>RS</code>) and North Macedonia (<code>MK</code>)
-are not covered by the ECB reference rates — those regions use a manual rate only.</p>
-<div class="admonition warning">
-<p class="admonition-title">Long-term statistics</p>
-<p>Changing the display currency changes the unit of every price entity. Home Assistant's
-long-term statistics do not convert old data — statistics recorded in the previous unit
-will show a unit mismatch. If you rely on long-term statistics, pick the currency once
-at setup and stick with it.</p>
-</div>
-<h3 id="2-vat-electricity-tax">2. VAT &amp; electricity tax</h3>
-<p>Pre-filled from your region's defaults. Adjust if your contract differs. You can also enter your electricity contract's monthly fixed fee here — it will be spread across days and shown as a daily cost sensor.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>All prices you enter elsewhere (transfer tiers, fixed periods) are always <strong>gross (VAT included)</strong>. Spot prices from the API are always VAT-exclusive — Kilowahti applies VAT automatically.</p>
-</div>
-<h3 id="3-transfer-pricing">3. Transfer pricing</h3>
-<p>Set up your network operator's transfer price tiers. Tiers are time-based rules evaluated in priority order — the first match wins.</p>
-<p>You can skip this step and configure transfer pricing later via Configure. See <a href="../transfer-pricing/">Transfer pricing</a> for details.</p>
-<h3 id="4-thresholds-control">4. Thresholds &amp; control</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Control max price</td>
-<td>Price at or below this turns on the <code>price_acceptable</code> binary sensor</td>
-</tr>
-<tr>
-<td>Max price includes transfer</td>
-<td>Whether the price threshold compares against the total price (active price + transfer) or the active price alone</td>
-</tr>
-<tr>
-<td>Control max rank</td>
-<td>Rank at or below this turns on the <code>rank_acceptable</code> binary sensor</td>
-</tr>
-<tr>
-<td>Forward average window</td>
-<td>Hours ahead used for the <code>next_hours_average</code> sensor (1–24, in 0.25 h steps)</td>
-</tr>
-<tr>
-<td>Control factor curve</td>
-<td>Shape of the 0–1 control factor curve: Linear or Sinusoidal (see <a href="../control-factor/#curve-and-scaling">Control factor → Curve and scaling</a>)</td>
-</tr>
-<tr>
-<td>Control factor scaling</td>
-<td>Exponent applied to amplify extremes (1–3)</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Price and rank thresholds can also be adjusted dynamically without reopening Configure — use the <code>number.kilowahti_{name}_price_threshold</code> and <code>number.kilowahti_{name}_rank_threshold</code> entities from the dashboard or an automation.</p>
-</div>
-<h3 id="5-optimization-scores">5. Optimization scores</h3>
-<p>A permanent <strong>Total</strong> profile is created automatically. You can link your main energy meter to it later via <strong>Configure → Score profiles → Edit: Total</strong>.</p>
-<p>Additional profiles can be added (e.g. per-device or per-circuit meters).</p>
-<h3 id="6-sensor-display">6. Sensor display</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Expose spot price arrays as attributes</td>
-<td>Writes <code>today_prices</code> and <code>tomorrow_prices</code> arrays to the <code>spot_price</code> sensor attributes — useful for graphing cards (e.g. Apex Charts)</td>
-</tr>
-<tr>
-<td>Expose total price arrays as attributes</td>
-<td>Same for the <code>total_price</code> sensor, with each entry broken down into <code>energy</code> and <code>transfer</code></td>
-</tr>
-<tr>
-<td>High precision mode</td>
-<td>Shows more decimal places on price sensors and price arrays</td>
-</tr>
-</tbody>
-</table>
-<h4 id="price-array-attributes">Price array attributes</h4>
-<p>Both toggles are off by default. Values are rounded to the display precision (2 decimals, or 5 in high precision mode; two more when the display unit is <code>€/kWh</code>).</p>
-<p>The arrays are excluded from the recorder, so they do not grow the database and are not available in history — they describe the current and next day, and are read from the sensor's live state.</p>
-<p><code>spot_price</code> entries:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">today_prices</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="s">"2026-09-07T14:00:00+03:00"</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">price</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12.34</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
+<p>A condition that cannot be evaluated — no price data yet, or a target that matches no Kilowahti entry — does not pass. Automations gated on it simply do not run.</p>
+<h2 id="things-worth-knowing">Things worth knowing</h2>
+<p><strong>Triggers fire on the change, not while it lasts.</strong> "Price became acceptable" fires once, at the moment the price crosses your threshold. It does not fire again every slot while the price stays low. To act on a state that is <em>already</em> true, use a condition, or the matching binary sensor.</p>
+<p><strong>Restarting or reloading does not fire them.</strong> Each trigger reads the current situation when it starts and treats that as its baseline, so reloading automations in the middle of a cheap hour does not produce a spurious run.</p>
+<p><strong>Thresholds are live.</strong> The price and rank thresholds come from your configuration, and both are also exposed as <code>number</code> entities you can change from a dashboard or an automation. Change a threshold and the triggers use the new value immediately — no reload.</p>
+<p><strong>Price includes transfer only if you asked for it.</strong> The price threshold compares against the energy price by default, or energy plus transfer when <em>Price threshold includes transfer</em> is enabled in the options.</p>
+<p><strong>"Cheapest slot" always includes transfer.</strong> "Became cheapest slot" and "Price is lowest today" rank by the total price you pay, energy plus transfer. On a day where several slots share the cheapest total price, all of them count as cheapest.</p>
+<p><strong>On a fixed-price contract, rank stops discriminating.</strong> Rank follows the energy price you actually pay. During a fixed-price period every hour costs the same, so every slot ranks 1, "Rank is acceptable" always passes, and "Rank became acceptable" never fires — there is no cheaper hour to move to. Use "Price is lowest today" or "Became cheapest slot" if you still want the transfer-cheap hours on such a day.</p>
+<h2 id="in-yaml">In YAML</h2>
+<p>The UI is the easier route, but the same triggers and conditions can be written by hand:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">alias</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Heat water when the price drops</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nt">triggers</span><span class="p">:</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kilowahti.price_became_acceptable</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="nt">conditions</span><span class="p">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kilowahti.tomorrow_available</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="nt">actions</span><span class="p">:</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">switch.turn_on</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">      </span><span class="nt">entity_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">switch.water_heater</span>
 </code></pre></div>
-<p><code>total_price</code> entries add the breakdown, where <code>price</code> is the sum of the two rounded parts and <code>rank</code> is the total-price rank within that day (1 = cheapest). <code>transfer</code> is <code>0.0</code> when no transfer group is configured:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">today_prices</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">time</span><span class="p">:</span><span class="w"> </span><span class="s">"2026-09-07T14:00:00+03:00"</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">energy</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8.90</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="nt">transfer</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.44</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="nt">price</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12.34</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="nt">rank</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
+<p>With more than one Kilowahti entry, name the one you mean:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">triggers</span><span class="p">:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kilowahti.rank_became_acceptable</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">target</span><span class="p">:</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="nt">device_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0123456789abcdef0123456789abcdef</span>
 </code></pre></div>
-<p><code>tomorrow_prices</code> appears once tomorrow's prices have been fetched. The exception is <code>total_price</code> during a <a href="../fixed-periods/">fixed-price period</a> that also covers tomorrow: the price is known in advance, so the array is published without waiting for the spot prices.</p>
-<h2 id="updating-settings">Updating settings</h2>
-<p>All settings except the initial region and name are editable at any time via <strong>Configure</strong> without restarting Home Assistant.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Changing the <strong>display unit</strong> after sensors have recorded data will cause unit mismatches in history graphs. You may need to clear sensor history or update dashboard cards manually.</p>
-</div>
+<p>Trigger keys are <code>kilowahti.</code> followed by the name in snake_case: <code>price_became_acceptable</code>, <code>price_no_longer_acceptable</code>, <code>rank_became_acceptable</code>, <code>rank_no_longer_acceptable</code>, <code>became_cheapest_slot</code>, <code>fixed_period_started</code>, <code>fixed_period_ended</code>, <code>tomorrow_prices_available</code>. Condition keys follow the same pattern: <code>price_is_acceptable</code>, <code>rank_is_acceptable</code>, <code>price_is_lowest_today</code>, <code>fixed_period_active</code>, <code>tomorrow_available</code>.</p>
+<h2 id="when-to-use-the-binary-sensors-instead">When to use the binary sensors instead</h2>
+<p>The <a href="../entities/#binary-sensors">binary sensors</a> cover the same ground as states rather than events, which makes them the better choice when you want to:</p>
+<ul>
+<li>see the current situation on a dashboard, or its history in a graph</li>
+<li>combine several conditions in one template</li>
+<li>start an automation from a state that is already true, without waiting for the next change</li>
+</ul>
 
 
 
