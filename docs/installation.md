@@ -1,6 +1,14 @@
 # Installation
 
-## Via HACS (recommended)
+## Via the Marketplace (Home Assistant 2026.11 and newer)
+
+From Home Assistant 2026.11, HACS is built into Home Assistant as the Marketplace. Kilowahti is available there from the same default catalog.
+
+1. Open **Settings → Marketplace** (accept the community-content notice on first use)
+2. Search for **Kilowahti** and click **Install**
+3. Complete the setup wizard that opens. No restart is needed for a first install; updates still require one.
+
+## Via HACS (Home Assistant 2026.10 and older)
 
 Kilowahti is available in the [HACS](https://hacs.xyz/) default repository.
 
