@@ -1,5 +1,28 @@
 # Changelog
 
+## Version 2026.11.0 (2026-11-04)
+
+This release makes Kilowahti's entity IDs independent of the Home Assistant language, with a one-click repair that migrates existing installs. It also adds a rename flow for entries, a repair issue for stuck fallback sources and icons for the distinctive entities, makes Kilowahti ready for the Home Assistant Marketplace, and continues the quality-scale work started in 2026.9.0.
+
+**New**
+
+- Entity IDs no longer depend on the Home Assistant language: new installs get `sensor.kilowahti_home_spot_price` in every language instead of localized variants such as `sensor.kilowahti_home_spot_hinta`; displayed names stay translated
+- Repair that offers existing installs a one-click rename of display-name entity IDs to the stable ones; nothing is renamed until you confirm, entities whose ID you changed yourself are never touched, and history and statistics are kept
+- The repair's confirmation lists the automations, scripts, scenes and groups that use the entities (dashboards, templates and external systems are not checked); references to the old IDs must be updated by hand afterwards
+- Reconfigure flow to rename an entry; the entry's title and unique ID follow the new name, other settings stay untouched and the name cannot clash with another entry
+- Repair issue when a region has been served by a fallback price source for over 24 hours; it clears automatically once the primary source is back
+- Icons for the price data source, active transfer tier, active fixed period, fixed-period active, tomorrow available and threshold entities
+- Integration category (Energy › Energy prices) for the Home Assistant Marketplace and HACS catalog
+
+**Changed**
+
+- Entity keys renamed for consistency (for example `today_avg` → `today_average`); existing entities are migrated in place and keep their entity IDs, history and settings. Downgrading to an earlier release afterwards re-creates the renamed entities as duplicates, so remove the leftovers from the entity registry if you roll back
+- Services are registered when the integration loads instead of when the first entry is set up, and stay available after the last entry is unloaded
+- Service errors (no entries, unknown entry or period id, invalid or overlapping fixed period) are now translatable validation errors; automations that catch the old error type need to catch `ServiceValidationError`
+- Multi-entry service, trigger and condition lookups skip entries that failed setup
+- Installation instructions cover the Home Assistant Marketplace (2026.11 and newer) alongside HACS
+- New strings translated into all 24 languages (machine-assisted; corrections welcome)
+
 ## Version 2026.9.0 (2026-09-27)
 
 This release centers on **Total Price Arrays** — a new option to expose per-slot energy, transfer, and rank breakdowns on the `total_price` sensor, built from a user request. Alongside it: transfer tiers are now viewable and editable after setup, and the control factor family has been harmonized onto one consistent scale. This release also marks the first batch of work toward Home Assistant's integration quality scale, starting with diagnostics support and duplicate-entry protection.

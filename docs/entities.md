@@ -3,9 +3,11 @@
 All entities are grouped under a single **Kilowahti** device per configured instance. Entity names use the name you set during setup (e.g. `Home`).
 
 !!! note "Entity IDs on your system"
-    From `2026.9.0` Kilowahti pins its own entity IDs, so they are identical on every install no matter which language the interface is in — only the displayed names are translated.
+    From `2026.11.0` Kilowahti pins its own entity IDs, so they are identical on every install no matter which language the interface is in — only the displayed names are translated.
 
-    Installs created **before** `2026.9.0` keep the IDs Home Assistant generated back then, which came from the translated display name. Most are the same, but a few differ: `price_rank` was `rank`, `tomorrow_available` was `tomorrow_s_prices_available`, the `setting_*` diagnostics had no prefix, and a Finnish or German install got Finnish or German IDs throughout. Upgrading does not rewrite them — check **Settings → Devices & Services → Kilowahti** to see yours.
+    Installs created **before** `2026.11.0` keep the IDs Home Assistant generated back then, which came from the translated display name. Most are the same, but a few differ: `price_rank` was `rank`, `tomorrow_available` was `tomorrow_s_prices_available`, the `setting_*` diagnostics had no prefix, and a Finnish or German install got Finnish or German IDs throughout.
+
+    After upgrading, a repair under **Settings → System → Repairs** offers to rename them to the stable IDs. Nothing changes until you confirm; the confirmation lists the automations, scripts, scenes and groups that use the entities (dashboards and templates are not checked), IDs you changed yourself are left alone, and history is kept. References to the old IDs must be updated by hand afterwards. If you skip the repair, check **Settings → Devices & Services → Kilowahti** to see your real IDs.
 
 ## Start with these
 
