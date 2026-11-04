@@ -2,6 +2,8 @@
 
 All services are registered under the `kilowahti` domain. When only one Kilowahti instance is configured, `config_entry_id` can be omitted.
 
+Invalid calls (no Kilowahti entry configured, unknown `config_entry_id` or period id, an invalid or overlapping fixed period) fail with a translated validation error that Home Assistant shows in the UI and in automation traces. Automations that catch the error should catch `ServiceValidationError`.
+
 ## Price query services
 
 All price query services accept a `formatted` parameter (default `true`), which rounds prices to your display precision and converts them to your display unit. When `false`, prices come back at full precision in the minor unit of your display currency (`c/kWh`, `öre/kWh`, …).

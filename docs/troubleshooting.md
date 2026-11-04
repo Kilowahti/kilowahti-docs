@@ -13,6 +13,10 @@ Symptoms first. If your problem is "how do I make it do X", see [How do I…?](h
 
 Kilowahti caches prices locally, so a temporary outage does not empty your sensors — you keep the day you already have.
 
+## A "Using a fallback price source" repair appears
+
+Kilowahti has served your region from a secondary price source for over 24 hours, which usually means the primary source is having an outage. Prices stay correct; the repair clears itself once the primary source answers again, and no action is needed. If it persists for days, check outbound access as described under [No prices at all](#no-prices-at-all) and look for the failure reason in the log.
+
 ## Tomorrow's prices are missing
 
 This is normal for most of the day. The European day-ahead auction publishes results in the early afternoon; Kilowahti begins looking at 13:00 CET and keeps trying until they appear or 21:00 CET passes.

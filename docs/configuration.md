@@ -115,7 +115,9 @@ today_prices:
 
 ## Updating settings
 
-All settings except the initial region and name are editable at any time via **Configure** without restarting Home Assistant.
+All settings except the initial region are editable at any time via **Configure** without restarting Home Assistant.
+
+To rename an instance, open **Settings → Devices & Services → Kilowahti**, choose the entry's menu and select **Reconfigure**. The entry's title and unique ID follow the new name and all other settings stay as they are; a name already used by another Kilowahti entry is rejected. Entity IDs are not changed by a rename.
 
 !!! warning
     Changing the **display unit** after sensors have recorded data will cause unit mismatches in history graphs. You may need to clear sensor history or update dashboard cards manually.
