@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/icon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -31,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -57,17 +57,17 @@
     
       <link rel="stylesheet" href="../assets/document_dates/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
-    
-      <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/backdrop.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/scale.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/scale.css">
     
       <link rel="stylesheet" href="../assets/document_dates/core/core.css">
     
@@ -1469,7 +1469,7 @@
 
 
 <h1 id="transfer-pricing">Transfer pricing</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-09-08'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-09-08T12:16:47+00:00'>2026-09-08</time></span></div></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-09-08'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-09-08T15:53:39+00:00'>2026-09-08</time></span></div></div></div>
 
 <p>Transfer pricing lets you include your network operator's distribution tariff in price calculations and sensors.</p>
 <h2 id="groups-and-tiers">Groups and tiers</h2>
@@ -1521,7 +1521,7 @@
 <li><code>sensor.kilowahti_{name}_transfer_price</code> shows the current tier's price. Its <code>tariff</code> attribute names the group and tier in use, e.g. <code>Kausisiirto, Muu aika</code>, with <code>group</code> and <code>tier</code> also available separately</li>
 <li><code>sensor.kilowahti_{name}_total_price</code> becomes the active price plus the transfer price</li>
 <li><code>sensor.kilowahti_{name}_control_factor_transfer</code> rates the current tier against the other tiers occurring today: <strong>1.0 = cheapest tier, 0.0 = most expensive</strong>, on the same scale as the other <a href="../control-factor/">control factors</a>. A group with only one tier in play sits at a constant 1.0. There is a bipolar variant running from −1 to +1</li>
-<li><code>sensor.kilowahti_{name}_total_price_rank</code> and <code>control_factor_total</code> take the transfer price into account; the plain <code>rank</code> sensor and <code>control_factor_price</code> do not</li>
+<li><code>sensor.kilowahti_{name}_total_price_rank</code> and <code>control_factor_total</code> take the transfer price into account; the plain <code>price_rank</code> and <code>control_factor_price</code> do not</li>
 <li>The <code>price_acceptable</code> binary sensor can optionally include the transfer price in its comparison (configured via <strong>Max price includes transfer</strong>)</li>
 </ul>
 <p>Until a transfer group is configured, <code>transfer_price</code> and <code>control_factor_transfer</code> read <em>unknown</em> rather than zero — Kilowahti does not pretend the grid is free.</p>
@@ -1869,10 +1869,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../assets/document_dates/tippy/popper.min.js"></script>
       

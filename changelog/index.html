@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../assets/icon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
     
     
       
@@ -29,10 +29,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -55,17 +55,17 @@
     
       <link rel="stylesheet" href="../assets/document_dates/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
-    
-      <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/backdrop.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/scale.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/scale.css">
     
       <link rel="stylesheet" href="../assets/document_dates/core/core.css">
     
@@ -1225,6 +1225,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-2026110-2026-11-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2026.11.0 (2026-11-04)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-202690-2026-09-27" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1358,6 +1369,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-2026110-2026-11-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version 2026.11.0 (2026-11-04)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-202690-2026-09-27" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1477,8 +1499,29 @@
 
 
 <h1 id="changelog">Changelog</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-11'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-11T18:47:51+00:00'>2026-03-11</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-09-27'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-09-27T16:15:27+00:00'>2026-09-27</time></span></div></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-11'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-11T18:47:51+00:00'>2026-03-11</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-11-04'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-11-04T09:55:06+00:00'>2026-11-04</time></span></div></div></div>
 
+<h2 id="version-2026110-2026-11-04">Version 2026.11.0 (2026-11-04)</h2>
+<p>This release makes Kilowahti's entity IDs independent of the Home Assistant language, with a one-click repair that migrates existing installs. It also adds a rename flow for entries, a repair issue for stuck fallback sources and icons for the distinctive entities, makes Kilowahti ready for the Home Assistant Marketplace, and continues the quality-scale work started in 2026.9.0.</p>
+<p><strong>New</strong></p>
+<ul>
+<li>Entity IDs no longer depend on the Home Assistant language: new installs get <code>sensor.kilowahti_home_spot_price</code> in every language instead of localized variants such as <code>sensor.kilowahti_home_spot_hinta</code>; displayed names stay translated</li>
+<li>Repair that offers existing installs a one-click rename of display-name entity IDs to the stable ones; nothing is renamed until you confirm, entities whose ID you changed yourself are never touched, and history and statistics are kept</li>
+<li>The repair's confirmation lists the automations, scripts, scenes and groups that use the entities (dashboards, templates and external systems are not checked); references to the old IDs must be updated by hand afterwards</li>
+<li>Reconfigure flow to rename an entry; the entry's title and unique ID follow the new name, other settings stay untouched and the name cannot clash with another entry</li>
+<li>Repair issue when a region has been served by a fallback price source for over 24 hours; it clears automatically once the primary source is back</li>
+<li>Icons for the price data source, active transfer tier, active fixed period, fixed-period active, tomorrow available and threshold entities</li>
+<li>Integration category (Energy › Energy prices) for the Home Assistant Marketplace and HACS catalog</li>
+</ul>
+<p><strong>Changed</strong></p>
+<ul>
+<li>Entity keys renamed for consistency (for example <code>today_avg</code> → <code>today_average</code>); existing entities are migrated in place and keep their entity IDs, history and settings. Downgrading to an earlier release afterwards re-creates the renamed entities as duplicates, so remove the leftovers from the entity registry if you roll back</li>
+<li>Services are registered when the integration loads instead of when the first entry is set up, and stay available after the last entry is unloaded</li>
+<li>Service errors (no entries, unknown entry or period id, invalid or overlapping fixed period) are now translatable validation errors; automations that catch the old error type need to catch <code>ServiceValidationError</code></li>
+<li>Multi-entry service, trigger and condition lookups skip entries that failed setup</li>
+<li>Installation instructions cover the Home Assistant Marketplace (2026.11 and newer) alongside HACS</li>
+<li>New strings translated into all 24 languages (machine-assisted; corrections welcome)</li>
+</ul>
 <h2 id="version-202690-2026-09-27">Version 2026.9.0 (2026-09-27)</h2>
 <p>This release centers on <strong>Total Price Arrays</strong> — a new option to expose per-slot energy, transfer, and rank breakdowns on the <code>total_price</code> sensor, built from a user request. Alongside it: transfer tiers are now viewable and editable after setup, and the control factor family has been harmonized onto one consistent scale. This release also marks the first batch of work toward Home Assistant's integration quality scale, starting with diagnostics support and duplicate-entry protection.</p>
 <p><strong>⚠️ Breaking changes</strong></p>
@@ -1708,10 +1751,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.c21346df.min.js"></script>
       
         <script src="../assets/document_dates/tippy/popper.min.js"></script>
       
