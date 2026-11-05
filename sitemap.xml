@@ -1,91 +1,325 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
-         <loc>https://docs.kilowahti.fi/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/automations/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/automations/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/automations/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/automations/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/changelog/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/changelog/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/changelog/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/configuration/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/configuration/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/configuration/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/control-factor/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/control-factor/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/control-factor/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/control-factor/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/entities/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/entities/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/entities/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/entities/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/faq/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/faq/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/faq/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/faq/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/fixed-periods/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/fixed-periods/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/fixed-periods/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/fixed-periods/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/getting-started/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/getting-started/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/getting-started/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/getting-started/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/glossary/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/glossary/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/glossary/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/glossary/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/how-do-i/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/how-do-i/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/how-do-i/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/how-do-i/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/installation/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/installation/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/installation/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/installation/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/scores/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/scores/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/scores/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/scores/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/services/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/services/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/services/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/services/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/transfer-pricing/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/supported-regions/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/supported-regions/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/supported-regions/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/triggers-conditions/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/transfer-pricing/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/transfer-pricing/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/transfer-pricing/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/troubleshooting/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/triggers-conditions/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/triggers-conditions/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/triggers-conditions/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/lib/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/troubleshooting/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/troubleshooting/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/lib/calc/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/lib/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/lib/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/lib/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/lib/const/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/lib/calc/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/lib/calc/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/lib/calc/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/lib/models/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/lib/const/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/lib/const/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/lib/const/"/>
     </url>
     <url>
-         <loc>https://docs.kilowahti.fi/lib/sources/</loc>
-         <lastmod>2026-11-04</lastmod>
+        <loc>https://docs.kilowahti.fi/lib/models/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/lib/models/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/lib/models/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/lib/sources/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/lib/sources/"/>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/lib/sources/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/automations/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/automations/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/automations/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/changelog/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/changelog/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/changelog/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/configuration/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/configuration/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/configuration/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/control-factor/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/control-factor/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/control-factor/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/entities/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/entities/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/entities/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/faq/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/faq/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/faq/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/fixed-periods/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/fixed-periods/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/fixed-periods/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/getting-started/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/getting-started/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/getting-started/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/glossary/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/glossary/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/glossary/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/how-do-i/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/how-do-i/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/how-do-i/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/installation/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/installation/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/installation/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/scores/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/scores/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/scores/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/services/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/services/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/services/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/supported-regions/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/supported-regions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/supported-regions/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/transfer-pricing/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/transfer-pricing/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/transfer-pricing/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/triggers-conditions/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/triggers-conditions/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/triggers-conditions/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/troubleshooting/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/troubleshooting/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/troubleshooting/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/lib/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/lib/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/lib/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/lib/calc/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/lib/calc/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/lib/calc/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/lib/const/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/lib/const/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/lib/const/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/lib/models/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/lib/models/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/lib/models/"/>
+    </url>
+    <url>
+        <loc>https://docs.kilowahti.fi/fi/lib/sources/</loc>
+        <lastmod>2026-11-05</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="fi" href="https://docs.kilowahti.fi/fi/lib/sources/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.kilowahti.fi/lib/sources/"/>
     </url>
 </urlset>

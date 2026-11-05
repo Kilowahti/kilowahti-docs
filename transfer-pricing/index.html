@@ -20,6 +20,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../fi/transfer-pricing/" hreflang="fi">
+        
       
       
       <link rel="icon" href="../assets/icon.png">
@@ -57,17 +61,17 @@
     
       <link rel="stylesheet" href="../assets/document_dates/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
-    
-      <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/backdrop.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
-    
       <link rel="stylesheet" href="../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
     
       <link rel="stylesheet" href="../assets/document_dates/core/core.css">
     
@@ -167,6 +171,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../fi/transfer-pricing/" hreflang="fi" class="md-select__link">
+              Suomi
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -538,6 +568,34 @@
     
   
     Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../supported-regions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported regions
   
 
     
@@ -1469,12 +1527,13 @@
 
 
 <h1 id="transfer-pricing">Transfer pricing</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-09-08'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-09-08T15:53:39+00:00'>2026-09-08</time></span></div></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-11-05'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-11-05T21:45:31+00:00'>2026-11-05</time></span></div></div></div>
 
-<p>Transfer pricing lets you include your network operator's distribution tariff in price calculations and sensors.</p>
+<p>This is how you set up your network operator's transfer prices in Kilowahti so that they are included in price calculations and sensors.</p>
 <h2 id="groups-and-tiers">Groups and tiers</h2>
-<p>Transfer pricing is organised into <strong>groups</strong>, each containing one or more <strong>tiers</strong>. Only one group is active at a time — this lets you store multiple contracts (e.g. seasonal or time-of-use) and switch between them without re-entering data.</p>
-<p>Each tier defines a price and a time schedule:</p>
+<p>Transfer pricing is organised into <strong>groups</strong> that correspond to the different transfer products of network operators, each containing one or more <strong>tiers</strong> — a tier is a rule that activates when its conditions are met. Only one group is active at a time — this lets you store multiple contracts (e.g. seasonal or time-of-use) and switch between them without re-entering data. <em>(Remember to always check that the prices you entered earlier are still up to date.)</em></p>
+<p>A group has a name (e.g. Aikasiirto or Yösiirto) and the monthly fee of that transfer product or connection.</p>
+<p>Each tier in a group has a transfer price per kWh and the conditions for when it applies:</p>
 <table>
 <thead>
 <tr>
@@ -1497,20 +1556,20 @@
 </tr>
 <tr>
 <td>Start / end time</td>
-<td>Hour range (start inclusive, end exclusive)</td>
+<td>Sets the hour range during which the condition is met (start inclusive, end exclusive: 6–22 covers 6:00–21:59)</td>
 </tr>
 <tr>
 <td>Priority</td>
-<td>Order of evaluation — see below</td>
+<td>The order in which tiers are checked — see below</td>
 </tr>
 </tbody>
 </table>
 <h3 id="how-priority-works">How priority works</h3>
-<p>Tiers are checked in ascending priority order, and <strong>the first one that matches wins</strong>. A smaller number therefore means a tier is considered <em>earlier</em>, so priority 1 beats priority 2.</p>
-<p>The practical pattern is: describe your restricted rates explicitly with small numbers, and give the fallback rate the largest number so that it only applies when nothing else matched.</p>
+<p>Tiers are checked in ascending priority order, i.e. the smallest number first, and <strong>the first one that matches wins</strong>. A smaller priority number therefore means a tier is checked <em>earlier</em> than a larger one, so priority 1 beats priority 2.</p>
+<p>The practical pattern is: describe your restricted rates explicitly with tiers that have small priority numbers, and give the fallback rate the largest number so that it only applies when no earlier tier matched.</p>
 <div class="admonition tip">
 <p class="admonition-title">Always end with a catch-all</p>
-<p>Give your base rate no time restrictions — all months, all weekdays, hours 0 to 24 — and the highest priority number in the group. It then acts as a fallback, guaranteeing that every hour of the year has a transfer price. Without one, hours matching no tier have no transfer price at all.</p>
+<p>Give your base rate no time restrictions — all months, all weekdays, hours 0 to 24 — and the highest priority number in the group. It then acts as a fallback at the bottom, guaranteeing that every hour of the year has a transfer price. Without one, hours matching no tier have no transfer price at all.</p>
 </div>
 <h2 id="viewing-and-editing-tiers">Viewing and editing tiers</h2>
 <p>Open <strong>Configure → Transfer pricing</strong> and select a group. The group screen lists every tier it holds — price, months, weekdays, hour range, and priority — in evaluation order.</p>
@@ -1518,7 +1577,7 @@
 <h2 id="effect-on-sensors-and-binary-sensors">Effect on sensors and binary sensors</h2>
 <p>When a transfer group is active:</p>
 <ul>
-<li><code>sensor.kilowahti_{name}_transfer_price</code> shows the current tier's price. Its <code>tariff</code> attribute names the group and tier in use, e.g. <code>Kausisiirto, Muu aika</code>, with <code>group</code> and <code>tier</code> also available separately</li>
+<li><code>sensor.kilowahti_{name}_transfer_price</code> shows the current tier's price. Its <code>tariff</code> attribute names the group and tier in use, e.g. <code>Kausisiirto, Muu aika</code>, and both are also available in their own attributes, <code>group</code> and <code>tier</code></li>
 <li><code>sensor.kilowahti_{name}_total_price</code> becomes the active price plus the transfer price</li>
 <li><code>sensor.kilowahti_{name}_control_factor_transfer</code> rates the current tier against the other tiers occurring today: <strong>1.0 = cheapest tier, 0.0 = most expensive</strong>, on the same scale as the other <a href="../control-factor/">control factors</a>. A group with only one tier in play sits at a constant 1.0. There is a bipolar variant running from −1 to +1</li>
 <li><code>sensor.kilowahti_{name}_total_price_rank</code> and <code>control_factor_total</code> take the transfer price into account; the plain <code>price_rank</code> and <code>control_factor_price</code> do not</li>
@@ -1530,8 +1589,8 @@
 <p><strong>Step-by-step setup</strong></p>
 <ol>
 <li>Go to <strong>Settings → Devices &amp; Services → Kilowahti → Configure → Transfer pricing</strong></li>
-<li>Select <strong>➕ Add group</strong>, enter the name <strong>Yleissiirto</strong>, and confirm</li>
-<li>Select <strong>✎ Edit</strong> next to Yleissiirto</li>
+<li>Select <strong>➕ Add group</strong>, enter the name <strong>Yleissiirto</strong>, enter your operator's monthly fee, and save</li>
+<li>Select <strong>⚙ Manage: Yleissiirto</strong> from the list</li>
 <li>
 <p>Select <strong>➕ Add tier</strong> and fill in the single rate:</p>
 <table>
@@ -1548,7 +1607,7 @@
 </tr>
 <tr>
 <td>Price</td>
-<td><em>(your operator's rate, incl. VAT)</em></td>
+<td><em>(your operator's rate per kWh, incl. VAT)</em></td>
 </tr>
 <tr>
 <td>Months active</td>
@@ -1598,12 +1657,12 @@
 </tr>
 </tbody>
 </table>
-<p>Because Kilowahti evaluates tiers in ascending priority order and stops at the first match, give the more restricted rate (day) the smaller number and let the night rate act as the catch-all behind it.</p>
+<p>Because Kilowahti evaluates tiers in ascending priority order and stops at the first match, give the more restricted rate (day, i.e. one continuous period within the same day) the smaller number and let the night rate act as the base tier behind it.</p>
 <p><strong>Step-by-step setup</strong></p>
 <ol>
 <li>Go to <strong>Settings → Devices &amp; Services → Kilowahti → Configure → Transfer pricing</strong></li>
-<li>Select <strong>➕ Add group</strong>, enter the name <strong>Aikasiirto</strong>, and confirm</li>
-<li>Select <strong>✎ Edit</strong> next to Aikasiirto</li>
+<li>Select <strong>➕ Add group</strong>, enter the name <strong>Aikasiirto</strong>, enter the transfer product's monthly fee, and save</li>
+<li>Select <strong>⚙ Manage: Aikasiirto</strong> from the list</li>
 <li>
 <p>Select <strong>➕ Add tier</strong> and fill in the day rate:</p>
 <table>
@@ -1620,7 +1679,7 @@
 </tr>
 <tr>
 <td>Price</td>
-<td><em>(your operator's day rate, incl. VAT)</em></td>
+<td><em>(your operator's day rate per kWh, incl. VAT)</em></td>
 </tr>
 <tr>
 <td>Months active</td>
@@ -1661,7 +1720,7 @@
 </tr>
 <tr>
 <td>Price</td>
-<td><em>(your operator's night rate, incl. VAT)</em></td>
+<td><em>(your operator's night rate per kWh, incl. VAT)</em></td>
 </tr>
 <tr>
 <td>Months active</td>
@@ -1717,8 +1776,8 @@
 <p><strong>Step-by-step setup</strong></p>
 <ol>
 <li>Go to <strong>Settings → Devices &amp; Services → Kilowahti → Configure → Transfer pricing</strong></li>
-<li>Select <strong>➕ Add group</strong>, enter the name <strong>Kausisiirto</strong>, and confirm</li>
-<li>Select <strong>✎ Edit</strong> next to Kausisiirto</li>
+<li>Select <strong>➕ Add group</strong>, enter the name <strong>Kausisiirto</strong>, enter the transfer product's monthly fee, and save</li>
+<li>Select <strong>⚙ Manage: Kausisiirto</strong> from the list</li>
 <li>
 <p>Select <strong>➕ Add tier</strong> and fill in the peak rate:</p>
 <table>
@@ -1735,7 +1794,7 @@
 </tr>
 <tr>
 <td>Price</td>
-<td><em>(your operator's peak rate, incl. VAT)</em></td>
+<td><em>(your operator's peak rate per kWh, incl. VAT)</em></td>
 </tr>
 <tr>
 <td>Months active</td>
@@ -1776,7 +1835,7 @@
 </tr>
 <tr>
 <td>Price</td>
-<td><em>(your operator's off-peak rate, incl. VAT)</em></td>
+<td><em>(your operator's off-peak rate per kWh, incl. VAT)</em></td>
 </tr>
 <tr>
 <td>Months active</td>
@@ -1810,7 +1869,7 @@
 <p>The peak tier (priority 1) matches first whenever it is November–March, a weekday (Mon–Sat), and between 06:00–22:00. All other times fall through to the off-peak tier (priority 2).</p>
 <h2 id="switching-groups">Switching groups</h2>
 <p>Go to <strong>Configure → Transfer pricing</strong>, select a group, and choose <strong>Set as active group</strong>. Only one group is active at a time, and switching takes effect immediately — no restart, no reload.</p>
-<p>Edits to the active group's tiers also apply immediately. If you are on <code>2026.8.0</code> or older, they only took effect at the next slot boundary.</p>
+<p>Edits to the active group's tiers also apply immediately.</p>
 
 
 

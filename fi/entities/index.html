@@ -1,0 +1,2231 @@
+
+<!doctype html>
+<html lang="fi" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Home Assistant integration for European electricity spot pricing and cost optimization">
+      
+      
+      
+        <link rel="canonical" href="https://docs.kilowahti.fi/fi/entities/">
+      
+      
+        <link rel="prev" href="../configuration/">
+      
+      
+        <link rel="next" href="../services/">
+      
+      
+        
+          <link rel="alternate" href="../../entities/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="fi">
+        
+      
+      
+      <link rel="icon" href="../../assets/icon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>Entiteetit - Kilowahti</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/material.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/core/core.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/fonts/material-icons.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/shift-away.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/backdrop.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/tippy.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/tippy/material.css">
+    
+      <link rel="stylesheet" href="../../assets/document_dates/core/core.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#entiteetit" class="md-skip">
+          Hyppää sisältöön
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Ylätunniste">
+    <a href="../" title="Kilowahti" class="md-header__button md-logo" aria-label="Kilowahti" data-md-component="logo">
+      
+  <img src="../../assets/dark_icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Kilowahti
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Entiteetit
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Valitse kieli">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../entities/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="fi" class="md-select__link">
+              Suomi
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Hae" placeholder="Hae" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Haku">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Tyhjää" aria-label="Tyhjää" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Aloitetaan hakua
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Kilowahti/ha-kilowahti" title="Mene repositoryyn" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Kilowahti/ha-kilowahti
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigaatio" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../" title="Kilowahti" class="md-nav__button md-logo" aria-label="Kilowahti" data-md-component="logo">
+      
+  <img src="../../assets/dark_icon.png" alt="logo">
+
+    </a>
+    Kilowahti
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Kilowahti/ha-kilowahti" title="Mene repositoryyn" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Kilowahti/ha-kilowahti
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Etusivu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Aloitus
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Aloitus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asennus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ensimmäinen käyttöönotto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Asetukset
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Viitteet
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Viitteet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entiteetit
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entiteetit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aloita-naista" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aloita näistä
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anturit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anturit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hinta-anturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hinta-anturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sijalukuanturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sijalukuanturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ohjauskerroinanturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ohjauskerroinanturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimointianturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimointianturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnostiikka-anturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostiikka-anturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numeroentiteetit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeroentiteetit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numeroentiteetit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#liukuvan-keskiarvon-anturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liukuvan keskiarvon anturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuotanto-ja-myyntianturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuotanto- ja myyntianturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#akkuanturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Akkuanturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binaarianturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Binäärianturit
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Palvelut
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../supported-regions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tuetut alueet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Oppaat
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Oppaat
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-do-i/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Miten teen…?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../triggers-conditions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laukaisimet ja ehdot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automaatioesimerkit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../control-factor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ohjauskerroin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Optimointipisteet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../transfer-pricing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Siirtohinnat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fixed-periods/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kiinteän hinnan jaksot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ohje
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ohje
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vianmääritys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sanasto
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kirjasto
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Kirjasto
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Yleiskatsaus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lib/models/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mallit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lib/calc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Laskennat
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lib/sources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hintalähteet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lib/const/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vakiot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UKK
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Muutosloki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Sisällysluettelo">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Sisällysluettelo
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#aloita-naista" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aloita näistä
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#anturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Anturit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Anturit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hinta-anturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hinta-anturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sijalukuanturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sijalukuanturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ohjauskerroinanturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ohjauskerroinanturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimointianturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optimointianturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagnostiikka-anturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagnostiikka-anturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numeroentiteetit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numeroentiteetit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numeroentiteetit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#liukuvan-keskiarvon-anturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Liukuvan keskiarvon anturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tuotanto-ja-myyntianturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tuotanto- ja myyntianturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#akkuanturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Akkuanturit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#binaarianturit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Binäärianturit
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="entiteetit">Entiteetit</h1>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-11-05'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-11-05T21:45:31+00:00'>2026-11-05</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-11-05'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-11-05T21:45:31+00:00'>2026-11-05</time></span></div></div></div>
+
+<p>Kaikki entiteetit on koottu yhden <strong>Kilowahti</strong>-laitteen alle kutakin määritettyä esiintymää kohden. Entiteettien nimissä käytetään asennuksen aikana antamaasi nimeä (esim. <code>Home</code> tai <code>Koti</code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Entiteettien tunnukset omassa järjestelmässäsi</p>
+<p>Versiosta <code>2026.11.0</code> alkaen Kilowahti määrittää omien entiteettiensä tunnukset kiinteästi, joten ne ovat samat jokaisessa asennuksessa käyttöliittymän kielestä riippumatta. Vain näytettävät nimet käännetään käyttäjäprofiilin asetuksissa valitulle kielelle.</p>
+<p><strong>Ennen</strong> versiota <code>2026.11.0</code> luoduissa asennuksissa säilyvät tunnukset, jotka Home Assistant tuolloin muodosti käännetystä näyttönimestä. Useimmat ovat samoja, mutta muutama poikkeaa: <code>price_rank</code> oli <code>rank</code>, <code>tomorrow_available</code> oli <code>tomorrow_s_prices_available</code>, <code>setting_*</code>-diagnostiikka-antureilla ei ollut etuliitettä, ja suomen- tai saksankielinen asennus sai suomen- tai saksankieliset tunnukset kauttaaltaan.</p>
+<p>Päivityksen jälkeen kohdassa <strong>Asetukset → Järjestelmä → Korjaukset</strong> on korjaus, joka tarjoutuu nimeämään tunnukset uudelleen kiinteisiin tunnuksiin. Mitään ei muuteta ennen kuin vahvistat. Vahvistusnäkymä luettelee automaatiot, skriptit, tilanteet ja ryhmät, jotka käyttävät entiteettejä (kojelautoja ja malleja ei tarkisteta). Itse muuttamiisi tunnuksiin ei kosketa, ja kaikkien tunnusten historia säilyy. Mahdolliset viittaukset vanhoihin tunnuksiin esim. automaatioissa tai kojelaudan korteissa on päivitettävä jälkikäteen käsin. Jos ohitat korjauksen, näet todelliset tunnuksesi kohdasta <strong>Asetukset → Laitteet &amp; palvelut → Kilowahti</strong>.</p>
+</div>
+<h2 id="aloita-naista">Aloita näistä</h2>
+<p>Tämä sivu on Kilowahdin kattava hakuteos, etkä luultavasti koskaan tarvitse suurta osaa siitä. Tyypillisessä peruskokoonpanossa pärjää hyvin pitkälle vain viidellä entiteetillä:</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Mihin sitä käytetään</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensor.kilowahti_{name}_total_price</code></td>
+<td><ul><li><strong>Mitä kilowattitunti maksaa sinulle juuri nyt, kaikki kulut mukaan lukien.</strong></li><li>Tämä luku on hyödyllinen esimerkiksi kojelaudan kortissa käyttäjille näytettynä.</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_price_rank</code></td>
+<td><ul><li><strong>Mihin kohtaan nykyinen aikajakso sijoittuu energian hinnan osalta koko päivän hinnoissa, pienempi on parempi: 1 = halvin.</strong></li><li>Tästä luvusta on eniten hyötyä automaatioissa: esimerkiksi lämmitystä ei kannata ohjata vain absoluuttisella hintarajalla, koska se saattaisi kalliina päivänä estyä kokonaan.</li></ul></td>
+</tr>
+<tr>
+<td><code>binary_sensor.kilowahti_{name}_rank_acceptable</code></td>
+<td><ul><li><code>Päällä</code> (<code>on</code>) silloin kun pelkän energian hinnan <strong>sijaluku on pienempi tai yhtä suuri</strong> kuin asettamasi kynnysarvo.</li></ul></td>
+</tr>
+<tr>
+<td><code>number.kilowahti_{name}_rank_threshold</code></td>
+<td><ul><li><strong>Asettaa edellisen kynnysarvon.</strong></li><li>Arvoa voi säätää joustavasti kojelaudalta tai automaatiosta avaamatta Kilowahdin asetuksia, muuttuu myös asetuksia muokkaamalla.</li></ul></td>
+</tr>
+<tr>
+<td><code>binary_sensor.kilowahti_{name}_tomorrow_available</code></td>
+<td><ul><li><code>Päällä</code> (<code>on</code>) silloin kun <strong>huomisen hinnat ovat saatavilla</strong>, yleensä iltapäivällä.</li></ul></td>
+</tr>
+</tbody>
+</table>
+<p>Näiden lisäksi kaikki alla oleva on käytettävissä, jos sitä tarvitset. Kilowahti tarjoaa useita antureita joista osalla saa toteutettua aivan saman asian hieman eri lähestymistavalla ja alunperin eri tarkoitukseen, tämä tarkoittaa laajempia mahdollisuuksia käyttäjälle - Kilowahdin tarkoitus on olla mahdollisimman joustava ratkaisu erilaisiin tarpeisiin sähkön hintojen ja kulutuksen optimoinnin ympärillä.</p>
+<p>Jotkin alla olevista ryhmistä ovat olemassa vain, kun otat ne käyttöön: myynti- ja aurinkoanturit edellyttävät, että <strong>tuotanto</strong> on otettu käyttöön lisäasetuksissa, akkuanturit edellyttävät edellisen lisäksi akun kapasiteetin asettamista, ja laajemmat liukuvat keskiarvot saa kytkettyä päälle niin halutessaan kun valittu hintaresoluutio on 15 minuuttia.</p>
+<p>Onko Kilowahti sinulle täysin uusi tuttavuus? <a href="../getting-started/">Aloitusopas</a> käy integraation käyttöönoton läpi vaiheittain alusta loppuun.</p>
+<h2 id="anturit">Anturit</h2>
+<h3 id="hinta-anturit">Hinta-anturit</h3>
+<p>Kaikki hinta-anturit käyttävät asetuksissa valitsemaasi näyttöyksikköä, eli näyttövaluuttasi pienempää tai suurempaa yksikköä, esim. <code>c/kWh</code> tai <code>€/kWh</code>, <code>öre/kWh</code> tai <code>kr/kWh</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensor.kilowahti_{name}_spot_price</code></td>
+<td><ul><li>Nykyisen aikajakson verollinen spot-hinta</li><li>Attribuutit: <code>price_source</code> sekä <code>today_prices</code>/<code>tomorrow_prices</code>, kun hintataulukot on otettu käyttöön</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_active_price</code></td>
+<td><ul><li>Näkyy nimellä <strong>Toteutuva hinta</strong>. Maksamasi energian hinta: spot-hinta tai sopimushinta, kun kiinteä hintajakso on voimassa</li><li>Attribuutit: <code>source</code> (<code>spot</code>/<code>fixed</code>), <code>period_label</code></li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_transfer_price</code></td>
+<td><ul><li>Voimassa oleva siirtohinta, tuntematon ennen kuin siirtohintoja on määritetty</li><li>Attribuutit: <code>tariff</code> (aktiivinen ryhmä ja taso, esim. "Kausisiirto, Muu aika") sekä erikseen <code>group</code> (ryhmä) ja <code>tier</code> (taso)</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_total_price</code></td>
+<td><ul><li>Kokonaishinta, eli energian toteutuva hinta + siirtohinta</li><li>Attribuutit: <code>today_prices</code>/<code>tomorrow_prices</code>, kun kokonaishintataulukot on otettu käyttöön lisäasetuksissa</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_today_spot_average</code></td>
+<td><ul><li>Tämän päivän spot-hinnan keskiarvo</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_today_spot_minimum</code></td>
+<td><ul><li>Tämän päivän matalin spot-hinta</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_today_spot_maximum</code></td>
+<td><ul><li>Tämän päivän korkein spot-hinta</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_today_total_average</code></td>
+<td><ul><li>Tämän päivän kokonaishinnan keskiarvo (spot + siirto)</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_today_total_minimum</code></td>
+<td><ul><li>Tämän päivän matalin kokonaishinta</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_today_total_maximum</code></td>
+<td><ul><li>Tämän päivän korkein kokonaishinta</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_tomorrow_spot_average</code></td>
+<td><ul><li>Huomisen spot-hinnan keskiarvo, ei saatavissa ennen kuin huomisen hinnat on haettu</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_tomorrow_spot_minimum</code></td>
+<td><ul><li>Huomisen matalin spot-hinta; Ei saatavissa ennen kuin huomisen hinnat on haettu</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_tomorrow_spot_maximum</code></td>
+<td><ul><li>Huomisen korkein spot-hinta; Ei saatavissa ennen kuin huomisen hinnat on haettu</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_tomorrow_total_average</code></td>
+<td><ul><li>Huomisen kokonaishinnan keskiarvo; Ei saatavissa ennen kuin huomisen hinnat on haettu (tai kiinteä hintajakso, jos sellainen on voimassa huomenna)</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_tomorrow_total_minimum</code></td>
+<td><ul><li>Huomisen alin kokonaishinta</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_tomorrow_total_maximum</code></td>
+<td><ul><li>Huomisen korkein kokonaishinta</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_next_hours_average</code></td>
+<td><ul><li>Spot-hinnan keskiarvo seuraavien N tunnin ajalta (määritettävissä)</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_monthly_fixed_cost_today</code></td>
+<td><ul><li>Tämän päivän osuus sopimuksen kiinteästä kuukausimaksusta päivää kohden näyttövaluutassasi, ei saatavissa, jos kuukausimaksua ei ole määritetty</li></ul></td>
+</tr>
+</tbody>
+</table>
+<p>Pörssihinnat haetaan joka päivä ja anturit päivittyvät hintajaksojen vaihtuessa vaikka käytössä olisikin kiinteä hintajakso. Kiinteän hintajakson voimassaolosta kertoo binäärianturi <code>fixed_price_period_active</code>, katso alempaa kohta <a href="#binaarianturit">Binäärianturit</a>.</p>
+<h3 id="sijalukuanturit">Sijalukuanturit</h3>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensor.kilowahti_{name}_price_rank</code></td>
+<td><ul><li>Nykyisen aikajakson sijaluku toteutuvan energiahinnan mukaan (kiinteän hintajakson hinta, kun sellainen on voimassa, muuten spot-hinta), ei sisällä siirtohintaa.</li><li>Normalisoitu: 1 = halvin, päivän hintajaksojen lukumäärä (slots_per_day) = kallein. Lue tarkemmin taulukon alta.</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_total_price_rank</code></td>
+<td><ul><li>Sama, mutta siirto sisältyy hintaan</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_price_quartile</code></td>
+<td><ul><li>Energiahinnan kvartiili 1–4 (johdettu <code>price_rank</code>-arvosta): 1&nbsp;=&nbsp;halvimmat 25&nbsp;% aikajaksoista päivän aikana</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_total_price_quartile</code></td>
+<td><ul><li>Kokonaishinnan kvartiili 1–4 (johdettu <code>total_price_rank</code>-arvosta): 1&nbsp;=&nbsp;halvimmat 25&nbsp;% aikajaksoista päivän aikana</li></ul></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Korkein mahdollinen sijaluku riippuu hintaresoluutiosta</p>
+<p>Suurin sijaluku 15 minuutin resoluutiolla on <strong>96</strong>, ja tunnin resoluutiolla <strong>24</strong>.</p>
+</div>
+<p>Sijaluvut on normalisoitu hintatasoittain: samanhintaiset aikajaksot jakavat saman sijaluvun, ja päivän halvin hinta on aina 1 ja kallein on aina korkein mahdollinen sijaluku. Esimerkiksi jos varttimittausta käytettäessä koko päivän 96 jaksolla olisi vain kaksi eri hintaa, niistä halvempi saa sijaluvukseen&nbsp;1 ja kalliimpi&nbsp;96.</p>
+<p><a href="../fixed-periods/">Kiinteän hintajakson</a> aikana jokainen aikajakso maksaa saman verran, joten pelkän energian <code>price_rank</code> on 1 koko päivän, koska päivän aikana ei ole odotettavissa sitä kalliimpaa jaksoa. Energian kiinteästä hintajaksosta huolimatta kokonaishinnan sijaluku <code>total_price_rank</code> saattaa kuitenkin vaihdella, jos siirtohinnat on määritelty ja päivän aikana aktiivisia eri siirtohintoja on enemmän kuin yksi.</p>
+<h3 id="ohjauskerroinanturit">Ohjauskerroinanturit</h3>
+<p>Kaikilla kolmella kertoimella on sama asteikko: <strong>1,0 = halvin, 0,0 = kallein</strong>, ja kuhunkin sovelletaan määritettyä muotoa (lineaarinen/sinimuotoinen) ja skaalausta. Jokaisesta on bipolaarinen versio joka sijoittaa saman arvon välille −1…+1.</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Vaihteluväli</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensor.kilowahti_{name}_control_factor_price</code></td>
+<td>0–1</td>
+<td>Perustuu <code>price_rank</code>-arvoon: energian hinta ilman siirtoa.</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_control_factor_price_bipolar</code></td>
+<td>−1…+1</td>
+<td>Yllä olevan bipolaarinen versio.</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_control_factor_total</code></td>
+<td>0–1</td>
+<td>Perustuu <code>total_price_rank</code>-arvoon: energia ja siirto yhdessä.</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_control_factor_total_bipolar</code></td>
+<td>−1…+1</td>
+<td>Yllä olevan bipolaarinen versio.</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_control_factor_transfer</code></td>
+<td>0–1</td>
+<td>Perustuu siirtohinnan sijalukuun koko päivän siirtohintojen joukossa. Tuntematon ennen kuin siirtohintoja on määritetty.</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_control_factor_transfer_bipolar</code></td>
+<td>−1…+1</td>
+<td>Yllä olevan bipolaarinen versio. Tuntematon ennen kuin siirtohintoja on määritetty.</td>
+</tr>
+</tbody>
+</table>
+<p>Siirron ohjauskerroin määräytyy päivän eri siirtohintojen (tyypillisesti korkeintaan kahden tai kolmen) joukossa, joten se muuttuu suuremmin askelin kuin hinnan ja kokonaishinnan kertoimet, jotka määräytyvät kaikkien aikajaksojen joukossa.</p>
+<p>Siirtohinnan ryhmä, jossa on vain yksi sääntö, tai energian hinnan osalta kokonaan kiinteän hintajakson sisällä vietetty päivä antaa kyseiselle anturille vakioarvon 1 – minkään hintajakson suosimiseen tai välttämiseen ei ole syytä.</p>
+<h3 id="optimointianturit">Optimointianturit</h3>
+<p>Yksi anturipari kutakin määritettyä pisteprofiilia kohden, jossa <code>{profile}</code> on profiilin nimi (sisäänrakennetun profiilin nimi on <code>total</code> eli yhteissumma):</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensor.kilowahti_{name}_score_{profile}_daily</code></td>
+<td><ul><li>Kuluvan päivän senhetkinen optimointipistemäärä (0–100).</li><li>Attribuutti: <code>previous</code> (eilinen valmis pistemäärä)</li></ul></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_score_{profile}_monthly</code></td>
+<td><ul><li>Kuluvan kalenterikuukauden valmiiden päiväpistemäärien keskiarvo (0–100).</li><li>Attribuutti: <code>previous</code> (edellisen kuukauden lopullinen pistemäärä)</li></ul></td>
+</tr>
+</tbody>
+</table>
+<p>Katso sivua <a href="../scores/">Optimointipisteet</a> nähdäksesi tarkemmin kuinka pisteet lasketaan.</p>
+<h3 id="diagnostiikka-anturit">Diagnostiikka-anturit</h3>
+<p>Useimmat diagnostiikka-anturit ovat oletuksena pois käytöstä. Jos haluat nähdä tarkemmin miksi tai miten Kilowahti toimii kullakin hetkellä, ota näitä antureita tarvittaessa käyttöön yksitellen entiteettirekisterissä.</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensor.kilowahti_{name}_setting_price_threshold</code></td>
+<td>Määritetty hintaraja (sama yksikkö kuin hinta-antureilla)</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_setting_rank_threshold</code></td>
+<td>Määritetty hyväksyttävän sijaluvun raja</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_setting_price_threshold_includes_transfer</code></td>
+<td>Sisältyykö siirtohinta hintarajan vertailuun</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_setting_control_factor_shape</code></td>
+<td>Ohjauskertoimen muoto (<code>linear</code> tai <code>sinusoidal</code>)</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_setting_forward_window</code></td>
+<td>Ennakkokeskiarvon ikkunan pituus (tunteina)</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_setting_active_transfer_group</code></td>
+<td>Tällä hetkellä aktiivisen siirtohinnan ryhmän nimi (esim. Kausisiirto), tai Ei saatavissa</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_setting_active_transfer_tier</code></td>
+<td>Tällä hetkellä aktiivisen siirtohinnan tason nimi (esim. Talviarkipäivä), tai Ei saatavissa</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_setting_active_fixed_period</code></td>
+<td>Tällä hetkellä aktiivisen kiinteän hintajakson nimi, tai Ei saatavissa</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_price_data_source</code></td>
+<td>Käytössä oleva hintalähde: <code>kilowahti_cdn</code> tai <code>spot_hinta</code> (oletuksena käytössä)</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_exchange_rate</code></td>
+<td>Käytössä oleva päivittäinen vaihtokurssi EUR → paikallinen valuutta; olemassa vain, kun näyttövaluutaksi on valittu paikallinen valuutta (oletuksena käytössä)</td>
+</tr>
+</tbody>
+</table>
+<p>Lisäksi yksi diagnostiikka-anturi kutakin optimointiprofiilia kohden:</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensor.kilowahti_{name}_score_{profile}_formula</code></td>
+<td>Profiilissa käytössä oleva pisteytyskaava: <code>default</code> (oletus) tai <code>raw</code> (neutraali)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="numeroentiteetit">Numeroentiteetit</h2>
+<p>Numeroentiteetit ovat kirjoitettavissa olevia asetuksia, joita voi säätää kojelaudalta tai automaatioista <code>number.set_value</code>-palvelulla. Muutokset tulevat voimaan heti, eikä uudelleenkäynnistystä tai uudelleenmääritystä tarvita.</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Vaihteluväli</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>number.kilowahti_{name}_price_threshold</code></td>
+<td>0–500 pienemmässä yksikössä (0–5 suuremmassa)</td>
+<td>Hinta, jossa tai jonka alapuolella <code>price_acceptable</code> kytkeytyy päälle. Asetuksen yksikkö on sama kuin valitsemasi näyttöyksikkö.</td>
+</tr>
+<tr>
+<td><code>number.kilowahti_{name}_rank_threshold</code></td>
+<td>1–96 (tai 1–24)</td>
+<td>Sijaluku, jossa tai jonka alapuolella <code>rank_acceptable</code> kytkeytyy päälle. Yläraja riippuu valitusta hintaresoluutiosta.</td>
+</tr>
+</tbody>
+</table>
+<p>Alkuarvot tulevat <strong>Kynnysarvot ja ohjaus</strong> -asetuksista. Näiden entiteettien kautta tehdyt muutokset tallennetaan integraation asetuksiin, joten ne säilyvät uudelleenkäynnistysten yli ja päivittävät myös asetusnäkymässä näkyvät arvot.</p>
+<h3 id="liukuvan-keskiarvon-anturit">Liukuvan keskiarvon anturit</h3>
+<p><strong>Käytettävissä vain 15 minuutin hintaresoluutiolla.</strong></p>
+<p>Ota käyttöön valinnalla <strong>Näytä seuraavan 30 min, 1h ja 2h keskihinnat</strong> kohdassa <strong>Määrittele → Lisäasetukset</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensor.kilowahti_{name}_average_price_30min</code></td>
+<td>Nykyisen aikajakson ja sitä seuraavien 30 minuutin kokonaishinnan keskiarvo</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_average_price_60min</code></td>
+<td>Nykyisen aikajakson ja sitä seuraavien 60 minuutin kokonaishinnan keskiarvo</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_average_price_120min</code></td>
+<td>Nykyisen aikajakson ja sitä seuraavien 120 minuutin kokonaishinnan keskiarvo</td>
+</tr>
+</tbody>
+</table>
+<p>Huomaa että keskiarvojen laskennassa käytetään kokonaishintaa (energia + siirto). Ellei siirtohintoja ole asetettu, keskiarvo vastaa pelkkää energian hinnan keskiarvoa.</p>
+<h3 id="tuotanto-ja-myyntianturit">Tuotanto- ja myyntianturit</h3>
+<p>Tämän osion anturit ovat käytettävissä silloin, kun <strong>Ota tuotanto- ja myyntiominaisuudet käyttöön</strong> on valittu kohdassa <strong>Määrittele → Lisäasetukset</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensor.kilowahti_{name}_export_price</code></td>
+<td>Nykyisen aikajakson myyntihinta verkkoon syötetylle sähkölle (ei ALV:tä)</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_export_today_average</code></td>
+<td>Tämän päivän myyntihinnan keskiarvo</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_export_today_minimum</code></td>
+<td>Tämän päivän alin myyntihinta</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_export_today_maximum</code></td>
+<td>Tämän päivän korkein myyntihinta</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_export_tomorrow_average</code></td>
+<td>Huomisen myyntihinnan keskiarvo; Ei saatavissa ennen kuin hinnat on haettu</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_export_tomorrow_minimum</code></td>
+<td>Huomisen alin myyntihinta</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_export_tomorrow_maximum</code></td>
+<td>Huomisen korkein myyntihinta</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_import_export_spread</code></td>
+<td>Nykyisen ostohinnan (kokonaishinta) ja myyntihinnan erotus</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_self_consumption_value</code></td>
+<td>Jokaisen omasta tuotannosta kulutetun kilowattitunnin arvo (= vältetty ostokustannus)</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_next_solar_window_average</code></td>
+<td>Seuraavan tulevan aurinkotuotantoikkunan myyntihinnan keskiarvo</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_arbitrage_spread_today</code></td>
+<td>Tämän päivän halvimman ja kalleimman kokonaishintaisen aikajakson välinen ero</td>
+</tr>
+</tbody>
+</table>
+<h3 id="akkuanturit">Akkuanturit</h3>
+<p>Tämän osion anturit ovat käytettävissä silloin, kun <strong>Ota tuotanto- ja myyntiominaisuudet käyttöön</strong> on valittu kohdassa <strong>Määrittele → Lisäasetukset</strong> ja lisäksi kohdassa <strong>Määrittele → Tuotanto ja myynti</strong> on asetettu <strong>akun kapasiteetti &gt; 0 kWh</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sensor.kilowahti_{name}_charge_opportunity_factor</code></td>
+<td>Kuinka hyvä hetki nyt on ladata verkosta (0,0 = huonoin, 1,0 = paras). Käyttää aina lineaarista skaalausta – ohjauskertoimen käyrä tai skaalausasetukset eivät vaikuta siihen</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_battery_charge_recommendation</code></td>
+<td>Luokitteleva suositus: <code>charge_from_grid</code>, <code>discharge</code> tai <code>hold</code></td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_optimal_charge_window_start</code></td>
+<td>Halvimman ikkunan alku akun täydelle latausjaksolle</td>
+</tr>
+<tr>
+<td><code>sensor.kilowahti_{name}_optimal_charge_window_end</code></td>
+<td>Halvimman ikkunan loppu akun täydelle latausjaksolle</td>
+</tr>
+</tbody>
+</table>
+<h2 id="binaarianturit">Binäärianturit</h2>
+<p>Kaikilla näistä antureista lukuun ottamatta <code>price_or_rank_acceptable</code>-anturia on vastineensa <a href="../triggers-conditions/">laukaisimina ja ehtoina</a>, joiden avulla automaatio saattaa olla helpompi rakentaa.</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>binary_sensor.kilowahti_{name}_price_acceptable</code></td>
+<td><code>Päällä</code> (<code>on</code>) silloin kun nykyinen hinta on määritetyssä raja-arvossa tai sen alle</td>
+</tr>
+<tr>
+<td><code>binary_sensor.kilowahti_{name}_rank_acceptable</code></td>
+<td><code>Päällä</code> (<code>on</code>) silloin kun nykyinen sijaluku on määritetyssä raja-arvossa tai sen alle</td>
+</tr>
+<tr>
+<td><code>binary_sensor.kilowahti_{name}_price_or_rank_acceptable</code></td>
+<td><code>Päällä</code> (<code>on</code>) silloin kun <strong>joko hinta- tai sijalukuehto</strong> täyttyy</td>
+</tr>
+<tr>
+<td><code>binary_sensor.kilowahti_{name}_fixed_price_period_active</code></td>
+<td><code>Päällä</code> (<code>on</code>) silloin kun kiinteä hintajakso on voimassa</td>
+</tr>
+<tr>
+<td><code>binary_sensor.kilowahti_{name}_tomorrow_available</code></td>
+<td><code>Päällä</code> (<code>on</code>) silloin kun huomisen hinnat on saatavilla</td>
+</tr>
+</tbody>
+</table>
+<p>Seuraavat binäärianturit ovat käytettävissä, kun <strong>tuotanto on otettu käyttöön</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>binary_sensor.kilowahti_{name}_export_price_acceptable</code></td>
+<td>Päällä, kun nykyinen myyntihinta on määritetyssä myyntihinnan kynnysarvossa tai sen yläpuolella</td>
+</tr>
+</tbody>
+</table>
+<p>Seuraavat ovat käytettävissä, kun <strong>tuotanto on otettu käyttöön</strong> ja <strong>akun kapasiteetti &gt; 0 kWh</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Entiteetti</th>
+<th>Kuvaus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>binary_sensor.kilowahti_{name}_charge_from_grid_recommended</code></td>
+<td>Päällä, kun nykyinen aikajakso on halpa ja päivän mittaan on tulossa kalliimpia aikajaksoja</td>
+</tr>
+<tr>
+<td><code>binary_sensor.kilowahti_{name}_discharge_to_grid_recommended</code></td>
+<td>Päällä, kun nykyinen myyntihinta on päivän ylimmässä kvartiilissa</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Takaisin ylös
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Kopioitu leikep\u00f6yd\u00e4lle", "clipboard.copy": "Kopioi leikep\u00f6yd\u00e4lle", "search.result.more.one": "1 lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.more.other": "# lis\u00e4\u00e4 t\u00e4ll\u00e4 sivulla", "search.result.none": "Ei t\u00e4sm\u00e4\u00e4vi\u00e4 dokumentteja", "search.result.one": "1 t\u00e4sm\u00e4\u00e4v\u00e4 dokumentti", "search.result.other": "# t\u00e4sm\u00e4\u00e4v\u00e4\u00e4 dokumenttia", "search.result.placeholder": "Kirjoita aloittaaksesi haun", "search.result.term.missing": "Puuttuu", "select.version": "Valitse versio"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../assets/document_dates/tippy/popper.min.js"></script>
+      
+        <script src="../../assets/document_dates/tippy/tippy.umd.min.js"></script>
+      
+        <script src="../../assets/document_dates/core/md5.min.js"></script>
+      
+        <script src="../../assets/document_dates/core/default.config.js"></script>
+      
+        <script src="../../assets/document_dates/core/utils.js"></script>
+      
+        <script src="../../assets/document_dates/core/core.js"></script>
+      
+        <script src="../../assets/document_dates/tippy/popper.min.js"></script>
+      
+        <script src="../../assets/document_dates/tippy/tippy.umd.min.js"></script>
+      
+        <script src="../../assets/document_dates/core/md5.min.js"></script>
+      
+        <script src="../../assets/document_dates/core/default.config.js"></script>
+      
+        <script src="../../assets/document_dates/core/utils.js"></script>
+      
+        <script src="../../assets/document_dates/core/core.js"></script>
+      
+    
+  </body>
+</html>

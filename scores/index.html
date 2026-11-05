@@ -20,6 +20,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../fi/scores/" hreflang="fi">
+        
       
       
       <link rel="icon" href="../assets/icon.png">
@@ -57,17 +61,17 @@
     
       <link rel="stylesheet" href="../assets/document_dates/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
-    
-      <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/backdrop.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
-    
       <link rel="stylesheet" href="../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
     
       <link rel="stylesheet" href="../assets/document_dates/core/core.css">
     
@@ -167,6 +171,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../fi/scores/" hreflang="fi" class="md-select__link">
+              Suomi
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -538,6 +568,34 @@
     
   
     Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../supported-regions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported regions
   
 
     
@@ -1425,11 +1483,11 @@
 
 
 <h1 id="optimization-scores">Optimization scores</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-10'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-03-10T12:03:20+00:00'>2026-03-10</time></span></div></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-11-05'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-11-05T21:45:31+00:00'>2026-11-05</time></span></div></div></div>
 
-<p>Kilowahti's optimization scores measure how well your electricity consumption is shifted to cheap hours. A score of 100 means your usage is concentrated in the cheapest slots; a score near 0 means you're consuming mostly during the most expensive hours.</p>
+<p>Kilowahti's optimization scores tell how well your electricity consumption is directed to cheap slots. A score of 100 means consumption has concentrated in the cheapest slots. A score near 0 means consumption falls mostly on the most expensive slots.</p>
 <h2 id="how-it-works">How it works</h2>
-<p>Each day is divided into four price-rank quartiles:</p>
+<p>Each day is divided into four quartiles by the slot's price rank (which depends on the selected price resolution):</p>
 <table>
 <thead>
 <tr>
@@ -1468,7 +1526,7 @@
 </table>
 <p>Kilowahti tracks energy consumption (from your linked meter entities) slot by slot and accumulates totals per quartile throughout the day.</p>
 <h2 id="formulas">Formulas</h2>
-<p>Two scoring formulas are available per profile. You can select the formula when adding or editing a score profile.</p>
+<p>Two scoring formulas are available per profile. Both give a full 100 points when all consumption is in the first quartile, but the default formula makes that easier to reach. You can select the formula when you add or edit a profile.</p>
 <h3 id="default-formula">Default formula</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>raw = (Q1×3 + Q2×2 + Q3×1) / (Total×3) × 100
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>score = clamp((raw − 30) / 53.3 × 100, 0, 100)
@@ -1503,7 +1561,7 @@
 </tr>
 </tbody>
 </table>
-<p>Calibrated so that random, unoptimized consumption lands around <strong>38</strong>, not 50. This gives more room at the top end to reward deliberate shifting into cheap hours.</p>
+<p>The formula is weighted so that random, unoptimized consumption scores around <strong>38</strong> instead of an average 50. This leaves more room at the top end to reward deliberate shifting to cheap slots. On the other hand, full points only need all consumption to be in the cheapest half of the day's slots, with at least half of it in the first quartile. To get above 50 points with this formula, consumption has to be moved from the day's most expensive slots to cheaper ones. That is why this is Kilowahti's default formula.</p>
 <h3 id="raw-formula">Raw formula</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>score = clamp((Q1×3 + Q2×2 + Q3×1) / (Total×3) × 100, 0, 100)
 </code></pre></div>
@@ -1521,7 +1579,7 @@
 </tr>
 <tr>
 <td>Equal split between Q1 and Q2</td>
-<td>100</td>
+<td>~83</td>
 </tr>
 <tr>
 <td>Perfectly uniform across all quartiles</td>
@@ -1537,11 +1595,11 @@
 </tr>
 </tbody>
 </table>
-<p>Uses a neutral baseline: perfectly uniform consumption scores exactly <strong>50</strong>. Easier to interpret at a glance — below 50 means worse than random, above 50 means better.</p>
+<p>Uses a neutral baseline: perfectly uniform consumption scores exactly <strong>50</strong>. Easier to interpret at a glance — below 50 means worse than random, above 50 means better. On the other hand, with this formula it is easier to settle for unoptimized consumption, because changes in consumption cause smaller changes in the score: optimizing moves the score less toward "better".</p>
 <h2 id="daily-and-monthly-scores">Daily and monthly scores</h2>
 <ul>
-<li><strong>Daily score</strong> (<code>score_{profile}_daily</code>) — accumulates throughout the day as meter readings come in. Resets at midnight. Exposes a <code>previous</code> attribute with yesterday's completed score.</li>
-<li><strong>Monthly score</strong> (<code>score_{profile}_monthly</code>) — average of completed daily scores for the current <strong>calendar month</strong> (not a rolling 30-day window). Updated each midnight. Exposes a <code>previous</code> attribute with the previous calendar month's final score.</li>
+<li><strong>Daily score</strong> (<code>score_{profile}_daily</code>) changes through the day as the price slot changes. Resets at midnight. Exposes a <code>previous</code> attribute with yesterday's final score.</li>
+<li><strong>Monthly score</strong> (<code>score_{profile}_monthly</code>) is the average of the realized daily scores of the current <strong>calendar month</strong> (so not a rolling 30-day window). Updated each midnight. Exposes a <code>previous</code> attribute with the previous calendar month's final score.</li>
 </ul>
 <p>Score sensors refresh at each price slot boundary (every 15 or 60 minutes depending on your resolution setting), not on every individual meter reading.</p>
 <p>Daily scores are stored for 90 days. The last two completed calendar-month scores are stored separately and available via the <code>previous</code> attribute even after the 90-day history window has passed.</p>
@@ -1553,10 +1611,10 @@
 <li>Select <strong>⚙ Formula</strong> to choose a scoring formula (Default or Raw)</li>
 <li>Click <strong>← Back</strong>, then <strong>✓ Save &amp; close</strong></li>
 </ol>
-<p>You can add additional profiles to track specific circuits or devices separately, each with its own formula.</p>
+<p>You can also add other profiles if you track individual circuits or devices with their own energy meters. Each profile can have its own formula.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The meter entity must have <code>state_class: total_increasing</code> — this is standard for energy meters in Home Assistant (e.g. <code>sensor.electricity_meter_energy</code>).</p>
+<p class="admonition-title">The meter entity's value must be increasing</p>
+<p>The energy meter entity must have <code>state_class: total_increasing</code>. This is standard for energy meters in Home Assistant (e.g. <code>sensor.electricity_meter_energy</code>).</p>
 </div>
 
 

@@ -20,6 +20,10 @@
       
       
         
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../fi/entities/" hreflang="fi">
+        
       
       
       <link rel="icon" href="../assets/icon.png">
@@ -57,17 +61,17 @@
     
       <link rel="stylesheet" href="../assets/document_dates/fonts/material-icons.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
-    
-      <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
+      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/backdrop.css">
     
       <link rel="stylesheet" href="../assets/document_dates/tippy/tippy.css">
     
-      <link rel="stylesheet" href="../assets/document_dates/tippy/shift-away.css">
-    
       <link rel="stylesheet" href="../assets/document_dates/tippy/scale.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/light.css">
+    
+      <link rel="stylesheet" href="../assets/document_dates/tippy/material.css">
     
       <link rel="stylesheet" href="../assets/document_dates/core/core.css">
     
@@ -167,6 +171,32 @@
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../fi/entities/" hreflang="fi" class="md-select__link">
+              Suomi
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
     
     
       
@@ -618,10 +648,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#score-sensors" class="md-nav__link">
+  <a href="#optimization-sensors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Score sensors
+        Optimization sensors
       
     </span>
   </a>
@@ -729,6 +759,34 @@
     
   
     Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../supported-regions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Supported regions
   
 
     
@@ -1461,10 +1519,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#score-sensors" class="md-nav__link">
+  <a href="#optimization-sensors" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Score sensors
+        Optimization sensors
       
     </span>
   </a>
@@ -1569,17 +1627,17 @@
 
 
 <h1 id="entities">Entities</h1>
-<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-11-04'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-11-04T09:55:06+00:00'>2026-11-04</time></span></div></div></div>
+<div class='document-dates-plugin-wrapper document-dates-top'><div class='document-dates-plugin' locale=''><div class='dd-left'><span class='dd-item' data-tippy-content data-tippy-raw='2026-03-09'><span class='material-icons' data-icon='doc_created'></span><time datetime='2026-03-09T13:09:18+00:00'>2026-03-09</time></span><span class='dd-item' data-tippy-content data-tippy-raw='2026-11-05'><span class='material-icons' data-icon='doc_updated'></span><time datetime='2026-11-05T21:45:31+00:00'>2026-11-05</time></span></div></div></div>
 
 <p>All entities are grouped under a single <strong>Kilowahti</strong> device per configured instance. Entity names use the name you set during setup (e.g. <code>Home</code>).</p>
 <div class="admonition note">
 <p class="admonition-title">Entity IDs on your system</p>
-<p>From <code>2026.11.0</code> Kilowahti pins its own entity IDs, so they are identical on every install no matter which language the interface is in — only the displayed names are translated.</p>
+<p>From <code>2026.11.0</code> Kilowahti pins its own entity IDs, so they are identical on every install no matter which language the interface is in — only the displayed names are translated into the language selected in the user's profile settings.</p>
 <p>Installs created <strong>before</strong> <code>2026.11.0</code> keep the IDs Home Assistant generated back then, which came from the translated display name. Most are the same, but a few differ: <code>price_rank</code> was <code>rank</code>, <code>tomorrow_available</code> was <code>tomorrow_s_prices_available</code>, the <code>setting_*</code> diagnostics had no prefix, and a Finnish or German install got Finnish or German IDs throughout.</p>
-<p>After upgrading, a repair under <strong>Settings → System → Repairs</strong> offers to rename them to the stable IDs. Nothing changes until you confirm; the confirmation lists the automations, scripts, scenes and groups that use the entities (dashboards and templates are not checked), IDs you changed yourself are left alone, and history is kept. References to the old IDs must be updated by hand afterwards. If you skip the repair, check <strong>Settings → Devices &amp; Services → Kilowahti</strong> to see your real IDs.</p>
+<p>After upgrading, a repair under <strong>Settings → System → Repairs</strong> offers to rename them to the fixed IDs. Nothing changes until you confirm; the confirmation lists the automations, scripts, scenes and groups that use the entities (dashboards and templates are not checked), IDs you changed yourself are left alone, and the history of all IDs is kept. Any references to the old IDs, e.g. in automations or dashboard cards, must be updated by hand afterwards. If you skip the repair, check <strong>Settings → Devices &amp; Services → Kilowahti</strong> to see your real IDs.</p>
 </div>
 <h2 id="start-with-these">Start with these</h2>
-<p>This page is a complete reference, and most of it you will never need. A typical setup uses five entities:</p>
+<p>This page is a comprehensive reference for all of Kilowahti, and you will probably never need most of it. In a basic setup you can get very far with just five entities:</p>
 <table>
 <thead>
 <tr>
@@ -1590,31 +1648,32 @@
 <tbody>
 <tr>
 <td><code>sensor.kilowahti_{name}_total_price</code></td>
-<td>What a kWh costs you right now, everything included. The number to put on a dashboard</td>
+<td><ul><li><strong>What a kilowatt-hour costs you right now, everything included.</strong></li><li>This number is useful, for example, in a dashboard card shown to users.</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_price_rank</code></td>
-<td>Where this slot sits in today's prices; 1 = cheapest. The number to automate on</td>
+<td><ul><li><strong>Where the current slot sits in the day's prices by energy price, smaller is better: 1 = cheapest.</strong></li><li>This number is the most useful in automations: for example, heating should not be controlled by an absolute price limit alone, because on an expensive day it could be blocked completely.</li></ul></td>
 </tr>
 <tr>
 <td><code>binary_sensor.kilowahti_{name}_rank_acceptable</code></td>
-<td><code>on</code> while the price rank is at or below your threshold</td>
+<td><code>on</code> when the rank is lower than or equal to the threshold you set</td>
 </tr>
 <tr>
 <td><code>number.kilowahti_{name}_rank_threshold</code></td>
-<td>Sets that threshold, adjustable from a dashboard without reopening setup</td>
+<td><ul><li><strong>Sets the previous threshold.</strong></li><li>The value can be adjusted flexibly from a dashboard or an automation without opening Kilowahti's settings, and it also changes when you edit the settings.</li></ul></td>
 </tr>
 <tr>
 <td><code>binary_sensor.kilowahti_{name}_tomorrow_available</code></td>
-<td><code>on</code> once tomorrow's prices have arrived, usually mid-afternoon</td>
+<td><code>on</code> when tomorrow's prices have arrived, usually in the afternoon</td>
 </tr>
 </tbody>
 </table>
-<p>Everything below is there when you need it. Whole groups only exist when you turn them on: export and solar sensors require <strong>generation</strong> enabled in Advanced options, battery sensors require a battery capacity, and rolling averages are off by default.</p>
-<p>New to the integration? <a href="../getting-started/">Getting started</a> sets these up end to end.</p>
+<p>In addition to these, everything below is available if you need it. Kilowahti offers several sensors, some of which can achieve the very same thing with a slightly different approach and originally for a different purpose. This means broader possibilities for the user: Kilowahti is meant to be as flexible a solution as possible for different needs around electricity prices and consumption optimization.</p>
+<p>Some of the groups below only exist when you enable them: export and solar sensors require <strong>generation</strong> enabled in Advanced options, battery sensors require, in addition to that, setting a battery capacity, and the wider rolling averages can be switched on if you want them when the selected price resolution is 15 minutes.</p>
+<p>New to Kilowahti? The <a href="../getting-started/">Getting started</a> guide takes you through setting up the integration step by step from start to finish.</p>
 <h2 id="sensors">Sensors</h2>
 <h3 id="price-sensors">Price sensors</h3>
-<p>All price sensors use the display unit you chose during configuration — the minor or major unit of your display currency, e.g. <code>c/kWh</code> or <code>€/kWh</code>, <code>öre/kWh</code> or <code>kr/kWh</code>.</p>
+<p>All price sensors use the display unit you chose in the settings: the minor or major unit of your display currency, e.g. <code>c/kWh</code> or <code>€/kWh</code>, <code>öre/kWh</code> or <code>kr/kWh</code>.</p>
 <table>
 <thead>
 <tr>
@@ -1625,47 +1684,47 @@
 <tbody>
 <tr>
 <td><code>sensor.kilowahti_{name}_spot_price</code></td>
-<td>Current slot's spot price (VAT included). Attributes: <code>price_source</code>, plus <code>today_prices</code>/<code>tomorrow_prices</code> when price arrays are enabled</td>
+<td><ul><li>Current slot's spot price including VAT</li><li>Attributes: <code>price_source</code>, plus <code>today_prices</code>/<code>tomorrow_prices</code> when price arrays are enabled</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_active_price</code></td>
-<td>Shown as <strong>Active price</strong>. The energy price you pay: spot, or your contract rate when a fixed period is active. Attributes: <code>source</code> (<code>spot</code>/<code>fixed</code>), <code>period_label</code></td>
+<td><ul><li>Shown as <strong>Active price</strong>. The energy price you pay: the spot price, or the contract price when a fixed period is active</li><li>Attributes: <code>source</code> (<code>spot</code>/<code>fixed</code>), <code>period_label</code></li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_transfer_price</code></td>
-<td>Active transfer tier price; unavailable until a transfer group is configured. Attributes: <code>tariff</code> (active group and tier, e.g. <code>Kausisiirto, Muu aika</code>), plus <code>group</code> and <code>tier</code> separately</td>
+<td><ul><li>Current transfer price, Unknown until transfer prices are configured</li><li>Attributes: <code>tariff</code> (active group and tier, e.g. "Kausisiirto, Muu aika"), plus <code>group</code> and <code>tier</code> separately</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_total_price</code></td>
-<td>Active price + transfer price. Attributes: <code>today_prices</code>/<code>tomorrow_prices</code> when total price arrays are enabled</td>
+<td><ul><li>Total price, i.e. the active energy price + transfer price</li><li>Attributes: <code>today_prices</code>/<code>tomorrow_prices</code> when total price arrays are enabled in Advanced options</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_today_spot_average</code></td>
-<td>Today's average spot price</td>
+<td><ul><li>Today's average spot price</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_today_spot_minimum</code></td>
-<td>Today's lowest spot price</td>
+<td><ul><li>Today's lowest spot price</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_today_spot_maximum</code></td>
-<td>Today's highest spot price</td>
+<td><ul><li>Today's highest spot price</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_today_total_average</code></td>
-<td>Today's average total price (spot + transfer)</td>
+<td><ul><li>Today's average total price (spot + transfer)</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_today_total_minimum</code></td>
-<td>Today's lowest total price</td>
+<td><ul><li>Today's lowest total price</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_today_total_maximum</code></td>
-<td>Today's highest total price</td>
+<td><ul><li>Today's highest total price</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_tomorrow_spot_average</code></td>
-<td>Tomorrow's average spot price; unavailable until tomorrow's prices are fetched</td>
+<td><ul><li>Tomorrow's average spot price, Unavailable until tomorrow's prices are fetched</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_tomorrow_spot_minimum</code></td>
@@ -1681,22 +1740,23 @@
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_tomorrow_total_minimum</code></td>
-<td>Tomorrow's lowest total price</td>
+<td><ul><li>Tomorrow's lowest total price</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_tomorrow_total_maximum</code></td>
-<td>Tomorrow's highest total price</td>
+<td><ul><li>Tomorrow's highest total price</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_next_hours_average</code></td>
-<td>Average spot price over the next N hours (configurable)</td>
+<td><ul><li>Average spot price over the next N hours (configurable)</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_monthly_fixed_cost_today</code></td>
-<td>Today's share of the monthly fixed contract cost, per day in your display currency; unavailable when not configured</td>
+<td><ul><li>Today's share of the monthly fixed contract cost per day in your display currency, Unavailable if the monthly fee is not configured</li></ul></td>
 </tr>
 </tbody>
 </table>
+<p>Spot prices are fetched every day, and the sensors update when slots change even if a fixed-price period is in use. Whether a fixed-price period is active is shown by the binary sensor <code>fixed_price_period_active</code>, see <a href="#binary-sensors">Binary sensors</a> below.</p>
 <h3 id="rank-sensors">Rank sensors</h3>
 <table>
 <thead>
@@ -1708,26 +1768,30 @@
 <tbody>
 <tr>
 <td><code>sensor.kilowahti_{name}_price_rank</code></td>
-<td>Current slot's rank by the energy price you actually pay (fixed-period rate when one is active, otherwise spot); transfer excluded. Normalized: 1 = cheapest, slots_per_day = most expensive</td>
+<td><ul><li>Current slot's rank by the energy price you actually pay (fixed-period price when one is active, otherwise spot price), transfer price not included.</li><li>Normalized: 1 = cheapest, the number of slots in the day (slots_per_day) = most expensive. Read more below the table.</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_total_price_rank</code></td>
-<td>Same, with transfer included in the price</td>
+<td><ul><li>Same, but transfer is included in the price</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_price_quartile</code></td>
-<td>Energy price quartile 1–4 (derived from <code>price_rank</code>); 1 = cheapest 25% of slots</td>
+<td><ul><li>Energy price quartile 1–4 (derived from <code>price_rank</code>): 1&nbsp;=&nbsp;cheapest 25&nbsp;% of the day's slots</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_total_price_quartile</code></td>
-<td>Total price quartile 1–4 (derived from total_price_rank); 1 = cheapest 25% of slots</td>
+<td><ul><li>Total price quartile 1–4 (derived from <code>total_price_rank</code>): 1&nbsp;=&nbsp;cheapest 25&nbsp;% of the day's slots</li></ul></td>
 </tr>
 </tbody>
 </table>
-<p>The maximum rank is 96 for 15-minute resolution or 24 for 1-hour resolution.</p>
-<p>Ranks are tier-normalized: slots sharing a price share a rank, and the cheapest price of the day is always 1 while the most expensive is always the maximum. During a <a href="../fixed-periods/">fixed-price period</a> every slot costs the same, so <code>price_rank</code> reads 1 all day — there is no cheaper hour to wait for.</p>
+<div class="admonition note">
+<p class="admonition-title">The highest possible rank depends on price resolution</p>
+<p>The maximum rank is <strong>96</strong> with 15-minute resolution and <strong>24</strong> with 1-hour resolution.</p>
+</div>
+<p>Ranks are normalized by price level: slots with the same price share a rank, and the cheapest price of the day is always 1 and the most expensive is always the highest possible rank. For example, if on a 15-minute resolution day the 96 slots had only two different prices, the cheaper one gets rank 1 and the more expensive one 96.</p>
+<p>During a <a href="../fixed-periods/">fixed-price period</a> every slot costs the same, so the energy-only <code>price_rank</code> is 1 for the whole day, because no more expensive slot is expected during the day. Despite the fixed-price period for energy, the total price rank <code>total_price_rank</code> may still vary if transfer prices are defined and more than one different transfer price is active during the day.</p>
 <h3 id="control-factor-sensors">Control factor sensors</h3>
-<p>All three factors share one scale: <strong>1.0 = cheapest, 0.0 = most expensive</strong>, with the configured shape (linear/sinusoidal) and scaling applied to each. Each bipolar variant maps the same value onto −1 to +1.</p>
+<p>All three factors share one scale: <strong>1.0 = cheapest, 0.0 = most expensive</strong>, with the configured shape (linear/sinusoidal) and scaling applied to each. Each of them has a bipolar version that maps the same value onto −1…+1.</p>
 <table>
 <thead>
 <tr>
@@ -1740,38 +1804,38 @@
 <tr>
 <td><code>sensor.kilowahti_{name}_control_factor_price</code></td>
 <td>0–1</td>
-<td>From <code>price_rank</code>: the energy price you pay, transfer excluded</td>
+<td>Based on <code>price_rank</code>: the energy price, without transfer.</td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_control_factor_price_bipolar</code></td>
 <td>−1 to +1</td>
-<td>Bipolar version of the above</td>
+<td>Bipolar version of the above.</td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_control_factor_total</code></td>
 <td>0–1</td>
-<td>From <code>total_price_rank</code>: energy plus transfer</td>
+<td>Based on <code>total_price_rank</code>: energy and transfer together.</td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_control_factor_total_bipolar</code></td>
 <td>−1 to +1</td>
-<td>Bipolar version of the above</td>
+<td>Bipolar version of the above.</td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_control_factor_transfer</code></td>
 <td>0–1</td>
-<td>From the transfer tier rank among today's distinct tiers. Unavailable until a transfer group is configured</td>
+<td>Based on the rank of the transfer price among the day's transfer prices. Unknown until transfer prices are configured.</td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_control_factor_transfer_bipolar</code></td>
 <td>−1 to +1</td>
-<td>Bipolar version of the above</td>
+<td>Bipolar version of the above. Unknown until transfer prices are configured.</td>
 </tr>
 </tbody>
 </table>
-<p>The transfer factor ranks among the day's distinct tiers (typically two or three), so it moves in larger steps than the price and total factors, which rank among all slots. A group with a single tier, or a day spent inside a fixed-price period, gives a constant 1.0 — nothing that hour to prefer or avoid.</p>
-<h3 id="score-sensors">Score sensors</h3>
-<p>One pair of sensors per configured score profile, where <code>{profile}</code> is the profile's label (the built-in one is <code>total</code>):</p>
+<p>The transfer control factor is based on the day's different transfer prices (typically at most two or three), so it moves in larger steps than the price and total price factors, which are based on all slots. A transfer price group with only one rule, or a day spent entirely inside a fixed-price period as far as energy is concerned, gives that sensor a constant value 1: there is no reason to prefer or avoid any slot.</p>
+<h3 id="optimization-sensors">Optimization sensors</h3>
+<p>One pair of sensors per configured optimization profile, where <code>{profile}</code> is the profile's name (the built-in profile's name is <code>total</code>, i.e. the total sum):</p>
 <table>
 <thead>
 <tr>
@@ -1782,17 +1846,17 @@
 <tbody>
 <tr>
 <td><code>sensor.kilowahti_{name}_score_{profile}_daily</code></td>
-<td>In-progress optimization score for today (0–100). Attribute: <code>previous</code> (yesterday's completed score)</td>
+<td><ul><li>Today's current optimization score (0–100).</li><li>Attribute: <code>previous</code> (yesterday's final score)</li></ul></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_score_{profile}_monthly</code></td>
-<td>Average of completed daily scores for the current calendar month (0–100). Attribute: <code>previous</code> (previous month's final score)</td>
+<td><ul><li>Average of the realized daily scores of the current calendar month (0–100).</li><li>Attribute: <code>previous</code> (previous month's final score)</li></ul></td>
 </tr>
 </tbody>
 </table>
-<p>See <a href="../scores/">Optimization scores</a> for how scores are calculated.</p>
+<p>See the <a href="../scores/">Optimization scores</a> page to see in more detail how the scores are calculated.</p>
 <h3 id="diagnostic-sensors">Diagnostic sensors</h3>
-<p>Disabled by default. Enable individually in the entity registry if needed.</p>
+<p>Most diagnostic sensors are disabled by default. If you want to see in more detail why or how Kilowahti behaves at any given moment, enable these sensors individually in the entity registry as needed.</p>
 <table>
 <thead>
 <tr>
@@ -1843,7 +1907,7 @@
 </tr>
 </tbody>
 </table>
-<p>One additional diagnostic sensor per score profile:</p>
+<p>One additional diagnostic sensor per optimization profile:</p>
 <table>
 <thead>
 <tr>
@@ -1854,12 +1918,12 @@
 <tbody>
 <tr>
 <td><code>sensor.kilowahti_{name}_score_{profile}_formula</code></td>
-<td>Scoring formula in use for this profile (<code>default</code> or <code>raw</code>)</td>
+<td>The scoring formula in use in the profile: <code>default</code> (default) or <code>raw</code> (neutral)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="number-entities">Number entities</h2>
-<p>Writable settings that can be adjusted from the dashboard or from automations using <code>number.set_value</code>. Changes take effect immediately — no restart or reconfiguration needed.</p>
+<p>Number entities are writable settings that can be adjusted from a dashboard or from automations with the <code>number.set_value</code> action. Changes take effect immediately, and no restart or reconfiguration is needed.</p>
 <table>
 <thead>
 <tr>
@@ -1872,18 +1936,18 @@
 <tr>
 <td><code>number.kilowahti_{name}_price_threshold</code></td>
 <td>0–500 in the minor unit (0–5 in the major one)</td>
-<td>Price at or below which <code>price_acceptable</code> turns on. Follows your display unit</td>
+<td>Price at or below which <code>price_acceptable</code> turns on. The setting's unit is the same as the display unit you chose.</td>
 </tr>
 <tr>
 <td><code>number.kilowahti_{name}_rank_threshold</code></td>
 <td>1–96 (or 1–24)</td>
-<td>Rank at or below which <code>rank_acceptable</code> turns on. Upper bound matches your price resolution</td>
+<td>Rank at or below which <code>rank_acceptable</code> turns on. The upper bound depends on the selected price resolution.</td>
 </tr>
 </tbody>
 </table>
 <p>The initial values come from the <strong>Thresholds &amp; control</strong> options. Changes made via these entities are persisted to the integration config, so they survive restarts and also update the values shown in the options flow.</p>
 <h3 id="rolling-average-sensors">Rolling average sensors</h3>
-<p>Available only when using 15-minute price resolution. Enable via <strong>Show next 30min, 1h and 2h average prices</strong> in <strong>Configure → Advanced options</strong>.</p>
+<p><strong>Available only with 15-minute price resolution.</strong> Enable with the option <strong>Show next 30min, 1h and 2h average prices</strong> under <strong>Configure → Advanced options</strong>.</p>
 <table>
 <thead>
 <tr>
@@ -1894,20 +1958,21 @@
 <tbody>
 <tr>
 <td><code>sensor.kilowahti_{name}_average_price_30min</code></td>
-<td>Average total price for the current slot and the next 30 minutes</td>
+<td>Average total price for the current slot and the 30 minutes following it</td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_average_price_60min</code></td>
-<td>Average total price for the current slot and the next 60 minutes</td>
+<td>Average total price for the current slot and the 60 minutes following it</td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_average_price_120min</code></td>
-<td>Average total price for the current slot and the next 120 minutes</td>
+<td>Average total price for the current slot and the 120 minutes following it</td>
 </tr>
 </tbody>
 </table>
+<p>Note that the averages are calculated from the total price (energy + transfer). If no transfer prices are configured, the average equals the plain energy price average.</p>
 <h3 id="generation-export-sensors">Generation &amp; export sensors</h3>
-<p>Available when <strong>Enable generation &amp; export features</strong> is turned on in <strong>Configure → Advanced options</strong>.</p>
+<p>The sensors in this section are available when <strong>Enable generation &amp; export features</strong> is selected under <strong>Configure → Advanced options</strong>.</p>
 <table>
 <thead>
 <tr>
@@ -1963,7 +2028,7 @@
 </tbody>
 </table>
 <h3 id="battery-sensors">Battery sensors</h3>
-<p>Available when generation is enabled (Advanced options) and <strong>battery capacity &gt; 0</strong> is set in <strong>Configure → Generation &amp; export</strong>.</p>
+<p>The sensors in this section are available when <strong>Enable generation &amp; export features</strong> is selected under <strong>Configure → Advanced options</strong> and, in addition, <strong>battery capacity &gt; 0 kWh</strong> is set under <strong>Configure → Generation &amp; export</strong>.</p>
 <table>
 <thead>
 <tr>
@@ -1978,7 +2043,7 @@
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_battery_charge_recommendation</code></td>
-<td>Categorical recommendation: <code>charge_from_grid</code>, <code>discharge_to_grid</code>, or <code>idle</code></td>
+<td>Categorical recommendation: <code>charge_from_grid</code>, <code>discharge</code>, or <code>hold</code></td>
 </tr>
 <tr>
 <td><code>sensor.kilowahti_{name}_optimal_charge_window_start</code></td>
@@ -1991,7 +2056,7 @@
 </tbody>
 </table>
 <h2 id="binary-sensors">Binary sensors</h2>
-<p>All of these except <code>price_or_rank_acceptable</code> have counterparts as <a href="../triggers-conditions/">triggers and conditions</a>, which are usually easier to build an automation from.</p>
+<p>All of these sensors except <code>price_or_rank_acceptable</code> have counterparts as <a href="../triggers-conditions/">triggers and conditions</a>, with which an automation may be easier to build.</p>
 <table>
 <thead>
 <tr>
@@ -2010,7 +2075,7 @@
 </tr>
 <tr>
 <td><code>binary_sensor.kilowahti_{name}_price_or_rank_acceptable</code></td>
-<td>On when either price or rank condition is met</td>
+<td>On when <strong>either</strong> the price or the rank condition is met</td>
 </tr>
 <tr>
 <td><code>binary_sensor.kilowahti_{name}_fixed_price_period_active</code></td>
@@ -2018,7 +2083,7 @@
 </tr>
 <tr>
 <td><code>binary_sensor.kilowahti_{name}_tomorrow_available</code></td>
-<td>On when tomorrow's prices have been fetched</td>
+<td>On when tomorrow's prices are available</td>
 </tr>
 </tbody>
 </table>
@@ -2037,7 +2102,7 @@
 </tr>
 </tbody>
 </table>
-<p>The following are available when <strong>generation is enabled</strong> and <strong>battery capacity &gt; 0</strong>:</p>
+<p>The following are available when <strong>generation is enabled</strong> and <strong>battery capacity &gt; 0 kWh</strong>:</p>
 <table>
 <thead>
 <tr>
