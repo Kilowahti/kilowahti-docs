@@ -37,6 +37,7 @@ nav:
   - Reference:
     - Entities: entities.md
     - Services: services.md
+    - Supported regions: supported-regions.md
   - Guides:
     - How do I…?: how-do-i.md
     - Triggers and conditions: triggers-conditions.md
@@ -61,6 +62,46 @@ plugins:
   - search
   - document-dates:
       show_author: false
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: fi
+          name: Suomi
+          build: true
+          nav_translations:
+            Home: Etusivu
+            Getting started: Aloitus
+            Installation: Asennus
+            First setup: Ensimmäinen käyttöönotto
+            Configuration: Asetukset
+            Reference: Viitteet
+            Entities: Entiteetit
+            Services: Palvelut
+            Supported regions: Tuetut alueet
+            Guides: Oppaat
+            How do I…?: Miten teen…?
+            Triggers and conditions: Laukaisimet ja ehdot
+            Automation examples: Automaatioesimerkit
+            Control factor: Ohjauskerroin
+            Optimization scores: Optimointipisteet
+            Transfer pricing: Siirtohinnat
+            Fixed-price periods: Kiinteän hinnan jaksot
+            Help: Ohje
+            Troubleshooting: Vianmääritys
+            Glossary: Sanasto
+            Library: Kirjasto
+            Overview: Yleiskatsaus
+            Models: Mallit
+            Calculations: Laskennat
+            Price sources: Hintalähteet
+            Constants: Vakiot
+            FAQ: UKK
+            Changelog: Muutosloki
 
 extra_css:
   - stylesheets/extra.css

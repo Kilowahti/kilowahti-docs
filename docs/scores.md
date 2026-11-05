@@ -1,10 +1,10 @@
 # Optimization scores
 
-Kilowahti's optimization scores measure how well your electricity consumption is shifted to cheap hours. A score of 100 means your usage is concentrated in the cheapest slots; a score near 0 means you're consuming mostly during the most expensive hours.
+Kilowahti's optimization scores tell how well your electricity consumption is directed to cheap slots. A score of 100 means consumption has concentrated in the cheapest slots. A score near 0 means consumption falls mostly on the most expensive slots.
 
 ## How it works
 
-Each day is divided into four price-rank quartiles:
+Each day is divided into four quartiles by the slot's price rank (which depends on the selected price resolution):
 
 | Quartile | Rank range (15-min) | Rank range (1-hour) | Meaning |
 |---|---|---|---|
@@ -17,7 +17,7 @@ Kilowahti tracks energy consumption (from your linked meter entities) slot by sl
 
 ## Formulas
 
-Two scoring formulas are available per profile. You can select the formula when adding or editing a score profile.
+Two scoring formulas are available per profile. Both give a full 100 points when all consumption is in the first quartile, but the default formula makes that easier to reach. You can select the formula when you add or edit a profile.
 
 ### Default formula
 
@@ -34,7 +34,7 @@ score = clamp((raw − 30) / 53.3 × 100, 0, 100)
 | All consumption in Q3 | ~6 |
 | All consumption in Q4 | 0 |
 
-Calibrated so that random, unoptimized consumption lands around **38**, not 50. This gives more room at the top end to reward deliberate shifting into cheap hours.
+The formula is weighted so that random, unoptimized consumption scores around **38** instead of an average 50. This leaves more room at the top end to reward deliberate shifting to cheap slots. On the other hand, full points only need all consumption to be in the cheapest half of the day's slots, with at least half of it in the first quartile. To get above 50 points with this formula, consumption has to be moved from the day's most expensive slots to cheaper ones. That is why this is Kilowahti's default formula.
 
 ### Raw formula
 
@@ -45,17 +45,17 @@ score = clamp((Q1×3 + Q2×2 + Q3×1) / (Total×3) × 100, 0, 100)
 | Scenario | Score |
 |---|---|
 | All consumption in Q1 | 100 |
-| Equal split between Q1 and Q2 | 100 |
+| Equal split between Q1 and Q2 | ~83 |
 | Perfectly uniform across all quartiles | 50 |
 | All consumption in Q3 | ~33 |
 | All consumption in Q4 | 0 |
 
-Uses a neutral baseline: perfectly uniform consumption scores exactly **50**. Easier to interpret at a glance — below 50 means worse than random, above 50 means better.
+Uses a neutral baseline: perfectly uniform consumption scores exactly **50**. Easier to interpret at a glance — below 50 means worse than random, above 50 means better. On the other hand, with this formula it is easier to settle for unoptimized consumption, because changes in consumption cause smaller changes in the score: optimizing moves the score less toward "better".
 
 ## Daily and monthly scores
 
-- **Daily score** (`score_{profile}_daily`) — accumulates throughout the day as meter readings come in. Resets at midnight. Exposes a `previous` attribute with yesterday's completed score.
-- **Monthly score** (`score_{profile}_monthly`) — average of completed daily scores for the current **calendar month** (not a rolling 30-day window). Updated each midnight. Exposes a `previous` attribute with the previous calendar month's final score.
+- **Daily score** (`score_{profile}_daily`) changes through the day as the price slot changes. Resets at midnight. Exposes a `previous` attribute with yesterday's final score.
+- **Monthly score** (`score_{profile}_monthly`) is the average of the realized daily scores of the current **calendar month** (so not a rolling 30-day window). Updated each midnight. Exposes a `previous` attribute with the previous calendar month's final score.
 
 Score sensors refresh at each price slot boundary (every 15 or 60 minutes depending on your resolution setting), not on every individual meter reading.
 
@@ -69,7 +69,7 @@ Daily scores are stored for 90 days. The last two completed calendar-month score
 4. Select **⚙ Formula** to choose a scoring formula (Default or Raw)
 5. Click **← Back**, then **✓ Save & close**
 
-You can add additional profiles to track specific circuits or devices separately, each with its own formula.
+You can also add other profiles if you track individual circuits or devices with their own energy meters. Each profile can have its own formula.
 
-!!! note
-    The meter entity must have `state_class: total_increasing` — this is standard for energy meters in Home Assistant (e.g. `sensor.electricity_meter_energy`).
+!!! note "The meter entity's value must be increasing"
+    The energy meter entity must have `state_class: total_increasing`. This is standard for energy meters in Home Assistant (e.g. `sensor.electricity_meter_energy`).

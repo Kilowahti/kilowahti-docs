@@ -38,7 +38,7 @@ A shortcut into the rest of the documentation, organised by what you are trying 
 | I want to… | Go to |
 |---|---|
 | Show current price and status | [First setup → a minimal card](getting-started.md#5-tune-the-thresholds-later) |
-| Draw a price curve for today and tomorrow | Enable price arrays in [Configuration → Sensor display](configuration.md#6-sensor-display) |
+| Draw a price curve for today and tomorrow | Enable price arrays in [Configuration → Advanced options](configuration.md#6-advanced-options) |
 | See how well I shifted my consumption | [Optimization scores](scores.md) |
 
 ## Solar, battery, export

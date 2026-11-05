@@ -2,35 +2,35 @@
 
 ## Why are tomorrow's prices not showing?
 
-Day-ahead prices are published per market in the early afternoon Central European Time (around 13:00 CET; some markets, such as Italy, publish later). Kilowahti starts polling automatically at 13:00 CET by default and retries once per minute until 21:00 CET or until prices appear (both hours are configurable in Advanced options). The `binary_sensor.kilowahti_{name}_tomorrow_available` turns on when they arrive.
+Day-ahead prices are published per market in the early afternoon Central European Time, usually a little after 13:00 CET. Some markets, such as Italy, usually publish later. Kilowahti starts polling automatically at 13:00 CET by default and retries once per minute until 21:00 CET or until prices appear (both hours are configurable in Advanced options). The `binary_sensor.kilowahti_{name}_tomorrow_available` turns on when tomorrow's prices have arrived.
 
-## How often does Kilowahti call the API?
+## How often does Kilowahti call the price source?
 
-Typically 2–3 times per day:
+Kilowahti calls the price source (the Kilowahti CDN, or spot-hinta.fi as a fallback) rarely, and the calls are small. On a normal day:
 
-1. On HA startup (if the local cache is stale)
-2. Once when tomorrow's prices become available (early afternoon CET)
-3. At midnight rollover if the tomorrow cache was empty
+1. On HA startup, if the local cache is stale
+2. From the start of the eager-polling window (13:00 CET by default) once a minute until tomorrow's prices are published, usually no more than 15 minutes. The first successful fetch ends the polling for the day
+3. At midnight rollover, only if the tomorrow cache was empty
 
-Sensor value updates (rank, price, etc.) happen from the in-memory cache — no network calls.
+Regions with a non-euro currency also fetch the ECB exchange rate once a day. Sensor value updates (rank, price, etc.) come from the in-memory cache, with no network calls.
 
 ## Can I use Kilowahti without a transfer price configured?
 
-Yes. Transfer-related sensors (`transfer_price`, `control_factor_transfer`) show as **unavailable** when no transfer groups are configured. `total_price` then equals the active price.
+Yes. Transfer-related sensors (`transfer_price`, `control_factor_transfer`) show as **Unknown** when no transfer groups are configured. `total_price` then equals the active price.
 
 ## What does the control factor sensor do?
 
-It turns the current price rank into a 0–1 number — 1.0 at the cheapest slot of the day, 0.0 at the most expensive — for automating devices that have a dial rather than a switch: heating setpoints, charging current, fan speed. There is a ±1 bipolar variant of each.
+It turns the current price rank into a 0–1 number — 1.0 at the cheapest slot of the day, 0.0 at the most expensive — for automating devices that have a dial rather than a switch: heating setpoints, charging current, fan speed. Each control factor also has a bipolar variant on a ±1 scale.
 
 The [control factor guide](control-factor.md) covers which of the three factors to use, what the curve and scaling settings do, and how to put one into a template.
 
-## My score sensors show no value — why?
+## My score sensors show no value, why?
 
 Score sensors only produce a value once at least one meter reading has been recorded. Make sure you have linked an energy meter entity in **Configure → Score profiles → Edit: Total** and that the meter has `state_class: total_increasing`.
 
 ## Prices look wrong — are they VAT inclusive?
 
-Spot prices from the API are always VAT-exclusive. Kilowahti applies VAT automatically using the rate you configured. Transfer tier and fixed period prices are entered gross (VAT included) and used as-is.
+Spot prices from the API are always VAT-exclusive. Kilowahti applies VAT automatically using the rate you configured. Transfer prices and fixed-period prices are entered gross (VAT included) in Kilowahti's settings and used as-is.
 
 ## Where do prices come from?
 
@@ -54,9 +54,7 @@ Kilowahti continues serving data from its local cache. As long as the cache hold
 ## How does local currency display work?
 
 Regions outside the eurozone can show all prices in the local billing currency (see
-[Configuration](configuration.md#display-currency-non-eur-regions)). The market always
-trades in EUR; Kilowahti converts with a daily exchange rate — the ECB reference rate by
-default, or a manual rate you enter. The rate is frozen for the whole day, so already
+[Configuration](configuration.md#display-currency-non-eur-regions)). Electricity market trading always happens in EUR, and Kilowahti converts prices with a daily exchange rate. By default the ECB reference rate is used, or alternatively a manual rate you enter. The rate is frozen for the whole day, so already
 published slot prices never shift mid-day. Switching between EUR and local currency
 converts your entered prices (commission, transfer tiers, fixed periods, thresholds)
 automatically. Note that Home Assistant long-term statistics recorded before a currency
@@ -64,4 +62,4 @@ switch keep their old unit and are not converted.
 
 ## Can I have multiple Kilowahti instances?
 
-Yes — add the integration multiple times with different names and regions. Service calls that don't specify `config_entry_id` work automatically when only one instance is configured.
+Yes. Add more entries to the Kilowahti integration with different names and regions (**Settings → Devices & Services → Kilowahti → Add entry**). Service calls that don't specify `config_entry_id` work automatically when only one instance is configured.

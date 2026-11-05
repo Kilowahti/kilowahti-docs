@@ -1,0 +1,75 @@
+<h1 markdown="1">
+![Kilowahti](assets/logo.png#only-light){ style="max-width: 400px; width: 100%;" }
+![Kilowahti](assets/dark_logo.png#only-dark){ style="max-width: 400px; width: 100%;" }
+</h1>
+
+*English manual: [Kilowahti in English](../)*
+
+**Kilowahti** (*kilowatti* + *vahti* — ”kilowattien vartija”) on [Home Assistantin](https://www.home-assistant.io) integraatio, jolla voit seurata ja optimoida sähkökustannuksiasi kaikkialla Euroopassa — olipa käytössäsi pörssisähkösopimus tai kiinteä (tai kiinnitetty) hinta.
+
+Se hakee seuraavan päivän spot-hinnat tunnin tai 15 minuutin tarkkuudella ensisijaisesti Kilowahdin omasta sisällönjakeluverkosta (CDN), joka hakee tiedot suoraan ENTSO-E -palvelusta, ja käyttää varalla automaattisesti [spot-hinta.fi](https://spot-hinta.fi):tä. Hintoihin lisätään ALV ja haluttaessa siirtohinnat (esim. yö- tai kausisähkön jaksojen erottelu päivän/ajan perusteella) ja niiden perusteella päivittää antureita, binääriantureita ja palveluita, joita voit käyttää automaatioissa, kojelaudoissa ja energianhallinnan skripteissä.
+
+## Tärkeimmät ominaisuudet
+
+**Hinnat**
+
+- Seuraavan päivän spot-hinnat 15 minuutin tai tunnin resoluutiolla — ei API-avainta eikä muita integraatioita
+- Siirtohintojen ryhmät ja tasot aikatauluineen sekä kuukausimaksuineen
+- Kiinteähintaisten sopimusjaksojen hallinta — kun kiinteä jakso on voimassa, aktiivisena hintana näytetään automaattisesti kiinteä hinta spot-hinnan sijaan
+- Sähkösopimuksen kiinteä kuukausimaksu jaettuna päiväkohtaiseksi kustannusanturiksi
+
+**Ohjaus**
+
+- Sijaluku-, hintakvartiili- ja kokonaishinnan sijaluku -anturit
+- Ohjauskerroinanturit (0–1 ja bipolaarinen ±1) portaattomaan ohjaukseen
+- Muokattavat hintaraja- ja sijalukuraja-numeroentiteetit — säädä rajoja kojelaudalta tai automaatioista avaamatta asetuksia uudelleen
+- Optimointipisteet, jotka mittaavat, kuinka hyvin kulutus on siirretty halpoihin tunteihin
+- Liukuvan keskiarvon anturit seuraaville 30/60/120 minuutille (vain varttihinnoissa)
+
+**Tuotanto ja myynti** *(valinnainen, otetaan käyttöön Lisäasetuksista)*
+
+- Myyntihinta-anturit ja päivittäiset tilastot
+- Osto-myyntiero- ja omakulutuksen arvo -anturit
+- Palvelut parhaan myynti-ikkunan ja parhaan latausikkunan löytämiseen
+- Aurinkotuotannon aikataulupalvelu
+
+**Akun optimointi** *(valinnainen, edellyttää akun kapasiteetin määrittämistä)*
+
+- Latausmahdollisuuskerroin- ja lataussuositusanturit
+- Optimaalisen latausikkunan alku- ja loppuanturit
+- Binäärianturit `charge_from_grid_recommended` ja `discharge_to_grid_recommended`
+
+**Home Assistantin Palvelut (service)**
+
+- Hae osto- ja myyntihinnat mille tahansa aikavälille
+- Etsi halvimmat yhtäjaksoiset ikkunat laitteiden ajastamiseen
+- Hallitse kiinteähintaisia jaksoja palvelukutsuilla
+
+## Tuetut alueet
+
+Kilowahti näyttää sähkönhinnat Suomessa ja 29 muussa Euroopan maassa — katso koko luettelo sivulta [Tuetut alueet](supported-regions.md).
+
+## Pika-aloitus
+
+1. [Asenna](installation.md) Markkinapaikalta (Home Assistant 2026.11 ja uudemmat) tai HACSista (vanhemmat versiot)
+2. Käynnistä ohjattu asennus — Markkinapaikka avaa sen asennuksen jälkeen; HACSin kanssa siirry kohtaan **Asetukset → Laitteet & palvelut → Lisää integraatio → Kilowahti**
+3. Käy ohjattu asennus läpi
+4. Ota anturit käyttöön kojelaudoilla ja automaatioissa
+
+**[Ensimmäinen käyttöönotto](getting-started.md)** käy kaiken aloittamiseen tarpeellisen läpi noin kymmenessä minuutissa — myös sen, mitkä ohjatun asennuksen kohdat voi aluksi ohittaa ja kuinka teet ensimmäisen automaation.
+
+## Palaute
+
+Onko sinulla ideoita, löysitkö bugin tai haluatko vain kertoa, miten käytät Kilowahtia? Kuulemme mielellämme — GitHub-tiliä ei tarvita.
+
+[Anna palautetta →](https://tally.so/r/QK05XY){ .md-button }
+
+## Kiitokset
+
+Kilowahtia ei olisi ilman **Teemu Mikkosen** aiempaa työtä ja hänen [spotprices2ha](https://github.com/T3m3z/spotprices2ha)-projektiaan. Tuo leikkaa-liimaa -ratkaisu oli tämän integraation suora esikuva; se osoitti idean toimivaksi, antoi suuntaa anturien suunnittelulle ja loi automaatioille malleja, joihin moni suomalainen HA-käyttäjä on tukeutunut. Kiitos, Teemu.
+
+Erityiskiitos myös [spot-hinta.fi](https://spot-hinta.fi):n takana olevalle suomalaiselle harrastajalle erinomaisesta, ilmaisesta ja helppokäyttöisestä rajapinnasta, jonka ansiosta tällaiset projektit ovat mahdollisia. Vaikka Kilowahti hakee hinnat nykyään ensisijaisesti itse, tällä palvelulla on ollut merkittävä vaikutus Kilowahdin syntyyn.
+
+## Tekijät
+
+Kilowahti-projektin on perustanut Jessi Björk alun perin omaan tarpeeseensa kyllästyttyään syksyllä 2025 silloisten ratkaisujen huonoon ylläpidettävyyteen.

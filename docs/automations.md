@@ -1,6 +1,6 @@
 # Automation examples
 
-These examples use `{name}` as a placeholder for the name you set during configuration. If your name is `Home`, replace `{name}` with `home` in entity IDs.
+These examples use `{name}` as a placeholder for the name you set during configuration. If the name you set is `Home`, replace `{name}` with `home` in entity IDs.
 
 !!! tip "Starting out?"
     Kilowahti provides its own [triggers and conditions](triggers-conditions.md) that you can pick straight from the automation editor — no entity IDs, no YAML. The examples below build the same behaviour from entities, which is what you need once you go beyond what those cover.
@@ -15,27 +15,26 @@ Rank follows the energy price you actually pay. On a spot contract that is the m
 
 ```yaml
 alias: Heat water during cheap hours
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: binary_sensor.kilowahti_{name}_rank_acceptable
     to: "on"
-action:
-  - action:switch.turn_on
+actions:
+  - action: switch.turn_on
     target:
       entity_id: switch.water_heater
-trigger_variables: {}
 ```
 
 To stop the device when the window ends:
 
 ```yaml
 alias: Stop water heater when hours no longer cheap
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: binary_sensor.kilowahti_{name}_rank_acceptable
     to: "off"
-action:
-  - action:switch.turn_off
+actions:
+  - action: switch.turn_off
     target:
       entity_id: switch.water_heater
 ```
@@ -48,12 +47,12 @@ Use `price_acceptable` when you care about the absolute price rather than relati
 
 ```yaml
 alias: EV charging when price is acceptable
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: binary_sensor.kilowahti_{name}_price_acceptable
     to: "on"
-action:
-  - action:switch.turn_on
+actions:
+  - action: switch.turn_on
     target:
       entity_id: switch.ev_charger
 ```
@@ -61,8 +60,8 @@ action:
 You can also combine both conditions using `price_or_rank_acceptable`:
 
 ```yaml
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: binary_sensor.kilowahti_{name}_price_or_rank_acceptable
     to: "on"
 ```
@@ -77,19 +76,19 @@ Use the `kilowahti.cheapest_hours` service to find the cheapest consecutive bloc
 
 ```yaml
 alias: Find cheapest 3-hour overnight window
-trigger:
-  - platform: time
+triggers:
+  - trigger: time
     at: "17:00:00"
-action:
-  - action:kilowahti.cheapest_hours
+actions:
+  - action: kilowahti.cheapest_hours
     data:
       start: "{{ now().isoformat() }}"
       end: "{{ (now() + timedelta(hours=15)).isoformat() }}"  # 15 hours is the window from 17:00 → 08:00 next morning
       hours: 3
     response_variable: result
-  - action:input_datetime.set_datetime
+  - action: input_datetime.set_datetime
     data:
-      timestamp: "{{ result['start'] }}"
+      datetime: "{{ result['start'] | as_datetime | as_local }}"
     target:
       entity_id: input_datetime.cheapest_window_start
 ```
@@ -98,11 +97,11 @@ action:
 
 ```yaml
 alias: Start dishwasher at cheapest window
-trigger:
-  - platform: time
+triggers:
+  - trigger: time
     at: input_datetime.cheapest_window_start
-action:
-  - action:switch.turn_on
+actions:
+  - action: switch.turn_on
     target:
       entity_id: switch.dishwasher
 ```
@@ -117,14 +116,14 @@ This example adjusts a thermostat setpoint between 19 °C (expensive) and 22 °C
 
 ```yaml
 alias: Adjust thermostat by price
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.kilowahti_{name}_control_factor_price
-action:
-  - action:climate.set_temperature
+actions:
+  - action: climate.set_temperature
     data:
       temperature: >
-        {{ (19 + (states('sensor.kilowahti_{name}_control_factor_price') | float) * 3) | round(0, "half") }}
+        {{ (19 + (states('sensor.kilowahti_{name}_control_factor_price') | float(0)) * 3) | round(0, "half") }}
     target:
       entity_id: climate.living_room
 ```
@@ -147,16 +146,16 @@ This example scales between 6 A and 16 A using 1 A steps:
 
 ```yaml
 alias: Scale EV charging current by price
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.kilowahti_{name}_control_factor_price
-action:
-  - action:number.set_value
+actions:
+  - action: number.set_value
     target:
       entity_id: number.ev_charger_current
     data:
       value: >
-        {{ (6 + (states('sensor.kilowahti_{name}_control_factor_price') | float) * 10) | round(0) | int }}
+        {{ (6 + (states('sensor.kilowahti_{name}_control_factor_price') | float(0)) * 10) | round(0) | int }}
 ```
 
 Adjust `6` (minimum current) and `10` (spread: maximum minus minimum) to your charger's supported range. Check your charger's integration documentation for the correct entity and accepted values.
@@ -169,17 +168,17 @@ Use `price_quartile` to drive a home battery: charge in the cheapest 25% of slot
 
 ```yaml
 alias: Battery charge/discharge by price quartile
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.kilowahti_{name}_price_quartile
-action:
+actions:
   - choose:
       - conditions:
           - condition: state
             entity_id: sensor.kilowahti_{name}_price_quartile
             state: "1"
         sequence:
-          - action:select.select_option
+          - action: select.select_option
             target:
               entity_id: select.battery_mode
             data:
@@ -189,13 +188,13 @@ action:
             entity_id: sensor.kilowahti_{name}_price_quartile
             state: "4"
         sequence:
-          - action:select.select_option
+          - action: select.select_option
             target:
               entity_id: select.battery_mode
             data:
               option: discharge
     default:
-      - action:select.select_option
+      - action: select.select_option
         target:
           entity_id: select.battery_mode
         data:
@@ -212,12 +211,12 @@ Tomorrow's prices are published in the early afternoon (around 13:00 CET; later 
 
 ```yaml
 alias: Notify when tomorrow's prices arrive
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: binary_sensor.kilowahti_{name}_tomorrow_available
     to: "on"
-action:
-  - action:notify.mobile_app_your_phone
+actions:
+  - action: notify.mobile_app_your_phone
     data:
       title: "Tomorrow's electricity prices"
       message: >
@@ -237,13 +236,13 @@ Send a notification whenever the current slot price rises above today's average 
 
 ```yaml
 alias: Alert when price exceeds today's average
-trigger:
-  - platform: template
+triggers:
+  - trigger: template
     value_template: >
       {{ states('sensor.kilowahti_{name}_spot_price') | float(0) >
          states('sensor.kilowahti_{name}_today_spot_average') | float(0) }}
-action:
-  - action:notify.mobile_app_your_phone
+actions:
+  - action: notify.mobile_app_your_phone
     data:
       message: >
         Electricity price {{ states('sensor.kilowahti_{name}_spot_price') }}

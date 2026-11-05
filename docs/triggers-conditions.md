@@ -7,12 +7,15 @@ They are the easiest starting point for a first automation. The [automation exam
 ## Adding one in the UI
 
 1. **Settings → Automations & scenes → Create automation → Create new automation**
-2. **Add trigger** → type `Kilowahti` in the search box
+2. **Add trigger** → search by the trigger's name, e.g. `rank`, `price` or `cheapest`
 3. Pick a trigger, then add your action
 
 Conditions work the same way under **Add condition**.
 
-If you have several Kilowahti entries set up (one per region or site), the trigger has a **target** field — point it at that entry's device. With a single entry you can leave the target empty and it will be used automatically.
+!!! note "Search by name, not by `Kilowahti`"
+    The picker searches trigger and condition names in your interface language. Searching for `Kilowahti` only finds the device and its entities, not the triggers. With several Kilowahti entries, add a target to say which one the trigger watches — see below.
+
+If you have several Kilowahti entries set up (one per region or site), the trigger has an **Add target** button — use it to pick that entry's device. With several entries, a trigger or condition without a target does nothing: the trigger never fires and the condition never passes. With a single entry you can leave the target out and it will be used automatically.
 
 ## Triggers
 

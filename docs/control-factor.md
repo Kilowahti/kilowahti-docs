@@ -1,6 +1,6 @@
 # Control factor
 
-Most price automations are switches: run the water heater, or don't. The control factor is for the other kind — devices with a dial. Heating setpoints, EV charging current, fan speeds, battery charge power. Instead of asking "is it cheap enough", you get a number that says *how* cheap right now is, and you scale the dial by it.
+Most price automations are on-off switches: run the water heater, or don't. The control factor is for the other kind: devices with a dial. Heating thermostat setpoints, EV charging current, fan speeds, or the color tone or brightness of a smart lamp that reflects the spot price. Instead of asking "is it cheap enough", you get a number that says relatively *how* cheap right now is, and you scale the dial by it.
 
 ## The idea
 
@@ -14,7 +14,7 @@ Kilowahti ranks every slot of the day by price. The control factor turns that ra
 
 Each factor also has a **bipolar** twin running from −1 to +1, for when you want a signed number: positive means cheaper than the middle of the day, negative means more expensive.
 
-## Which one to use
+## Which control factor to use
 
 Three factors, each ranking by a different price:
 
@@ -27,7 +27,7 @@ Three factors, each ranking by a different price:
 They all share one scale, and the configured curve and scaling apply to all three.
 
 !!! note "On a fixed-price contract"
-    During a [fixed-price period](fixed-periods.md) every hour costs the same, so `control_factor_price` sits at 1.0 all day — correct, since no hour is worse than another. `control_factor_total` still varies if your transfer tariff does.
+    During a [fixed-price period](fixed-periods.md) every hour costs the same, so `control_factor_price` sits at 1.0 all day — correct, since no hour is more expensive than another. The total price factor `control_factor_total` still varies if your transfer tariff varies during the day.
 
 ## Curve and scaling
 
@@ -55,11 +55,11 @@ Reading across: at rank 6 — a fairly cheap hour — linear says 0.78 while sin
 
 **Start with linear and scaling 1.** Move to sinusoidal if your automations fidget between adjacent ranks; raise the scaling if you want the response concentrated on genuinely cheap hours.
 
-## Using it
+## Using the control factor
 
-The pattern is always the same: pick a range for your device, and place the factor inside it.
+The pattern is always the same: pick a desired range for your device, and place the factor inside it.
 
-**Heating setpoint**, 19 °C when expensive, 22 °C when cheapest:
+**Example: Heating setpoint**, 19 °C when expensive, 22 °C when cheapest:
 
 ```yaml
 {{ 19 + 3 * states('sensor.kilowahti_home_control_factor_total') | float(0) }}
@@ -67,7 +67,7 @@ The pattern is always the same: pick a range for your device, and place the fact
 
 Rank 1 gives 22.0 °C, rank 12 gives 20.6 °C, rank 24 gives 19.0 °C.
 
-**EV charging current**, between 6 A and 16 A:
+**Example: EV charging current**, between 6 A and 16 A:
 
 ```yaml
 {{ 6 + 10 * states('sensor.kilowahti_home_control_factor_total') | float(0) }}
@@ -77,8 +77,9 @@ Rank 1 gives 22.0 °C, rank 12 gives 20.6 °C, rank 24 gives 19.0 °C.
 
 Both go in a `number.set_value` or `climate.set_temperature` action, triggered however you like — a time pattern every 15 minutes, or Kilowahti's own [triggers](triggers-conditions.md). [Automation examples](automations.md#proportional-control-thermostat-climate) has these written out in full.
 
-Always guard with `| float(0)`: the factor is unavailable until the first prices arrive, and an unguarded template will throw on restart.
+!!! note "Guard templates against missing values by setting a default"
+    Always guard by adding `| float(0)` to the template, which converts the template result to a decimal number, or sets it to zero in a problem case. The control factor sensor is *Unavailable* until the first prices arrive, and an unguarded template throws an error on restart.
 
-## When not to use it
+## When not to use the control factor
 
-The control factor answers "how cheap is now, relative to the rest of today". It says nothing about absolute price. On a day where every hour is expensive, the cheapest hour still scores 1.0. If your device should stay off when electricity is simply costly, gate it on the price threshold — `binary_sensor.kilowahti_{name}_price_acceptable` or the ["price is acceptable" condition](triggers-conditions.md) — and use the control factor only to modulate what happens after that gate opens.
+The control factor answers "how cheap is now, relative to the rest of today". It says nothing about absolute price. On a day where every hour is expensive, the cheapest hour still scores 1.0. If your device absolutely must stay off when electricity is simply costly, gate it on the price threshold — `binary_sensor.kilowahti_{name}_price_acceptable` or the ["price is acceptable" condition](triggers-conditions.md) — and use the control factor only to modulate what happens after that gate opens.

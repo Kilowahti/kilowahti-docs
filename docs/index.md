@@ -3,17 +3,19 @@
 ![Kilowahti](assets/dark_logo.png#only-dark){ style="max-width: 400px; width: 100%;" }
 </h1>
 
-**Kilowahti** (*kilowatti* + *vahti* — "the kilowatt sentinel") is a [Home Assistant](https://www.home-assistant.io) custom integration for European electricity cost awareness and optimization — whether you are on a spot contract or a fixed rate.
+*Suomenkielinen ohje: [Kilowahti suomeksi](fi/)*
 
-It fetches day-ahead hourly or 15-minute spot prices — from the first-party Kilowahti CDN (ENTSO-E data) with automatic fallback to [spot-hinta.fi](https://spot-hinta.fi) — applies your VAT and transfer pricing, and exposes sensors, binary sensors, and services you can use in automations, dashboards, and energy management scripts.
+**Kilowahti** (*kilowatti* + *vahti* — "the kilowatt sentinel") is a [Home Assistant](https://www.home-assistant.io) integration for European electricity cost awareness and optimization — whether you are on a spot contract or a fixed rate.
 
-## Key features
+It fetches day-ahead hourly or 15-minute spot prices, primarily from Kilowahti's own content delivery network (CDN), which fetches the data directly from ENTSO-E, and automatically falls back to [spot-hinta.fi](https://spot-hinta.fi). It applies your VAT and, if you want, transfer pricing (e.g. separate day and night or seasonal tariffs), and exposes sensors, binary sensors, and services you can use in automations, dashboards, and energy management scripts.
 
-**Pricing**
+## Main features
+
+**Prices**
 
 - Day-ahead spot prices — no API key or other integration required, 15-minute or 1-hour resolution
-- Transfer price tier groups with time-of-use schedules and monthly fixed fees
-- Fixed-price contract period management — spot prices automatically replaced when a fixed period is active
+- Transfer price groups and tiers with schedules and monthly fees
+- Fixed-price contract period management — when a fixed period is active, the fixed price is automatically shown as the active price instead of the spot price
 - Monthly electricity contract base fee spread as a daily cost sensor
 
 **Control**
@@ -22,9 +24,9 @@ It fetches day-ahead hourly or 15-minute spot prices — from the first-party Ki
 - Control factor sensors (0–1 and bipolar ±1) for proportional automation
 - Writable price and rank threshold number entities — adjust limits from the dashboard or automations without reopening configuration
 - Optimization scores measuring how well consumption is shifted to cheap hours
-- Rolling average sensors for the next 30/60/120 minutes (15-minute resolution)
+- Rolling average sensors for the next 30/60/120 minutes (only with 15-minute prices)
 
-**Generation & export** *(optional, enable in Advanced options)*
+**Generation & export** *(optional, enabled in Advanced options)*
 
 - Export price sensors and daily statistics
 - Import/export spread and self-consumption value sensors
@@ -37,7 +39,7 @@ It fetches day-ahead hourly or 15-minute spot prices — from the first-party Ki
 - Optimal charge window start/end sensors
 - `charge_from_grid_recommended` and `discharge_to_grid_recommended` binary sensors
 
-**Services**
+**Home Assistant services**
 
 - Query prices and export prices for any time range
 - Find cheapest consecutive windows for scheduling appliances
@@ -45,51 +47,16 @@ It fetches day-ahead hourly or 15-minute spot prices — from the first-party Ki
 
 ## Supported regions
 
-43 bidding zones across 30 European countries:
-
-| Country | Zones |
-|---|---|
-| Austria | `AT` |
-| Belgium | `BE` |
-| Bulgaria | `BG` |
-| Croatia | `HR` |
-| Czechia | `CZ` |
-| Denmark | `DK1`, `DK2` |
-| Estonia | `EE` |
-| Finland | `FI` |
-| France | `FR` |
-| Germany & Luxembourg | `DE-LU` |
-| Greece | `GR` |
-| Hungary | `HU` |
-| Ireland | `IE-SEM` |
-| Italy | `IT-NORD`, `IT-CNOR`, `IT-CSUD`, `IT-SUD`, `IT-CALA`, `IT-SICI`, `IT-SARD` |
-| Latvia | `LV` |
-| Lithuania | `LT` |
-| Montenegro | `ME` |
-| Netherlands | `NL` |
-| North Macedonia | `MK` |
-| Norway | `NO1`, `NO2`, `NO3`, `NO4`, `NO5` |
-| Poland | `PL` |
-| Portugal | `PT` |
-| Romania | `RO` |
-| Serbia | `RS` |
-| Slovakia | `SK` |
-| Slovenia | `SI` |
-| Spain | `ES` |
-| Sweden | `SE1`, `SE2`, `SE3`, `SE4` |
-| Switzerland | `CH` |
-
-!!! note "Currency notice"
-    Non-eurozone regions can display prices in their local currency (SEK, NOK, DKK, CHF, PLN, CZK, HUF, RON, RSD, MKD), converted from EUR with a daily exchange rate. See [Configuration](configuration.md#display-currency-non-eur-regions).
+Kilowahti shows electricity prices in Finland and 29 other European countries — see the full list of [supported regions](supported-regions.md).
 
 ## Quick start
 
-1. [Install via HACS](installation.md)
-2. Go to **Settings → Devices & Services → Add Integration → Kilowahti**
+1. [Install](installation.md) from the Marketplace (Home Assistant 2026.11 and newer) or HACS (older versions)
+2. Start the setup wizard — the Marketplace opens it after installing; with HACS go to **Settings → Devices & Services → Add Integration → Kilowahti**
 3. Complete the setup wizard
 4. Use the sensors in your dashboards and automations
 
-New to Kilowahti? **[First setup](getting-started.md)** walks through all of that in about ten minutes, including which wizard answers to skip and how to build a first automation.
+**[First setup](getting-started.md)** walks through everything you need to get started in about ten minutes, including which wizard answers you can skip at first and how you build a first automation.
 
 ## Feedback
 
@@ -99,10 +66,10 @@ Have ideas, found a bug, or just want to share how you're using Kilowahti? We'd 
 
 ## Acknowledgments
 
-Kilowahti would not exist without the prior work of **Teemu Mikkonen** and his [spotprices2ha](https://github.com/T3m3z/spotprices2ha) project. That copy-paste solution was the direct inspiration for this integration — it proved the concept, shaped the sensor design, and provided automation patterns that many Finnish HA users have relied on. Thank you, Teemu.
+Kilowahti would not exist without the prior work of **Teemu Mikkonen** and his [spotprices2ha](https://github.com/T3m3z/spotprices2ha) project. That cut-and-paste solution was the direct role model for this integration; it proved the idea works, gave direction to the sensor design, and created automation templates that many Finnish HA users have relied on. Thank you, Teemu.
 
-A special thanks also to the Finnish hobbyist behind [spot-hinta.fi](https://spot-hinta.fi) for building and maintaining an excellent, free, and easy-to-use electricity price API that makes projects like this possible.
+A special thanks also to the Finnish hobbyist behind [spot-hinta.fi](https://spot-hinta.fi) for building and maintaining an excellent, free, and easy-to-use electricity price API that makes projects like this possible. Although Kilowahti now fetches prices primarily on its own, that service played a significant part in how Kilowahti came to be.
 
 ## Credits
 
-Kilowahti was created by Jessi Björk, building on the foundation of spotprices2ha to bring richer functionality to her home automation.
+Kilowahti was founded by Jessi Björk, originally to scratch a personal itch after growing tired in autumn 2025 of how hard the solutions of the time were to maintain.
