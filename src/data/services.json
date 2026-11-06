@@ -1,0 +1,220 @@
+{
+	"get_active_prices": [
+		{
+			"field": "start",
+			"required": false,
+			"default": null,
+			"type": "datetime",
+			"description": "Start of the range (inclusive). Omit to use today/tomorrow."
+		},
+		{
+			"field": "end",
+			"required": false,
+			"default": null,
+			"type": "datetime",
+			"description": "End of the range (exclusive). Omit to use today/tomorrow."
+		},
+		{
+			"field": "formatted",
+			"required": false,
+			"default": true,
+			"type": "boolean",
+			"description": "When true (default), prices are converted to the configured display unit and rounded for display. When false, raw values in the entry's minor price unit (c/kWh, öre/kWh, …) are returned at full precision."
+		}
+	],
+	"get_prices": [
+		{
+			"field": "start",
+			"required": true,
+			"default": null,
+			"type": "datetime",
+			"description": "Start of the range (inclusive)."
+		},
+		{
+			"field": "end",
+			"required": true,
+			"default": null,
+			"type": "datetime",
+			"description": "End of the range (exclusive)."
+		},
+		{
+			"field": "formatted",
+			"required": false,
+			"default": true,
+			"type": "boolean",
+			"description": "When true (default), prices are converted to the configured display unit and rounded for display. When false, raw values in the entry's minor price unit (c/kWh, öre/kWh, …) are returned at full precision."
+		}
+	],
+	"cheapest_hours": [
+		{
+			"field": "start",
+			"required": true,
+			"default": null,
+			"type": "datetime",
+			"description": "Start of the search range."
+		},
+		{
+			"field": "end",
+			"required": true,
+			"default": null,
+			"type": "datetime",
+			"description": "End of the search range."
+		},
+		{
+			"field": "hours",
+			"required": true,
+			"default": null,
+			"type": "number",
+			"range": "0.25–24 h",
+			"description": "Length of the window in hours (minimum 0.25, maximum 24)."
+		},
+		{
+			"field": "formatted",
+			"required": false,
+			"default": true,
+			"type": "boolean",
+			"description": "When true (default), prices are converted to the configured display unit and rounded for display. When false, raw values in the entry's minor price unit (c/kWh, öre/kWh, …) are returned at full precision."
+		},
+		{
+			"field": "reverse",
+			"required": false,
+			"default": false,
+			"type": "boolean",
+			"description": "When true, returns the latest cheapest window instead of the earliest. Useful when you want to delay the start as long as possible."
+		}
+	],
+	"average_price": [
+		{
+			"field": "start",
+			"required": true,
+			"default": null,
+			"type": "datetime",
+			"description": "Start of the range."
+		},
+		{
+			"field": "end",
+			"required": true,
+			"default": null,
+			"type": "datetime",
+			"description": "End of the range."
+		},
+		{
+			"field": "formatted",
+			"required": false,
+			"default": true,
+			"type": "boolean",
+			"description": "When true (default), prices are converted to the configured display unit and rounded for display. When false, raw values in the entry's minor price unit (c/kWh, öre/kWh, …) are returned at full precision."
+		}
+	],
+	"add_fixed_period": [
+		{
+			"field": "label",
+			"required": true,
+			"default": null,
+			"type": "text",
+			"description": "A descriptive name for this period."
+		},
+		{
+			"field": "start_date",
+			"required": true,
+			"default": null,
+			"type": "date",
+			"description": "First day the fixed price is active (inclusive)."
+		},
+		{
+			"field": "end_date",
+			"required": true,
+			"default": null,
+			"type": "date",
+			"description": "Last day the fixed price is active (inclusive)."
+		},
+		{
+			"field": "price",
+			"required": true,
+			"default": null,
+			"type": "number",
+			"range": "0.001–9999",
+			"description": "Fixed price in the entry's minor price unit (c/kWh, öre/kWh, …), gross (VAT included)."
+		}
+	],
+	"remove_fixed_period": [
+		{
+			"field": "period_id",
+			"required": true,
+			"default": null,
+			"type": "text",
+			"description": "The UUID of the period to remove. Use the list_fixed_periods service to find the ID."
+		}
+	],
+	"list_fixed_periods": [],
+	"get_export_prices": [
+		{
+			"field": "start",
+			"required": false,
+			"default": null,
+			"type": "datetime",
+			"description": "Start of the range (inclusive). Omit to use today/tomorrow."
+		},
+		{
+			"field": "end",
+			"required": false,
+			"default": null,
+			"type": "datetime",
+			"description": "End of the range (exclusive). Omit to use today/tomorrow."
+		},
+		{
+			"field": "formatted",
+			"required": false,
+			"default": true,
+			"type": "boolean",
+			"description": "When true (default), prices are converted to the configured display unit and rounded. When false, raw values in the entry's minor price unit are returned."
+		}
+	],
+	"best_export_hours": [
+		{
+			"field": "start",
+			"required": true,
+			"default": null,
+			"type": "datetime",
+			"description": "Start of the search range."
+		},
+		{
+			"field": "end",
+			"required": true,
+			"default": null,
+			"type": "datetime",
+			"description": "End of the search range."
+		},
+		{
+			"field": "hours",
+			"required": true,
+			"default": null,
+			"type": "number",
+			"range": "0.25–24 h",
+			"description": "Length of the window in hours (minimum 0.25, maximum 24)."
+		},
+		{
+			"field": "formatted",
+			"required": false,
+			"default": true,
+			"type": "boolean",
+			"description": "When true (default), prices are converted to the configured display unit and rounded. When false, raw values in the entry's minor price unit are returned."
+		}
+	],
+	"generation_schedule": [
+		{
+			"field": "forecast",
+			"required": true,
+			"default": null,
+			"type": "object",
+			"description": "List of forecast slots. Each entry must have a \"time\" (ISO datetime) and \"kwh\" (expected generation in that slot, >= 0)."
+		},
+		{
+			"field": "formatted",
+			"required": false,
+			"default": true,
+			"type": "boolean",
+			"description": "When true (default), prices are converted to the configured display unit and rounded. When false, raw values in the entry's minor price unit are returned."
+		}
+	]
+}

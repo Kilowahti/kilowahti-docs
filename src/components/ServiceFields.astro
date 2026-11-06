@@ -1,0 +1,44 @@
+---
+import services from '../data/services.json';
+
+interface Props {
+	service: string;
+	lang?: 'en' | 'fi';
+}
+const { service, lang = 'en' } = Astro.props;
+
+const fields = services[service as keyof typeof services];
+if (!fields) throw new Error(`Unknown service: ${service}`);
+
+// services.yaml carries English descriptions only, so the Finnish table omits that column.
+const labels = {
+	en: { field: 'Parameter', required: 'Required', default: 'Default', type: 'Type', description: 'Description', yes: 'Yes', no: 'No' },
+	fi: { field: 'Parametri', required: 'Pakollinen', default: 'Oletus', type: 'Tyyppi', description: '', yes: 'Kyllä', no: 'Ei' },
+}[lang];
+
+const typeNames = {
+	en: { text: 'text', datetime: 'date and time', date: 'date', boolean: 'true / false', number: 'number', object: 'object' },
+	fi: { text: 'teksti', datetime: 'päivämäärä ja aika', date: 'päivämäärä', boolean: 'tosi / epätosi', number: 'luku', object: 'objekti' },
+}[lang] as Record<string, string>;
+---
+{fields.length > 0 && (
+	<table>
+		<thead>
+			<tr>
+				<th>{labels.field}</th><th>{labels.required}</th><th>{labels.default}</th><th>{labels.type}</th>
+				{labels.description && <th>{labels.description}</th>}
+			</tr>
+		</thead>
+		<tbody>
+			{fields.map((f) => (
+				<tr>
+					<td><code>{f.field}</code></td>
+					<td>{f.required ? labels.yes : labels.no}</td>
+					<td>{f.default === null ? '-' : <code>{String(f.default)}</code>}</td>
+					<td>{typeNames[f.type] ?? f.type}{'range' in f && ` ${f.range}`}</td>
+					{labels.description && <td>{f.description}</td>}
+				</tr>
+			))}
+		</tbody>
+	</table>
+)}

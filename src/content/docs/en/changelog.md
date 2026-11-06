@@ -1,0 +1,199 @@
+---
+title: "Changelog"
+---
+
+## Version 2026.11.1 (2026-11-06)
+
+A small follow-up to 2026.11.0 that corrects two entity display names. Entity IDs are unchanged.
+
+**Changed**
+
+- The price rank sensor is now named "Active price rank" in all 25 languages (Finnish: "Toteutuvan hinnan sijaluku"), which makes clear that it ranks the energy price you actually pay; "Total price rank" is the one that includes transfer
+- The optimization score sensors (daily, monthly and formula) now have translated names in all 25 languages; they were English-only before
+- New strings translated into all 24 languages (machine-assisted; corrections welcome)
+
+## Version 2026.11.0 (2026-11-04)
+
+This release makes Kilowahti's entity IDs independent of the Home Assistant language, with a one-click repair that migrates existing installs. It also adds a rename flow for entries, a repair issue for stuck fallback sources and icons for the distinctive entities, makes Kilowahti ready for the Home Assistant Marketplace, and continues the quality-scale work started in 2026.9.0.
+
+**New**
+
+- Entity IDs no longer depend on the Home Assistant language: new installs get `sensor.kilowahti_home_spot_price` in every language instead of localized variants such as `sensor.kilowahti_home_spot_hinta`; displayed names stay translated
+- Repair that offers existing installs a one-click rename of display-name entity IDs to the stable ones; nothing is renamed until you confirm, entities whose ID you changed yourself are never touched, and history and statistics are kept
+- The repair's confirmation lists the automations, scripts, scenes and groups that use the entities (dashboards, templates and external systems are not checked); references to the old IDs must be updated by hand afterwards
+- Reconfigure flow to rename an entry; the entry's title and unique ID follow the new name, other settings stay untouched and the name cannot clash with another entry
+- Repair issue when a region has been served by a fallback price source for over 24 hours; it clears automatically once the primary source is back
+- Icons for the price data source, active transfer tier, active fixed period, fixed-period active, tomorrow available and threshold entities
+- Integration category (Energy › Energy prices) for the Home Assistant Marketplace and HACS catalog
+
+**Changed**
+
+- Entity keys renamed for consistency (for example `today_avg` → `today_average`); existing entities are migrated in place and keep their entity IDs, history and settings. Downgrading to an earlier release afterwards re-creates the renamed entities as duplicates, so remove the leftovers from the entity registry if you roll back
+- Services are registered when the integration loads instead of when the first entry is set up, and stay available after the last entry is unloaded
+- Service errors (no entries, unknown entry or period id, invalid or overlapping fixed period) are now translatable validation errors; automations that catch the old error type need to catch `ServiceValidationError`
+- Multi-entry service, trigger and condition lookups skip entries that failed setup
+- Installation instructions cover the Home Assistant Marketplace (2026.11 and newer) alongside HACS
+- New strings translated into all 24 languages (machine-assisted; corrections welcome)
+
+## Version 2026.9.0 (2026-09-27)
+
+This release centers on **Total Price Arrays** — a new option to expose per-slot energy, transfer, and rank breakdowns on the `total_price` sensor, built from a user request. Alongside it: transfer tiers are now viewable and editable after setup, and the control factor family has been harmonized onto one consistent scale. This release also marks the first batch of work toward Home Assistant's integration quality scale, starting with diagnostics support and duplicate-entry protection.
+
+**⚠️ Breaking changes**
+
+*Control factor*
+
+- Transfer control factor polarity flipped: `control_factor_transfer` and `control_factor_transfer_bipolar` now read 1.0 for the cheapest tier (was 0.0) — update automations that depend on the raw value
+- Rank-based sensors and conditions (`price_rank`, `price_quartile`, `control_factor_price*`, rank trigger/condition, `rank_acceptable`) now respect the active fixed-price tier instead of raw spot rank — primarily affects fixed-price contract users
+
+**New**
+
+*Price arrays*
+
+- New **"Expose total price arrays as sensor attributes"** toggle in Advanced options: `total_price` publishes `today_prices`/`tomorrow_prices` attributes with `energy`, `transfer`, `price`, and `rank` per slot
+
+*Quality*
+
+- Diagnostics support — download redacted config and coordinator state for support requests
+
+*Transfer tiers*
+
+- Transfer tiers can now be viewed and edited after setup (price, schedule, priority), in both the initial and options flow
+- `transfer_price` sensor gains `tariff`, `group`, and `tier` attributes naming the active tariff
+
+*Control factor*
+
+- New **`control_factor_total`**, **`control_factor_total_bipolar`**, and **`control_factor_transfer_bipolar`** sensors, joining the existing control factor family
+
+**Changed**
+
+*Transfer tiers*
+
+- Tier and fixed-period prices in the flow lists are now padded to two decimals, keeping up to five when rounding would lose the value
+
+*Price arrays*
+
+- Tomorrow's total price array is now available during a fixed-price period even before spot prices have been fetched
+- Price array attributes (`today_prices`, `tomorrow_prices`) are excluded from the recorder database — they were large enough to make the recorder silently drop all attributes on the affected states
+
+*Quality*
+
+- A config entry with a duplicate name now aborts setup instead of creating a confusing duplicate
+- Minimum supported Home Assistant version raised to 2026.7 (required by the trigger and condition platforms)
+
+*Other*
+
+- Shortened the `tomorrow_available` binary sensor's default name — new installs get a shorter entity ID; existing entities keep theirs
+
+**Fixed**
+
+*Control factor*
+
+- Corrected the Norwegian translation of the transfer control factor name
+
+## Version 2026.8.0 (2026-08-03)
+
+**New**
+
+- Europe-wide: 43 bidding zones across 30 countries, with per-region VAT and unit presets
+- Automatic price source chain: first-party Kilowahti CDN (ENTSO-E data, all 43 zones) with spot-hinta.fi fallback in Nordic and Baltic zones only; `price_data_source` diagnostic sensor shows the active source
+- Local currency display for non-eurozone regions (SEK, NOK, DKK, CHF, PLN, CZK, HUF, RON, RSD, MKD): daily ECB or manual exchange rate, frozen per day; switching currency converts entered prices automatically; `exchange_rate` diagnostic sensor
+- 23 additional UI languages (25 total) covering all supported regions; many are machine-assisted and native-speaker corrections are welcome
+- Automation triggers (8) and conditions (5): price/rank acceptability edges, cheapest slot, fixed period start/end, tomorrow's prices available
+- Effective price statistics sensors (`today_avg/min/max`, `tomorrow_avg/min/max`) and `spot_next_hours_avg`
+
+**Changed**
+
+- Config flow label clarified: "Control factor function" → "Control factor curve"
+
+## Version 2026.6.0 (2026-06-25)
+
+**Fixed**
+
+- HACS country filter updated to include all supported price regions: DK, EE, FI, LT, LV, NO, SE
+
+**New**
+
+- Kilowahti is now in the HACS default repository — no custom repository URL needed
+
+## Version 2026.5.0 (2026-05-05)
+
+**Fixed**
+
+- Monthly score no longer shows NaN at the start of a new month — uses the current quartile midpoint as a placeholder when no consumption is recorded, includes today's in-progress score in the monthly average, and falls back to the previous month's finalised score when the current month is empty
+- Optimization score accumulation now ranks slots by true total price (fixed-period rate or spot + transfer) instead of spot-only API rank — primarily affects fixed-price contract users
+- `cheapest_hours` service now uses total price (fixed-period or spot + transfer) for window selection — was previously spot-only
+
+**New**
+
+- `total_price_quartile` sensor (1–4)
+- `cheapest_hours` accepts `reverse: true` parameter to return the latest cheapest window on ties
+
+**Changed**
+
+- `total_price_rank` is now normalized: 1 = cheapest, slots_per_day = most expensive (regardless of unique tier count)
+
+**Removed**
+
+- `best_charge_hours` service — consolidated into `cheapest_hours` (use `cheapest_hours` with `reverse: true` for the equivalent)
+
+## Version 2026.3.0 (2026-03-16)
+
+**⚠️ Breaking changes**
+
+- Six sensors have been renamed to clarify they reflect spot prices only:
+
+  | Old name | New name |
+  |---|---|
+  | `today_avg` | `today_spot_avg` |
+  | `today_min` | `today_spot_min` |
+  | `today_max` | `today_spot_max` |
+  | `tomorrow_avg` | `tomorrow_spot_avg` |
+  | `tomorrow_min` | `tomorrow_spot_min` |
+  | `tomorrow_max` | `tomorrow_spot_max` |
+
+  Update any automations or dashboard cards referencing the old entity IDs.
+
+**New shiny things**
+
+- Add generation & export support for users with solar panels and/or home batteries: export pricing sensors, battery charge/discharge optimization sensors and binary sensors, and related services
+- Add rolling average price sensors (30/60/120 min ahead) — opt-in, 15-min resolution only
+- Add monthly fixed cost configuration: electricity contract base fee and per-transfer-group fee, shown as a daily cost sensor
+
+**Maintenance**
+
+- Fix `tomorrow_total_avg/min/max` showing Unknown when a fixed-price period covered tomorrow
+- Fix optimization score sensors showing `0.0` instead of Unknown when no meter is configured
+- Fix fixed-price period price field pre-filled with `0.001` in the UI
+
+---
+
+## Version 2026.3.0-beta.2 (2026-03-15)
+
+- Fix `today_total_avg/min/max` to use effective price (respects fixed-price periods) instead of raw spot price
+- Fix `tomorrow_total_avg/min/max` to always use fixed price when fixed-price period is active, regardless of whether spot prices have been fetched
+
+---
+
+## Version 2026.3.0-beta.1 (2026-03-14)
+
+- First beta release
+- Add `today_total_avg`, `today_total_min`, `today_total_max` — today's total price (spot + transfer) statistics
+- Add `tomorrow_total_avg`, `tomorrow_total_min`, `tomorrow_total_max` — tomorrow's total price statistics (unavailable until prices fetched)
+- Migrate core price logic to kilowahti-py library
+- Add integration test suite (32 tests)
+
+---
+
+## Version 2026.3.0-alpha.6 (2026-03-11)
+
+- Add `total_price_rank` sensor — ranks current slot by total price (spot + transfer) among today's slots
+- Add writable `price_threshold` and `rank_threshold` number entities — adjust thresholds from automations or dashboard without reopening configuration
+- Transfer price and control factor transfer sensors now always visible; show unavailable when no transfer group is configured
+- Fix `tomorrow_avg`, `tomorrow_min`, `tomorrow_max` to show unavailable when tomorrow's prices have not yet been fetched
+
+---
+
+## Version 2026.3.0-alpha.5 (2026-03-10)
+
+First public test release.

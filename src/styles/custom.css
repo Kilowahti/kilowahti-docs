@@ -1,0 +1,7 @@
+.sl-markdown-content table {
+	width: 100%;
+}
+
+.sl-markdown-content td code {
+	overflow-wrap: break-word;
+}

@@ -1,0 +1,257 @@
+---
+title: "Automation examples"
+---
+
+These examples use `{name}` as a placeholder for the name you set during configuration. If the name you set is `Home`, replace `{name}` with `home` in entity IDs.
+
+:::tip[Starting out?]
+Kilowahti provides its own [triggers and conditions](/en/triggers-conditions/) that you can pick straight from the automation editor — no entity IDs, no YAML. The examples below build the same behaviour from entities, which is what you need once you go beyond what those cover.
+:::
+
+---
+
+## Run during cheap hours (rank-based)
+
+The simplest approach: use the `rank_acceptable` binary sensor to gate an automation. Set your acceptable rank threshold in the Kilowahti options.
+
+Rank follows the energy price you actually pay. On a spot contract that is the market ordering; during a [fixed-price period](/en/fixed-periods/) every hour costs the same, so every slot ranks 1 and `rank_acceptable` stays on all day. That is deliberate — there is no cheaper hour to wait for — but if you want a gate that still narrows the day on a fixed contract, work from `total_price_rank`, which includes transfer — either with a numeric state condition on the sensor, or with the built-in "price is lowest today" condition and "became cheapest slot" trigger, both of which rank by total price.
+
+```yaml
+alias: Heat water during cheap hours
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.kilowahti_{name}_rank_acceptable
+    to: "on"
+actions:
+  - action: switch.turn_on
+    target:
+      entity_id: switch.water_heater
+```
+
+To stop the device when the window ends:
+
+```yaml
+alias: Stop water heater when hours no longer cheap
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.kilowahti_{name}_rank_acceptable
+    to: "off"
+actions:
+  - action: switch.turn_off
+    target:
+      entity_id: switch.water_heater
+```
+
+---
+
+## Run when price is below threshold
+
+Use `price_acceptable` when you care about the absolute price rather than relative rank. Set your threshold in Kilowahti options.
+
+```yaml
+alias: EV charging when price is acceptable
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.kilowahti_{name}_price_acceptable
+    to: "on"
+actions:
+  - action: switch.turn_on
+    target:
+      entity_id: switch.ev_charger
+```
+
+You can also combine both conditions using `price_or_rank_acceptable`:
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.kilowahti_{name}_price_or_rank_acceptable
+    to: "on"
+```
+
+---
+
+## Schedule appliance at cheapest upcoming window
+
+Use the `kilowahti.cheapest_hours` service to find the cheapest consecutive block ahead of time and schedule your appliance to start then. Requires an `input_datetime` helper — create one via **Settings → Devices & Services → Helpers → Create helper → Date and/or time** (e.g. `input_datetime.cheapest_window_start`).
+
+**Automation 1 — Find the window (runs daily at 17:00):**
+
+```yaml
+alias: Find cheapest 3-hour overnight window
+triggers:
+  - trigger: time
+    at: "17:00:00"
+actions:
+  - action: kilowahti.cheapest_hours
+    data:
+      start: "{{ now().isoformat() }}"
+      end: "{{ (now() + timedelta(hours=15)).isoformat() }}"  # 15 hours is the window from 17:00 → 08:00 next morning
+      hours: 3
+    response_variable: result
+  - action: input_datetime.set_datetime
+    data:
+      datetime: "{{ result['start'] | as_datetime | as_local }}"
+    target:
+      entity_id: input_datetime.cheapest_window_start
+```
+
+**Automation 2 — Start the appliance at the scheduled time:**
+
+```yaml
+alias: Start dishwasher at cheapest window
+triggers:
+  - trigger: time
+    at: input_datetime.cheapest_window_start
+actions:
+  - action: switch.turn_on
+    target:
+      entity_id: switch.dishwasher
+```
+
+---
+
+## Proportional control (thermostat / climate)
+
+Use `control_factor_price` to modulate a setpoint rather than switching on/off. 1.0 = cheapest slot, 0.0 = most expensive.
+
+This example adjusts a thermostat setpoint between 19 °C (expensive) and 22 °C (cheap) using 0.5 °C steps:
+
+```yaml
+alias: Adjust thermostat by price
+triggers:
+  - trigger: state
+    entity_id: sensor.kilowahti_{name}_control_factor_price
+actions:
+  - action: climate.set_temperature
+    data:
+      temperature: >
+        {{ (19 + (states('sensor.kilowahti_{name}_control_factor_price') | float(0)) * 3) | round(0, "half") }}
+    target:
+      entity_id: climate.living_room
+```
+
+For a ±1 bipolar input (e.g. to feed a PID controller), use **Control factor price (bipolar)** (`sensor.kilowahti_{name}_control_factor_price_bipolar`) instead.
+
+:::note
+The control factor shape (linear or sinusoidal) and scaling exponent are configurable in Kilowahti options. Sinusoidal gives a gentler response near the extremes.
+:::
+
+:::tip
+Home Assistant ships an improved version of Jinja's `round` filter — including the `"half"` method used above, which rounds to the nearest 0.5. See [Home Assistant's `round` documentation](https://www.home-assistant.io/template-functions/round/).
+:::
+
+---
+
+## Scale EV charging current by price
+
+Rather than switching an EV charger on or off, use `control_factor_price` to continuously scale the charging current between a minimum and maximum. 1.0 = cheapest slot (full current), 0.0 = most expensive slot (minimum current).
+
+This example scales between 6 A and 16 A using 1 A steps:
+
+```yaml
+alias: Scale EV charging current by price
+triggers:
+  - trigger: state
+    entity_id: sensor.kilowahti_{name}_control_factor_price
+actions:
+  - action: number.set_value
+    target:
+      entity_id: number.ev_charger_current
+    data:
+      value: >
+        {{ (6 + (states('sensor.kilowahti_{name}_control_factor_price') | float(0)) * 10) | round(0) | int }}
+```
+
+Adjust `6` (minimum current) and `10` (spread: maximum minus minimum) to your charger's supported range. Check your charger's integration documentation for the correct entity and accepted values.
+
+---
+
+## Charge and discharge a battery by quartile
+
+Use `price_quartile` to drive a home battery: charge in the cheapest 25% of slots (Q1), discharge in the most expensive 25% (Q4), and leave it on automatic otherwise.
+
+```yaml
+alias: Battery charge/discharge by price quartile
+triggers:
+  - trigger: state
+    entity_id: sensor.kilowahti_{name}_price_quartile
+actions:
+  - choose:
+      - conditions:
+          - condition: state
+            entity_id: sensor.kilowahti_{name}_price_quartile
+            state: "1"
+        sequence:
+          - action: select.select_option
+            target:
+              entity_id: select.battery_mode
+            data:
+              option: charge
+      - conditions:
+          - condition: state
+            entity_id: sensor.kilowahti_{name}_price_quartile
+            state: "4"
+        sequence:
+          - action: select.select_option
+            target:
+              entity_id: select.battery_mode
+            data:
+              option: discharge
+    default:
+      - action: select.select_option
+        target:
+          entity_id: select.battery_mode
+        data:
+          option: auto
+```
+
+Replace `select.battery_mode` and the option values with the entities and modes your battery integration exposes.
+
+---
+
+## Notify when tomorrow's prices are available
+
+Tomorrow's prices are published in the early afternoon (around 13:00 CET; later in some markets). Trigger on the tomorrow's-prices-available binary sensor turning on to send a push notification with the day's price range.
+
+```yaml
+alias: Notify when tomorrow's prices arrive
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.kilowahti_{name}_tomorrow_available
+    to: "on"
+actions:
+  - action: notify.mobile_app_your_phone
+    data:
+      title: "Tomorrow's electricity prices"
+      message: >
+        Min {{ states('sensor.kilowahti_{name}_tomorrow_spot_minimum') }},
+        avg {{ states('sensor.kilowahti_{name}_tomorrow_spot_average') }},
+        max {{ states('sensor.kilowahti_{name}_tomorrow_spot_maximum') }}
+        {{ state_attr('sensor.kilowahti_{name}_tomorrow_spot_minimum', 'unit_of_measurement') }}
+```
+
+Replace `notify.mobile_app_your_phone` with your notification service.
+
+---
+
+## Alert when spot price exceeds today's average
+
+Send a notification whenever the current slot price rises above today's average — useful as an early warning to delay discretionary loads.
+
+```yaml
+alias: Alert when price exceeds today's average
+triggers:
+  - trigger: template
+    value_template: >
+      {{ states('sensor.kilowahti_{name}_spot_price') | float(0) >
+         states('sensor.kilowahti_{name}_today_spot_average') | float(0) }}
+actions:
+  - action: notify.mobile_app_your_phone
+    data:
+      message: >
+        Electricity price {{ states('sensor.kilowahti_{name}_spot_price') }}
+        is above today's average {{ states('sensor.kilowahti_{name}_today_spot_average') }}
+        {{ state_attr('sensor.kilowahti_{name}_spot_price', 'unit_of_measurement') }}.
+```
+

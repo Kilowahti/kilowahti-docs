@@ -14,7 +14,7 @@ GitHub is used to host the documentation, to track issues and requests, as well 
 Pull requests are the best way to propose changes.
 
 1. Fork the repo and create your branch from `main`.
-2. Make sure the site builds without errors (`mkdocs build`).
+2. Make sure the site builds without errors (`npm run build`).
 3. Issue that pull request!
 
 ## Any contributions you make will be under the MIT Software License
