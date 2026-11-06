@@ -10,5 +10,6 @@
   "gitAuthor": "Renovate Bot <29139614+renovate[bot]@users.noreply.github.com>",
   "semanticCommits": "enabled",
   "semanticCommitType": "chore",
-  "semanticCommitScope": null
+  "semanticCommitScope": null,
+  "commitMessageLowerCase": "never"
 }
