@@ -2,6 +2,15 @@
 title: "Changelog"
 ---
 
+## Version 2026.11.2 (2026-11-06)
+
+A bug-fix release for the entity ID repair introduced in 2026.11.0.
+
+**Fixed**
+
+- The "stable entity IDs" repair no longer fails with "Invalid entity ID" on installs that have a user-created score profile; the profile's identifier is now converted to a valid entity ID. Entities that cannot be renamed are skipped with a warning instead of stopping the repair partway ([#12](https://github.com/Kilowahti/ha-kilowahti/issues/12))
+- If the repair already failed and left some entities renamed, run it again from Settings → Repairs; it renames the remaining ones
+
 ## Version 2026.11.1 (2026-11-06)
 
 A small follow-up to 2026.11.0 that corrects two entity display names. Entity IDs are unchanged.
